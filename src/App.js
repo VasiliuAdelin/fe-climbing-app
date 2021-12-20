@@ -1,12 +1,16 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./views/HomePage";
+import PageNotFound from "./views/PageNotFound";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./assets/styles/index.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline text-red-500">
-        Hello world!
-      </h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
 }
 
