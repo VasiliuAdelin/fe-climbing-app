@@ -4,7 +4,7 @@ import CardBody from "../components/shared/Card/CardBody";
 import CardFooter from "../components/shared/Card/CardFooter";
 import H5 from "@material-tailwind/react/Heading5";
 import InputIcon from "@material-tailwind/react/InputIcon";
-import {Button} from "gpl-tailwind-theme";
+import { Button } from "gpl-tailwind-theme";
 import DefaultNavbar from "../components/DefaultNavbar";
 import Container from "../components/login/Container";
 import Paragraph from "@material-tailwind/react/Paragraph";
@@ -19,7 +19,7 @@ import Alert from "@material-tailwind/react/Alert";
 export default function Register() {
   const [values, setValues] = useState({
     name: "admin",
-    email: "gligadumitru98@gmail.com",
+    email: "vasiliuadelin98@gmail.com",
     password: "parola111",
     confirmPassword: "parola111",
   });

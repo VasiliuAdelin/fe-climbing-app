@@ -3,6 +3,8 @@ import Image from "@material-tailwind/react/Image";
 import H3 from "@material-tailwind/react/Heading3";
 import Icon from "@material-tailwind/react/Icon";
 import LeadText from "@material-tailwind/react/LeadText";
+import RoutesList from "./RoutesList";
+import { Link } from "react-router-dom";
 
 const Content = ({ user }) => {
   const {
@@ -26,7 +28,7 @@ const Content = ({ user }) => {
     <section className="relative py-16 bg-gray-100">
       <div className="container max-w-7xl px-4 mx-auto">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-2xl -mt-64">
-          <div className="px-6">
+          <div className="px-0">
             <div className="flex flex-wrap justify-center">
               <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                 <div className="relative">
@@ -41,9 +43,11 @@ const Content = ({ user }) => {
                 </div>
               </div>
               <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:self-center flex justify-center mt-10 lg:justify-end lg:mt-0">
-                <Button color="lightBlue" ripple="light">
-                  Edit
-                </Button>
+                <Link to="/settings">
+                  <Button color="green" ripple="light">
+                    Edit
+                  </Button>
+                </Link>
               </div>
               <div className="w-full lg:w-4/12 px-4 lg:order-1">
                 <div className="flex justify-center py-4 lg:pt-4 pt-8">
@@ -51,20 +55,24 @@ const Content = ({ user }) => {
                     <span className="text-xl font-bold block uppercase tracking-wide text-gray-900">
                       22
                     </span>
-                    <span className="text-sm text-gray-700">Timesheets</span>
+                    <span className="text-sm text-gray-700 whitespace-nowrap">
+                      Routes climbed
+                    </span>
                   </div>
                   <div className="mr-4 p-3 text-center">
                     <span className="text-xl font-bold block uppercase tracking-wide text-gray-900">
                       10
                     </span>
-                    <span className="text-sm text-gray-700">Requests</span>
+                    <span className="text-sm text-gray-700 whitespace-nowrap">
+                      Personal routes
+                    </span>
                   </div>
                   <div className="lg:mr-4 p-3 text-center">
                     <span className="text-xl font-bold block uppercase tracking-wide text-gray-900">
                       9
                     </span>
-                    <span className="text-sm text-gray-700">
-                      Days Available
+                    <span className="text-sm text-gray-700 whitespace-nowrap">
+                      Future routes
                     </span>
                   </div>
                 </div>
@@ -102,6 +110,7 @@ const Content = ({ user }) => {
                 </div>
               </div>
             </div>
+            <RoutesList />
           </div>
         </div>
       </div>

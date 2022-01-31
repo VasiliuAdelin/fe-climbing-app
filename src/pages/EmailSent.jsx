@@ -22,7 +22,7 @@ export default function EmailSent() {
         <DefaultNavbar />
         <Container>
           <Card>
-            <CardHeader color="lightBlue">
+            <CardHeader color="green">
               <H5 color="white" style={{ marginBottom: 0 }}>
                 Email Sent
               </H5>

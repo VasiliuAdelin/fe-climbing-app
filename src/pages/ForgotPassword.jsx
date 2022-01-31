@@ -19,7 +19,7 @@ import { useEffect, useState } from "react";
 
 export default function ForgotPassword() {
   const [values, setValues] = useState({
-    email: "gligadumitru98@gmail.com",
+    email: "gheorghe-adelin@gmail.com",
   });
 
   const { status, errors, message, isLoggedIn } = useSelector(selectState);

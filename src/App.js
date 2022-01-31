@@ -35,7 +35,7 @@ const App = () => {
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/settings" component={Settings} />
-      <Route exact path="/forgot-password" component={ForgotPassword} />
+      {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
       <Route exact path="/email-sent" component={EmailSent} />
       <Route exact path="/reset-password" component={ResetPassword} />
       <Redirect from="*" to="/" />

@@ -40,7 +40,7 @@ const CurrentUserDropdown = () => {
     >
       {NavbarList.map(({ to, name, icon }, idx) => (
         <Link key={idx} to={to}>
-          <DropdownItem color="lightBlue">
+          <DropdownItem color="green">
             <div className="flex items-center text-dark">
               <Icon name={icon} size="xl" />{" "}
               <span className="inline-block pl-4">{name}</span>
@@ -51,7 +51,7 @@ const CurrentUserDropdown = () => {
 
       <Link to="/" onClick={() => dispatch(logout())}>
         <div className="border-t-2 border-gray-100">
-          <DropdownItem color="lightBlue">
+          <DropdownItem color="green">
             <div className="flex items-center text-dark">
               <Icon name="logout" size="xl" />{" "}
               <span className="inline-block pl-4">Logout</span>

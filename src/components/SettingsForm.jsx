@@ -11,10 +11,10 @@ export default function SettingsForm(props) {
   return (
     <Card>
       <form onSubmit={handleSubmit}>
-        <CardHeader color="lightBlue" contentPosition="none">
+        <CardHeader color="green" contentPosition="none">
           <div className="w-full flex items-center justify-between">
             <h2 className="text-white text-2xl">My Account</h2>
-            <Button type="submit" color="lightBlue" ripple="dark">
+            <Button type="submit" color="green" ripple="dark">
               Save
             </Button>
           </div>

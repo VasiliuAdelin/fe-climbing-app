@@ -17,12 +17,12 @@ export default function Settings() {
 
   const [values, setValues] = useState({
     imageLink: "",
-    username: "",
-    email: "",
-    name: "",
-    address: "",
-    city: "",
-    country: "",
+    username: "Adelin",
+    email: "adelin@gmail.com",
+    name: "Adelin Vasiliu",
+    address: "Iasi",
+    city: "Iasi",
+    country: "Romania",
     postalCode: "",
     description: "",
   });

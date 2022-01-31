@@ -44,6 +44,11 @@ const NavbarListAnonym = [
     icon: "people",
   },
   {
+    to: "/skills",
+    name: "Skills",
+    icon: "book",
+  },
+  {
     to: "/login",
     name: "Account",
     icon: "person",
