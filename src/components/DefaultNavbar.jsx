@@ -13,6 +13,7 @@ import Icon from "@material-tailwind/react/Icon";
 import { useSelector } from "react-redux";
 import { selectState } from "../features/auth/authSlice";
 import CurrentUserDropdown from "./CurrentUserDropdown";
+const LogoBlack = "../assets/img/logo-black.png";
 
 const LoggedInLinks = [
   {
@@ -73,6 +74,7 @@ export default function DefaultNavbar() {
               <span className="rounded-custom-shape bg-green-500 p-4">
                 Logo Here
               </span>
+              <img src={LogoBlack} alt="" />
             </NavbarBrand>
           </Link>
           <NavbarToggler

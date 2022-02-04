@@ -5,6 +5,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "@material-tailwind/react": "^0.3.4",
+        "@tailwindcss/line-clamp": "^0.3.1",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^11.2.7",
         "@testing-library/user-event": "^12.8.3",
@@ -13,6 +14,7 @@
         "gpl-tailwind-theme": "^1.1.0",
         "prop-types": "^15.7.2",
         "react": "^17.0.2",
+        "react-click-away-listener": "^2.1.0",
         "react-dom": "^17.0.2",
         "react-multi-carousel": "^2.6.5",
         "react-redux": "^7.2.6",
