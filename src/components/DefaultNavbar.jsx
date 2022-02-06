@@ -74,7 +74,7 @@ export default function DefaultNavbar() {
               <span className="rounded-custom-shape bg-green-500 p-4">
                 Logo Here
               </span>
-              <img src={LogoBlack} alt="" />
+              {/* <img src={LogoBlack} alt="" /> */}
             </NavbarBrand>
           </Link>
           <NavbarToggler

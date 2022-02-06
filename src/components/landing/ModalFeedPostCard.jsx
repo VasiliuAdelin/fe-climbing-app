@@ -9,9 +9,15 @@ export default function Modal({
 }) {
   return (
     <>
-      <div className="fixed h-500 w-500 top-50% left-50%">
+      <div className="absolute !important top:0">
         <img src={image} alt="" />
-        <img src={profile} alt="" />
+        <h1 className="text-white">{image}</h1>
+        <img
+          src={profile}
+          alt="Display Picture of Andres Berlin"
+          role="img"
+          className="rounded-full object-cover shadow-md w-full h-full"
+        />
         <h6>{name}</h6>
       </div>
     </>

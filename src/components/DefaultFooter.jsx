@@ -9,14 +9,10 @@ export default function DefaultFooter() {
         <div className="container max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left pt-6">
             <div className="w-full lg:w-6/12 px-4">
-              <H5 color="gray">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </H5>
+              <H5 color="gray">Download this website as a mobile app!</H5>
               <div className="-mt-4">
                 <LeadText color="blueGray">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  Find us on the other platforms:
                 </LeadText>
               </div>
               <div className="flex gap-2 mt-6 md:justify-start md:mb-0 mb-8 justify-center">
@@ -44,14 +40,7 @@ export default function DefaultFooter() {
                 >
                   <Icon family="font-awesome" name="fab fa-instagram" />
                 </a>
-                <a
-                  href="/"
-                  className="grid place-items-center bg-white text-pink-400 shadow-md font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon family="font-awesome" name="fab fa-dribbble" />
-                </a>
+
                 <a
                   href="/"
                   className="grid place-items-center bg-white text-red-600 shadow-md font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none"
@@ -59,14 +48,6 @@ export default function DefaultFooter() {
                   rel="noopener noreferrer"
                 >
                   <Icon family="font-awesome" name="fab fa-youtube" />
-                </a>
-                <a
-                  href="/"
-                  className="grid place-items-center bg-white text-gray-900 shadow-md font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon family="font-awesome" name="fab fa-github" />
                 </a>
               </div>
             </div>
@@ -84,7 +65,7 @@ export default function DefaultFooter() {
                         rel="noreferrer"
                         className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
                       >
-                        About Us
+                        Climbing routes map
                       </a>
                     </li>
                     <li>
@@ -93,17 +74,7 @@ export default function DefaultFooter() {
                         target="_blank"
                         href="/"
                       >
-                        Blog
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
-                      >
-                        Github
+                        Learn a new skill
                       </a>
                     </li>
                     <li>
@@ -113,8 +84,16 @@ export default function DefaultFooter() {
                         rel="noreferrer"
                         className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
                       >
-                        Free Products
+                        Public Forum
                       </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
+                      ></a>
                     </li>
                   </ul>
                 </div>
@@ -125,32 +104,22 @@ export default function DefaultFooter() {
                   <ul className="list-unstyled">
                     <li>
                       <a
-                        href="/"
+                        href="https://27crags.com"
                         target="_blank"
                         rel="noreferrer"
                         className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
                       >
-                        MIT License
+                        27Crags
                       </a>
                     </li>
                     <li>
                       <a
-                        href="/"
+                        href="https://www.climbing.com"
                         target="_blank"
                         rel="noreferrer"
                         className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
                       >
-                        Contribute
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
-                      >
-                        Code of Conduct
+                        Outside
                       </a>
                     </li>
                     <li>
@@ -172,7 +141,7 @@ export default function DefaultFooter() {
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-gray-700 font-medium py-1">
-                Copyright © {new Date().getFullYear()} Lorem Ipsum
+                Copyright © {new Date().getFullYear()} ClimbAround
               </div>
             </div>
           </div>

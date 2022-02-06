@@ -18,9 +18,9 @@ const Landing = () => {
         <Header />
         <ClimbingLocationsSection />
         <NewsFeedPostsSection />
-        <WorkingSection />
+        {/* <WorkingSection />
         <TeamSection />
-        <ContactSection />
+        <ContactSection /> */}
       </main>
       <DefaultFooter />
     </>
