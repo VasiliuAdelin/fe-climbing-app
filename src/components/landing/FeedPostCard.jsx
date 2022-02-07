@@ -1,14 +1,16 @@
 import React from "react";
-import Container from "../login/Container";
-import ClickAwayListener from "react-click-away-listener";
-import Modal from "./ModalFeedPostCard";
 
-function FeedPostCard({ profile, name, postedTime, image, description }) {
-  const [showModal, setShowModal] = React.useState(false);
-  const handleClickAway = () => {
-    console.log("Maybe close the popup");
-    setShowModal(false);
-  };
+function FeedPostCard({
+  profile,
+  name,
+  postedTime,
+  image,
+  description,
+  createdAt,
+  totalLikes,
+  liked,
+  handleOnClick,
+}) {
   return (
     <>
       <div
@@ -17,22 +19,27 @@ function FeedPostCard({ profile, name, postedTime, image, description }) {
       >
         <div className="rounded overflow-hidden shadow-md bg-white">
           <div className="flex m-4">
-            <img className="w-12 h-12 rounded-full" src={profile} />
+            <img className="w-12 h-12 rounded-full" src={profile} alt={name} />
             <div className="ml-2 mt-0.5">
               <span classNAme="block font-medium text-base leading-snug text-black dark:text-gray-100">
-                Loyce Kuvalis
+                {name}
               </span>
               <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">
-                16 December at 08:25
+                {createdAt}
               </span>
             </div>
           </div>
-          <a onClick={() => setShowModal(true)}>
-            <img className="mt-5" src={image} alt="" />
+          <div>
+            <img
+              onClick={handleOnClick}
+              className="mt-5 cursor-pointer"
+              src={image}
+              alt=""
+            />
             <p className="text-center text-gray-600 text-base pt-3 font-normal line-clamp-3 px-6 mt-5">
               {description}
             </p>
-          </a>
+          </div>
           <div className="w-full flex justify-between py-5">
             <div className="flex mx-3">
               <div class="flex mr-2 text-gray-700 text-sm">
@@ -41,14 +48,14 @@ function FeedPostCard({ profile, name, postedTime, image, description }) {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="green"
-                  className="w-25 h-25 mr-1"
+                  fill={liked ? "green" : "none"}
+                  className="w-25 h-25 mr-1 cursor-pointer"
                   stroke="green"
                   stroke-width="1.7"
                 >
                   <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
-                <span className="mt-0.5">12</span>
+                <span className="mt-0.5">{totalLikes}</span>
               </div>
               <div class="flex mr-2 text-gray-700 text-sm">
                 <svg
@@ -107,21 +114,6 @@ function FeedPostCard({ profile, name, postedTime, image, description }) {
             </div>
           </div>
         </div>
-        {showModal ? (
-          <Container>
-            <ClickAwayListener onClickAway={handleClickAway}>
-              <div className="">
-                <Modal
-                  profile={profile}
-                  name={name}
-                  postedTime={postedTime}
-                  image={image}
-                  description={description}
-                />
-              </div>
-            </ClickAwayListener>
-          </Container>
-        ) : null}
       </div>
     </>
   );

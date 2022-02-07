@@ -71,10 +71,14 @@ export default function DefaultNavbar() {
         <NavbarWrapper>
           <Link to="/">
             <NavbarBrand>
-              <span className="rounded-custom-shape bg-green-500 p-4">
-                Logo Here
+              <span className="rounded-custom-shape bg-green-500 p-4 w-50 h-10 inline-block">
+                {/* Logo here */}
               </span>
-              {/* <img src={LogoBlack} alt="" /> */}
+              <img
+                className="object-fill w-100 h-100"
+                src="../../assets/img/logo-black.png"
+                alt=""
+              />
             </NavbarBrand>
           </Link>
           <NavbarToggler

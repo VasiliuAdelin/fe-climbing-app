@@ -40,7 +40,7 @@ export default function ClimbingLocationsSection(props) {
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
-          containerClass="carousel-container"
+          containerClass="carousel-container z-10"
           removeArrowOnDeviceType={["tablet", "mobile"]}
           deviceType={props.deviceType}
           dotListClass="custom-dot-list-style"
