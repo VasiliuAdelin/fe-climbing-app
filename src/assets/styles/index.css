@@ -2,9 +2,20 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import '@material-tailwind/react/tailwind.css';
-
 @layer utilities {
     .-translate-x-1\/2 {
         --tw-translate-x: -50% !important;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    @variants responsive {
+        .masonry {
+            column-count: 3;
+            column-gap: 5px;
+        }
+        .break-inside {
+            break-inside: avoid;
+        }
     }
 }

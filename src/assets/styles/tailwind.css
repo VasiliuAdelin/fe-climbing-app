@@ -6174,6 +6174,10 @@ video {
   display: none;
 }
 
+.h-400{
+  height: 400px;
+}
+
 .h-500{
   height: 500px;
 }
@@ -29386,6 +29390,19 @@ video {
   --tw-translate-x: -50% !important;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.masonry {
+  column-count: 3;
+  column-gap: 5px;
+}
+
+.break-inside {
+  break-inside: avoid;
+}
+
 .tippy-box[data-placement^=top]>.tippy-svg-arrow{
   bottom:0
 }
@@ -40210,6 +40227,10 @@ video {
 
   .sm\:hidden{
     display: none;
+  }
+
+  .sm\:h-400{
+    height: 400px;
   }
 
   .sm\:h-500{
@@ -63375,6 +63396,15 @@ video {
   .sm\:line-clamp-none{
     -webkit-line-clamp: unset;
   }
+
+  .sm\:masonry {
+    column-count: 3;
+    column-gap: 5px;
+  }
+
+  .sm\:break-inside {
+    break-inside: avoid;
+  }
 }
 
 @media (min-width: 768px){
@@ -68986,6 +69016,10 @@ video {
 
   .md\:hidden{
     display: none;
+  }
+
+  .md\:h-400{
+    height: 400px;
   }
 
   .md\:h-500{
@@ -92151,6 +92185,15 @@ video {
   .md\:line-clamp-none{
     -webkit-line-clamp: unset;
   }
+
+  .md\:masonry {
+    column-count: 3;
+    column-gap: 5px;
+  }
+
+  .md\:break-inside {
+    break-inside: avoid;
+  }
 }
 
 @media (min-width: 1024px){
@@ -97762,6 +97805,10 @@ video {
 
   .lg\:hidden{
     display: none;
+  }
+
+  .lg\:h-400{
+    height: 400px;
   }
 
   .lg\:h-500{
@@ -120927,6 +120974,15 @@ video {
   .lg\:line-clamp-none{
     -webkit-line-clamp: unset;
   }
+
+  .lg\:masonry {
+    column-count: 3;
+    column-gap: 5px;
+  }
+
+  .lg\:break-inside {
+    break-inside: avoid;
+  }
 }
 
 @media (min-width: 1280px){
@@ -126538,6 +126594,10 @@ video {
 
   .xl\:hidden{
     display: none;
+  }
+
+  .xl\:h-400{
+    height: 400px;
   }
 
   .xl\:h-500{
@@ -149703,6 +149763,15 @@ video {
   .xl\:line-clamp-none{
     -webkit-line-clamp: unset;
   }
+
+  .xl\:masonry {
+    column-count: 3;
+    column-gap: 5px;
+  }
+
+  .xl\:break-inside {
+    break-inside: avoid;
+  }
 }
 
 @media (min-width: 1536px){
@@ -155314,6 +155383,10 @@ video {
 
   .\32xl\:hidden{
     display: none;
+  }
+
+  .\32xl\:h-400{
+    height: 400px;
   }
 
   .\32xl\:h-500{
@@ -178478,5 +178551,14 @@ video {
 
   .\32xl\:line-clamp-none{
     -webkit-line-clamp: unset;
+  }
+
+  .\32xl\:masonry {
+    column-count: 3;
+    column-gap: 5px;
+  }
+
+  .\32xl\:break-inside {
+    break-inside: avoid;
   }
 }

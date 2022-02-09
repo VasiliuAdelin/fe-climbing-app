@@ -7,6 +7,7 @@ module.exports = {
     },
     height: {
       500: "500px",
+      400: "400px",
     },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],

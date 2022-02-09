@@ -1,6 +1,5 @@
 import Title from "./Title";
 import PictureCard from "./PictureCard";
-import Form from "./Form";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -22,7 +21,45 @@ const responsive = {
   },
 };
 
-export default function ClimbingLocationsSection(props) {
+const MOCK_CARDS = [
+  {
+    name: "Robitza rope",
+    image:
+      "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+  },
+  {
+    name: "Ler fafasd",
+    image:
+      "https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+  },
+  {
+    name: "Robitza rope",
+    image:
+      "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+  },
+  {
+    name: "Ler fafasd",
+    image:
+      "https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+  },
+  {
+    name: "Robitza rope",
+    image:
+      "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+  },
+];
+
+const ClimbingLocationsSection = (props) => {
   return (
     <section className="pb-20 relative block bg-gray-100">
       <div className="container max-w-7xl mx-auto px-4 lg:pt-24 ">
@@ -40,64 +77,27 @@ export default function ClimbingLocationsSection(props) {
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
-          containerClass="carousel-container z-10"
+          containerClass="carousel-container z-10 items-center"
           removeArrowOnDeviceType={["tablet", "mobile"]}
           deviceType={props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          {/* <div className="flex flex-wrap -mt-12 justify-center"> */}
-          <PictureCard
-            icon={
-              "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg"
-            }
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </PictureCard>
-          <PictureCard
-            icon={
-              "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg"
-            }
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </PictureCard>
-          <PictureCard
-            icon={
-              "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg"
-            }
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </PictureCard>
-          <PictureCard
-            icon={
-              "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg"
-            }
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesettingg
-            industry.
-          </PictureCard>
-          <PictureCard
-            icon={
-              "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg"
-            }
-          >
-            Lorem Ipsum is simply dummy text of the printing and typafasesetting
-            industry.
-          </PictureCard>
-          <PictureCard
-            icon={
-              "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg"
-            }
-          >
-            Lorem Ipsum is simply dummy text of the printing and
-            typedasdsasetting industry.
-          </PictureCard>
+          {MOCK_CARDS.map((card, index) => {
+            const { image, description, name } = card;
+            return (
+              <PictureCard
+                key={index}
+                name={name}
+                image={image}
+                description={description}
+              />
+            );
+          })}
         </Carousel>
-        {/* </div> */}
       </div>
     </section>
   );
-}
+};
+
+export default ClimbingLocationsSection;
