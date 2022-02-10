@@ -73,7 +73,7 @@ export default function DefaultNavbar() {
             <NavbarBrand>
               <span className="rounded-custom-shape bg-green-500 p-4 w-50 h-10 inline-block">
                 <img
-                  className="w-36 md:w-56 md:-mt-12 -mt-8"
+                  className="w-36 md:w-56 md:-mt-12 -mt-8 ml-2"
                   src={logo}
                   alt=""
                 />
