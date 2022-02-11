@@ -7,13 +7,14 @@ const ViewCardInfo = ({
   name,
   description,
   createdAt,
+  comments,
 }) => {
   return (
     <div className="h-full w-4/5 bg-gray-800 bg-opacity-70 flex-row lg:flex rounded-xl overflow-scroll no-scrollbar lg:overflow-hidden">
       <div className="w-full my-auto mx-auto lg:w-4/5">
         <img className="w-auto h-auto mx-auto " src={image} alt="" />
       </div>
-      <div className="w-full lg:w-2/6 lg:h-full bg-white max-h-screen">
+      <div className="w-full lg:w-3/6 lg:h-full 2xl:w-2/6 bg-white max-h-screen">
         <div className="flex-row">
           <div className="flex pt-5 px-5 lg:m-4">
             <img className="w-12 h-12 rounded-full" src={profile} alt={name} />
@@ -32,7 +33,21 @@ const ViewCardInfo = ({
             </p>
           </div>
         </div>
-        <CommentSection />
+        <div className="lg:overflow-y-auto no-scrollbar h-full">
+          {comments.map((comm, index) => {
+            const { user, comment, postedAt } = comm;
+            return (
+              <CommentSection
+                key={index}
+                profile={user.profile}
+                name={user.name}
+                comment={comment}
+                postedAt={postedAt}
+              />
+            );
+          })}
+        </div>
+
         <div className="flex items-center justify-center shadow-lg w-full bottom-0 sticky">
           <form className="w-full bg-white rounded-lg px-4 pt-2">
             <div className="flex flex-wrap -mx-3 mb-6">
