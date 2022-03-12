@@ -5,6 +5,7 @@ import Icon from "@material-tailwind/react/Icon";
 import LeadText from "@material-tailwind/react/LeadText";
 import RoutesList from "./RoutesList";
 import { Link } from "react-router-dom";
+import TestComponent from "./TestComponent";
 
 const Content = ({ user }) => {
   const {
@@ -111,6 +112,7 @@ const Content = ({ user }) => {
               </div>
             </div>
             <RoutesList />
+            <TestComponent />
           </div>
         </div>
       </div>

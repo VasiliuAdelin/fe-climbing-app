@@ -56,7 +56,7 @@ export default function ProfileCard(props) {
       </div>
       <CardBody>
         <div className="border-t border-lightBlue-200 text-center px-2 ">
-          <LeadText color="blueGray">{description}</LeadText>
+          <LeadText color="blueGray">"{description}"</LeadText>
         </div>
       </CardBody>
     </Card>

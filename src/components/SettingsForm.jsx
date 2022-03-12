@@ -13,7 +13,7 @@ export default function SettingsForm(props) {
       <form onSubmit={handleSubmit}>
         <CardHeader color="green" contentPosition="none">
           <div className="w-full flex items-center justify-between">
-            <h2 className="text-white text-2xl">My Account</h2>
+            <h2 className="text-white text-2xl">Your settings</h2>
             <Button type="submit" color="green" ripple="dark">
               Save
             </Button>

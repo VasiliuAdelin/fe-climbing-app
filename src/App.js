@@ -7,11 +7,10 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./assets/styles/tailwind.css";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
-import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import { useDispatch } from "react-redux";
 import { aboutMeAsync } from "./features/auth/authSlice";
-import ForgotPassword from "./pages/ForgotPassword";
+// import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
 import ResetPassword from "./pages/ResetPassword";
 import People from "./pages/People";
@@ -33,7 +32,6 @@ const App = () => {
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/profile" component={Profile} />
-      <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/settings" component={Settings} />
       {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
       <Route exact path="/email-sent" component={EmailSent} />

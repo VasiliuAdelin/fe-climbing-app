@@ -11,7 +11,6 @@ const initialState = {
   message: "",
   success: "",
   currentProject: null,
-  loading: false,
 };
 
 const base_url = "http://localhost:5000";
@@ -67,7 +66,7 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 export const aboutMeAsync = createAsyncThunk("auth/aboutMe", async () => {
   const accessToken = getToken("access");
   if (accessToken)
-    return accessToken ? await getAPI(`${base_url}/v1/auth/me`) : null;
+    return accessToken ? await getAPI(`${base_url}/v1/auth/me`) : "";
 });
 
 export const loginAsync = createAsyncThunk("auth/fetchLogin", async (data) => {
@@ -244,7 +243,7 @@ export const authSlice = createSlice({
       .addCase(getProjectById.fulfilled, (state, action) => {
         console.log("getProjectById.fulfilled", action.payload);
         const { data = {} } = action.payload || {};
-        console.log(action.payload)
+        console.log(action.payload);
         state.currentProject = {
           ...data,
         };

@@ -18,11 +18,11 @@ import CardFooter from "../components/shared/Card/CardFooter";
 
 export default function Login() {
   const [values, setValues] = useState({
-    email: "admin@gmail.com",
-    password: "parola98",
+    email: "adelinadelin@gmail.com",
+    password: "asdf123asdf",
   });
 
-  const { status, errors, message, isLoggedIn } = useSelector(selectState);
+  const { errors, message, isLoggedIn } = useSelector(selectState);
   const dispatch = useDispatch();
   const history = useHistory();
 

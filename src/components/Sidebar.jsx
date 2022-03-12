@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+// import { Link, NavLink } from "react-router-dom";
 import AdminNavbar from "./AdminNavbar";
-import Icon from "@material-tailwind/react/Icon";
-import H6 from "@material-tailwind/react/Heading6";
+// import Icon from "@material-tailwind/react/Icon";
+// import H6 from "@material-tailwind/react/Heading6";
 
 export default function Sidebar() {
   const [showSidebar, setShowSidebar] = useState("-left-64");
@@ -12,7 +12,7 @@ export default function Sidebar() {
       <div
         className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
       >
-        <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
+        {/* <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
           <Link to="/" className="mt-2 text-center w-full inline-block">
             <H6 color="green">EMS - Your HR Tool</H6>
           </Link>
@@ -45,7 +45,7 @@ export default function Sidebar() {
               <li className="bg-gradient-to-tr from-green-500 to-green-700 px-4 rounded-lg text-white mb-2"></li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

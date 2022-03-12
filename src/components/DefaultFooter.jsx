@@ -93,7 +93,9 @@ export default function DefaultFooter() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
-                      ></a>
+                      >
+                        To Be Deleted
+                      </a>
                     </li>
                   </ul>
                 </div>

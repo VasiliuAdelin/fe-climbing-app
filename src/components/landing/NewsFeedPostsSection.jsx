@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import FeedPostCard from "./FeedPostCard";
 import Modal from "../shared/Modals/Modal";
 import ViewCardInfo from "../feed/ViewCardInfo";
+import { Button } from "gpl-tailwind-theme";
+import ModalAddNewsPost from "./ModalAddNewsPost";
+import { useSelector } from "react-redux";
+import { selectState } from "../../features/auth/authSlice";
 
 const MOCK_POSTS = [
   {
@@ -198,18 +202,25 @@ const MOCK_COMMENTS = [
 ];
 
 function NewsFeedPostsSection() {
-  const [showModal, setShowModal] = useState(false);
+  const { isLoggedIn } = useSelector(selectState);
+  const [showPostModal, setshowPostModal] = useState(false);
+  const [showAddNewPostModal, setshowAddNewPostModal] = useState(false);
   const [selectedPost, setSelectedPost] = useState({});
 
   const handleOnClickPost = (id) => {
     setSelectedPost({
       ...MOCK_POSTS.find((item, index) => item.id === id),
     });
-    setShowModal(true);
+    setshowPostModal(true);
   };
+
+  const handleOnClickAddNewPost = () => {
+    setshowAddNewPostModal(true);
+  };
+
   return (
     <>
-      <Modal open={showModal} onClose={() => setShowModal(false)}>
+      <Modal open={showPostModal} onClose={() => setshowPostModal(false)}>
         <ViewCardInfo
           image={selectedPost.imageURL}
           profile={selectedPost?.user?.profile}
@@ -246,6 +257,25 @@ function NewsFeedPostsSection() {
                 })}
               </div>
             </div>
+            {isLoggedIn ? (
+              <Button
+                color="green"
+                ripple="light"
+                className="mx-auto w-64"
+                onClick={() => handleOnClickAddNewPost()}
+              >
+                Add a post to the news feed!
+              </Button>
+            ) : null}
+
+            <Modal
+              open={showAddNewPostModal}
+              onClose={() => setshowAddNewPostModal(false)}
+            >
+              <ModalAddNewsPost
+                handleOnClick={() => handleOnClickAddNewPost()}
+              />
+            </Modal>
           </div>
         </div>
       </section>
