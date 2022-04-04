@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import DefaultNavbar from "../../DefaultNavbar";
-import DefaultFooter from "../../DefaultFooter";
 import Header from "../../profile/Header";
 import Breadcrumb from "../../shared/Breadcrumb";
 import { useParams } from "react-router-dom";
@@ -103,7 +102,7 @@ const EditProject = () => {
           )}
         </div>
       </div>
-      <DefaultFooter />
+      
     </>
   );
 };

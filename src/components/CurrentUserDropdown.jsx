@@ -3,8 +3,9 @@ import Icon from "@material-tailwind/react/Icon";
 import Dropdown from "@material-tailwind/react/Dropdown";
 import DropdownItem from "@material-tailwind/react/DropdownItem";
 import { useDispatch, useSelector } from "react-redux";
-import { selectState, logout } from "../features/auth/authSlice";
+import { selectState } from "../features/auth/authSlice";
 import Image from "@material-tailwind/react/Image";
+import { logout } from "../features/auth/auth.actions";
 
 const NavbarList = [
   {
@@ -33,7 +34,7 @@ const CurrentUserDropdown = () => {
           <div className="w-12">
             <Image src={user?.imageLink} rounded />
           </div>
-          <span className="ml-2">{user?.name}</span>
+          <span className="ml-2 hidden lg:inline-block">{user?.name}</span>
         </div>
       }
       ripple="light"

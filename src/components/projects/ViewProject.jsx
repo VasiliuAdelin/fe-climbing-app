@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, H3, Paragraph } from "gpl-tailwind-theme";
+import { Button, H3 } from "gpl-tailwind-theme";
 import Image from "@material-tailwind/react/Image";
 import Icon from "@material-tailwind/react/Icon";
 import LeadText from "@material-tailwind/react/LeadText";

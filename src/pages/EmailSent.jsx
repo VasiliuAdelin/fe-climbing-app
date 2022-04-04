@@ -8,7 +8,6 @@ import Page from "../components/login/Page";
 import Container from "../components/login/Container";
 import Paragraph from "@material-tailwind/react/Paragraph";
 import { Link } from "react-router-dom";
-import DefaultFooter from "../components/DefaultFooter";
 import { useHistory } from "react-router";
 
 export default function EmailSent() {
@@ -45,7 +44,7 @@ export default function EmailSent() {
           </Card>
         </Container>
       </Page>
-      <DefaultFooter />
+      
     </>
   );
 }

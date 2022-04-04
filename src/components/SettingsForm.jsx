@@ -57,6 +57,16 @@ export default function SettingsForm(props) {
                 onChange={handleInputChange}
               />
             </div>
+            <div className="w-full pr-4 mb-10 font-light">
+              <Input
+                type="text"
+                color="purple"
+                placeholder="Job Position"
+                value={values.work}
+                name="work"
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
 
           <h6 className="text-green-500 text-sm my-6 font-light uppercase">

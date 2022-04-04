@@ -1,6 +1,7 @@
 import H2 from "@material-tailwind/react/Heading2";
 import LeadText from "@material-tailwind/react/LeadText";
 import { Link } from "react-router-dom";
+import SearchRoutes from "./SearchRoutes";
 
 export default function Header() {
   return (
@@ -20,6 +21,8 @@ export default function Header() {
                 </Link>{" "}
               </LeadText>
             </div>
+            <div className="text-white text-lg">OR</div>
+            <SearchRoutes />
           </div>
         </div>
       </div>

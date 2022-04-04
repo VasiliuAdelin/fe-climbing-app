@@ -15,9 +15,6 @@ export default function ProfileCard(props) {
     city,
     country,
     postalCode,
-    position,
-    companyName,
-    manager,
     phoneNumber,
     email,
   } = props;
@@ -39,11 +36,7 @@ export default function ProfileCard(props) {
       <div className="border-t border-lightBlue-200 m-4">
         <div className="text-gray-700 flex items-center justify-start my-2 mt-6 gap-2">
           <Icon name="work" size="xl" />
-          {position} - {companyName}
-        </div>
-        <div className="text-gray-700 flex items-center justify-start my-2 gap-2">
-          <Icon name="person" size="xl" />
-          Manager - {manager}
+          Personal Trainer
         </div>
         <div className="text-gray-700 flex items-center justify-start my-2 gap-2">
           <Icon name="phone" size="xl" />
@@ -82,9 +75,6 @@ ProfileCard.defaultProps = {
   name: "Name Here",
   description: "Lorem Ipsum",
   address: "City, Country",
-  position: "Developer",
-  companyName: "Company.yo",
-  manager: "John Doe",
   phoneNumber: "0123123123",
   email: "john.doe@company.yp",
   imageLink: "https://via.placeholder.com/150",

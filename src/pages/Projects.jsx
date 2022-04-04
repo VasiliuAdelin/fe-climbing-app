@@ -1,5 +1,4 @@
 import DefaultNavbar from "../components/DefaultNavbar";
-import DefaultFooter from "../components/DefaultFooter";
 import Header from "../components/profile/Header";
 import LayoutPage from "../components/people/LayoutPage";
 import Breadcrumb from "../components/shared/Breadcrumb";
@@ -30,7 +29,7 @@ export default function Projects() {
           <ProjectsOverview />
         </div>
       </LayoutPage>
-      <DefaultFooter />
+      
     </>
   );
 }

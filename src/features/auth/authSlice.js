@@ -1,10 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchAPI, fetchAPIWithBearer, getAPI, getToken } from "../../api";
+import { fetchAPI, getAPI, getToken } from "../../api";
+import {
+  forgotPasswordAsync,
+  loginAsync,
+  logout,
+  registerAsync,
+  updateUserDataAsync,
+} from "./auth.actions";
+
+const base_url = "http://localhost:5001";
 
 const initialState = {
   user: null,
   isLoggedIn: false,
-  value: 1,
   status: "idle",
   loading: false,
   errors: [],
@@ -12,15 +20,6 @@ const initialState = {
   success: "",
   currentProject: null,
 };
-
-const base_url = "http://localhost:5000";
-
-export const registerAsync = createAsyncThunk(
-  "auth/fetchRegister",
-  async (data) => {
-    return await fetchAPI(data, `${base_url}/v1/auth/register`);
-  }
-);
 
 export const getProjectById = createAsyncThunk(
   "auth/fetchProjectById",
@@ -35,42 +34,10 @@ export const getProjectById = createAsyncThunk(
   }
 );
 
-export const forgotPasswordAsync = createAsyncThunk(
-  "auth/fetchForgotPassword",
-  async (data) => {
-    return await fetchAPIWithBearer(
-      data,
-      `${base_url}/v1/auth/forgot-password`
-    );
-  }
-);
-
-export const updateUserDataAsync = createAsyncThunk(
-  "auth/fetchUpdateUserDataAsync",
-  async (props) => {
-    const { id, payload } = props;
-
-    return await fetchAPIWithBearer(
-      payload,
-      `${base_url}/v1/users/${id}`,
-      "PATCH"
-    );
-  }
-);
-
-export const logout = createAsyncThunk("auth/logout", async () => {
-  const refreshToken = getToken("refresh");
-  return await fetchAPI({ refreshToken }, `${base_url}/v1/auth/logout`);
-});
-
-export const aboutMeAsync = createAsyncThunk("auth/aboutMe", async () => {
+export const aboutMeAsync = createAsyncThunk("auth/aboutMeAsync", async () => {
   const accessToken = getToken("access");
   if (accessToken)
     return accessToken ? await getAPI(`${base_url}/v1/auth/me`) : "";
-});
-
-export const loginAsync = createAsyncThunk("auth/fetchLogin", async (data) => {
-  return await fetchAPI(data, `${base_url}/v1/auth/login`);
 });
 
 export const resetPasswordAsync = createAsyncThunk(
@@ -88,70 +55,15 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
     setField: (state, { payload }) => {
       state[payload.name] = payload.value;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(registerAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(loginAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(aboutMeAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(logout.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(forgotPasswordAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(getProjectById.pending, (state) => {
-        state.status = "loading";
-        state.loading = true;
-      })
-      .addCase(resetPasswordAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(updateUserDataAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(updateUserDataAsync.fulfilled, (state, action) => {
-        const { errors = [], message = "", user } = action.payload || {};
-        if (errors) {
-          state.status = "error";
-          state.errors = errors;
-          state.message = message;
-        }
-        if (user) {
-          state.user = user;
-          state.success = "Updated successfully";
-        }
-      })
+
       .addCase(registerAsync.fulfilled, (state, action) => {
-        const {
-          errors = [],
-          message = "",
-          tokens,
-          user,
-        } = action.payload || {};
-        if (errors) {
-          state.status = "error";
-          state.errors = errors;
-          state.message = message;
-        }
+        const { tokens, user } = action.payload || {};
         if (user && tokens) {
           state.user = user;
           state.isLoggedIn = true;
@@ -159,21 +71,17 @@ export const authSlice = createSlice({
         }
       })
       .addCase(loginAsync.fulfilled, (state, action) => {
-        const {
-          errors = [],
-          message = "",
-          tokens,
-          user,
-        } = action.payload || {};
-        if (errors) {
-          state.status = "error";
-          state.errors = errors;
-          state.message = message;
-        }
+        const { tokens, user } = action.payload || {};
         if (user && tokens) {
           state.user = user;
           state.isLoggedIn = true;
           window.localStorage.setItem("ems-tokens", JSON.stringify(tokens));
+        }
+      })
+      .addCase(updateUserDataAsync.fulfilled, (state, action) => {
+        const { user } = action.payload || {};
+        if (user) {
+          state.user = user;
         }
       })
       .addCase(aboutMeAsync.fulfilled, (state, action) => {
@@ -201,11 +109,11 @@ export const authSlice = createSlice({
         state.errors = [];
         state.message = "";
       })
-      .addCase(forgotPasswordAsync.fulfilled, (state) => {
-        state.status = "emailSent";
-      })
-      .addCase(forgotPasswordAsync.rejected, (state) => {
-        state.status = "emailSent";
+      .addCase(forgotPasswordAsync.fulfilled, (state, action) => {
+        const { errors, message, code } = action.payload || {};
+        if (!code && (!message || !errors)) {
+          state.status = "emailSent";
+        }
       })
       .addCase(logout.rejected, (state) => {
         window.localStorage.clear();
@@ -258,8 +166,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { increment, setField, decrement, incrementByAmount } =
-  authSlice.actions;
-export const selectCount = (state) => state.auth.value;
+export const { setField } = authSlice.actions;
 export const selectState = (state) => state.auth;
 export default authSlice.reducer;

@@ -10,12 +10,92 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import { useDispatch } from "react-redux";
 import { aboutMeAsync } from "./features/auth/authSlice";
-// import ForgotPassword from "./pages/ForgotPassword";
-import EmailSent from "./pages/EmailSent";
-import ResetPassword from "./pages/ResetPassword";
-import People from "./pages/People";
-import Projects from "./pages/Projects";
-import EditProject from "./components/projects/edit/EditProject";
+import NewsComponent from "./pages/News";
+import LoaderContainer from "./components/containers/LoaderContainer";
+import NotificationContainer from "./components/containers/NotificationContainer";
+import DefaultFooter from "./components/DefaultFooter";
+import Skills from "./pages/Skills";
+import ViewSkill from "./pages/ViewSkill";
+import Trainers from "./pages/Trainers";
+import NewsFeed from "./pages/NewsFeed";
+import RouteList from "./pages/RouteList";
+import ViewCRag from "./pages/ViewCrag";
+import Events from "./pages/Events";
+import Forum from "./pages/Forum";
+import ViewTopic from "./components/forum/ViewTopic";
+import ViewTopicPost from "./components/forum/ViewTopicPost";
+import FAQ from "./pages/FAQ";
+
+const routes = [
+  {
+    path: "/",
+    component: Landing,
+  },
+  {
+    path: "/login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    component: Register,
+  },
+  {
+    path: "/profile",
+    component: Profile,
+  },
+  {
+    path: "/skills",
+    component: Skills,
+  },
+  {
+    path: "/skills/:id",
+    component: ViewSkill,
+  },
+  {
+    path: "/settings",
+    component: Settings,
+  },
+  {
+    path: "/news",
+    component: NewsComponent,
+  },
+  {
+    path: "/trainers",
+    component: Trainers,
+  },
+  {
+    path: "/newsfeed",
+    component: NewsFeed,
+  },
+  {
+    path: "/areas/:city/routelist/:id",
+    component: ViewCRag,
+  },
+  {
+    path: "/areas/:city/routelist",
+    component: RouteList,
+  },
+  {
+    path: "/events",
+    component: Events,
+  },
+  {
+    path:'/forum/:id/:postId',
+    component: ViewTopicPost
+  },
+  {
+    path: "/forum/:id",
+    component: ViewTopic,
+  },
+  {
+    path: "/forum",
+    component: Forum,
+  },
+  {
+    path: "/faq",
+    component: FAQ,
+  },
+];
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,20 +104,17 @@ const App = () => {
     dispatch(aboutMeAsync());
   });
   return (
-    <Switch>
-      <Route exact path="/" component={Landing} />
-      <Route exact path="/people" component={People} />
-      <Route exact path="/projects" component={Projects} />
-      <Route exact path="/projects/:id" component={EditProject} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/profile" component={Profile} />
-      <Route exact path="/settings" component={Settings} />
-      {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
-      <Route exact path="/email-sent" component={EmailSent} />
-      <Route exact path="/reset-password" component={ResetPassword} />
-      <Redirect from="*" to="/" />
-    </Switch>
+    <>
+      <Switch>
+        {routes.map(({ path, component }, index) => (
+          <Route key={index} exact path={path} component={component} />
+        ))}
+        <Redirect from="*" to="/" />
+      </Switch>
+      <LoaderContainer />
+      <NotificationContainer />
+      <DefaultFooter />
+    </>
   );
 };
 

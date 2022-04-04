@@ -10,12 +10,10 @@ import Paragraph from "@material-tailwind/react/Paragraph";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  registerAsync,
   selectState,
-  setField,
 } from "../../features/auth/authSlice";
-import { Alert } from "gpl-tailwind-theme";
 import Textarea from "@material-tailwind/react/Textarea";
+import { registerAsync } from "../../features/auth/auth.actions";
 
 const AddProject = () => {
   const [values, setValues] = useState({

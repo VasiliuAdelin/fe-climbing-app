@@ -4,17 +4,16 @@ import { Button } from "gpl-tailwind-theme";
 import DefaultNavbar from "../components/DefaultNavbar";
 import Container from "../components/login/Container";
 import Paragraph from "@material-tailwind/react/Paragraph";
-import Alert from "@material-tailwind/react/Alert";
 import { Link } from "react-router-dom";
-import DefaultFooter from "../components/DefaultFooter";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { loginAsync, selectState } from "../features/auth/authSlice";
+import { selectState } from "../features/auth/authSlice";
 import { useEffect, useState } from "react";
 import Card from "../components/shared/Card/Card";
 import CardHeader from "../components/shared/Card/CardHeader";
 import CardBody from "../components/shared/Card/CardBody";
 import CardFooter from "../components/shared/Card/CardFooter";
+import { loginAsync } from "../features/auth/auth.actions";
 
 export default function Login() {
   const [values, setValues] = useState({
@@ -22,7 +21,7 @@ export default function Login() {
     password: "asdf123asdf",
   });
 
-  const { errors, message, isLoggedIn } = useSelector(selectState);
+  const { isLoggedIn } = useSelector(selectState);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -43,15 +42,11 @@ export default function Login() {
     e.preventDefault();
     dispatch(loginAsync(values));
   };
+  
   return (
     <>
       <div className="bg-new-login-background bg-cover bg-center w-full h-screen md:h-screen relative flex flex-col justify-between">
         <DefaultNavbar />
-        <div className="absolute bottom-2 right-2">
-          {errors && errors.length > 0 && (
-            <Alert color="red">{`${message} | ${errors[0]}`}</Alert>
-          )}
-        </div>
         <Container>
           <form onSubmit={handleSubmit}>
             <Card className="rounded-xl">
@@ -70,6 +65,7 @@ export default function Login() {
                     value={values.email}
                     name="email"
                     onChange={handleInputChange}
+                    autoComplete="off"
                   />
                 </div>
                 <div className="mb-2 px-4">
@@ -81,6 +77,7 @@ export default function Login() {
                     value={values.password}
                     name="password"
                     onChange={handleInputChange}
+                    autoComplete="off"
                   />
                 </div>
               </CardBody>
@@ -88,7 +85,6 @@ export default function Login() {
                 <div className="flex justify-center bg-bb">
                   <Button
                     color="green"
-                    buttonType="outline"
                     size="lg"
                     className="rounded-custom-shape w-full"
                   >
@@ -122,7 +118,6 @@ export default function Login() {
           </form>
         </Container>
       </div>
-      <DefaultFooter />
     </>
   );
 }

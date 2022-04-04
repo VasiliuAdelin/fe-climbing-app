@@ -1,9 +1,8 @@
 import Header from "../components/landing/Header";
 import React from "react";
 import DefaultNavbar from "../components/DefaultNavbar";
-import DefaultFooter from "../components/DefaultFooter";
 import ClimbingLocationsSection from "../components/landing/ClimbingLocationsSection";
-import NewsFeedPostsSection from "../components/landing/NewsFeedPostsSection";
+import NewsFeedPostsSection from "../components/NewsFeed/NewsFeedPostsSection";
 
 const Landing = () => {
   return (
@@ -15,11 +14,8 @@ const Landing = () => {
         <Header />
         <ClimbingLocationsSection />
         <NewsFeedPostsSection />
-        {/* <WorkingSection />
-        <TeamSection />
-        <ContactSection /> */}
       </main>
-      <DefaultFooter />
+      
     </>
   );
 };

@@ -1,4 +1,3 @@
-import H5 from "@material-tailwind/react/Heading5";
 import LeadText from "@material-tailwind/react/LeadText";
 import Icon from "@material-tailwind/react/Icon";
 
@@ -9,7 +8,6 @@ export default function DefaultFooter() {
         <div className="container max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left pt-6">
             <div className="w-full lg:w-6/12 px-4">
-              <H5 color="gray">Download this website as a mobile app!</H5>
               <div className="-mt-4">
                 <LeadText color="blueGray">
                   Find us on the other platforms:

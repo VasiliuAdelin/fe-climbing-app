@@ -8,12 +8,12 @@ import Button from "@material-tailwind/react/Button";
 import Paragraph from "@material-tailwind/react/Paragraph";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  registerAsync,
   selectState,
   setField,
 } from "../../features/auth/authSlice";
 import { useState } from "react";
 import { Alert } from "gpl-tailwind-theme";
+import { registerAsync } from "../../features/auth/auth.actions";
 
 export default function AddPerson() {
   const [values, setValues] = useState({

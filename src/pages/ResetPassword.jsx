@@ -11,7 +11,6 @@ import Container from "../components/login/Container";
 import Paragraph from "@material-tailwind/react/Paragraph";
 import Alert from "@material-tailwind/react/Alert";
 import { Link } from "react-router-dom";
-import DefaultFooter from "../components/DefaultFooter";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { resetPasswordAsync, selectState } from "../features/auth/authSlice";
@@ -130,7 +129,7 @@ const ResetPassword = () => {
           </form>
         </Container>
       </Page>
-      <DefaultFooter />
+      
     </>
   );
 };

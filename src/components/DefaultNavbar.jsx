@@ -17,32 +17,52 @@ import logo from "../assets/img/logo-white.png";
 
 const LoggedInLinks = [
   {
-    to: "/projects",
-    name: "Projects",
-    icon: "account_tree",
-  },
-  {
-    to: "/people",
-    name: "People",
-    icon: "account_circle",
-  },
-];
-
-const NavbarListAnonym = [
-  {
     to: "/climb",
     name: "Climb",
     icon: "hiking",
+  },
+  {
+    to: "/news",
+    name: "News",
+    icon: "people",
+  },
+  {
+    to: "/skills",
+    name: "Skills",
+    icon: "book",
   },
   {
     to: "/forum",
     name: "Forum",
     icon: "forum",
   },
+];
+
+const NavbarListAnonym = [
   {
-    to: "/news",
-    name: "News",
+    to: "/faq",
+    name: "FAQ",
+    icon: "question_answer",
+  },
+  {
+    to: "/forum",
+    name: "Forum",
+    icon: "discount",
+  },
+  {
+    to: "/events",
+    name: "Events",
+    icon: "event_available",
+  },
+  {
+    to: "/newsfeed",
+    name: "News Feed",
     icon: "people",
+  },
+  {
+    to: "/trainers",
+    name: "Trainers",
+    icon: "hiking",
   },
   {
     to: "/skills",
@@ -65,7 +85,7 @@ export default function DefaultNavbar() {
     <Navbar
       color="transparent"
       navbar
-      className="bg-gray-900 lg:bg-transparent"
+      className="bg-gray-900 lg:bg-transparent mt-3"
     >
       <NavbarContainer>
         <NavbarWrapper>
@@ -80,10 +100,15 @@ export default function DefaultNavbar() {
               </span>
             </NavbarBrand>
           </Link>
-          <NavbarToggler
-            onClick={() => setOpenNavbar(!openNavbar)}
-            color="white"
-          />
+          <div className="flex justify-center">
+            <NavbarToggler
+              onClick={() => setOpenNavbar(!openNavbar)}
+              color="white"
+            />
+            <div className="lg:hidden">
+            <CurrentUserDropdown />
+            </div>
+          </div>
         </NavbarWrapper>
         <NavbarCollapse open={openNavbar}>
           <Nav className="text-white">
@@ -105,7 +130,9 @@ export default function DefaultNavbar() {
                     </Link>
                   </NavbarWrapper>
                 ))}
-                <CurrentUserDropdown />
+                <div className="hidden lg:flex">
+            <CurrentUserDropdown />
+            </div>
               </>
             )}
             {!isLoggedIn &&

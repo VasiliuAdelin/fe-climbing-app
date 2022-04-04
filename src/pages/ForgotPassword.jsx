@@ -9,20 +9,19 @@ import DefaultNavbar from "../components/DefaultNavbar";
 import Page from "../components/login/Page";
 import Container from "../components/login/Container";
 import Paragraph from "@material-tailwind/react/Paragraph";
-import Alert from "@material-tailwind/react/Alert";
 import { Link } from "react-router-dom";
-import DefaultFooter from "../components/DefaultFooter";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { forgotPasswordAsync, selectState } from "../features/auth/authSlice";
+import { selectState } from "../features/auth/authSlice";
 import { useEffect, useState } from "react";
+import { forgotPasswordAsync } from "../features/auth/auth.actions";
 
 export default function ForgotPassword() {
   const [values, setValues] = useState({
     email: "gheorghe-adelin@gmail.com",
   });
 
-  const { status, errors, message, isLoggedIn } = useSelector(selectState);
+  const { status, isLoggedIn } = useSelector(selectState);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -47,19 +46,15 @@ export default function ForgotPassword() {
     e.preventDefault();
     dispatch(forgotPasswordAsync(values));
   };
+
   return (
     <>
       <Page className="static">
         <DefaultNavbar />
-        <div className="absolute bottom-2 right-2">
-          {errors && errors.length > 0 && (
-            <Alert color="red">{`${message} | ${errors[0]}`}</Alert>
-          )}
-        </div>
         <Container>
           <form onSubmit={handleSubmit}>
             <Card>
-              <CardHeader color="lightBlue">
+              <CardHeader color="green">
                 <H5 color="white" style={{ marginBottom: 0 }}>
                   Oops!
                 </H5>
@@ -68,7 +63,7 @@ export default function ForgotPassword() {
                 <div className="mb-0 px-4 bg-bb">
                   <InputIcon
                     type="email"
-                    color="lightBlue"
+                    color="green"
                     placeholder="Email Address"
                     iconName="email"
                     value={values.email}
@@ -80,7 +75,7 @@ export default function ForgotPassword() {
               <CardFooter>
                 <div className="w-full bg-bb">
                   <Button
-                    color="lightBlue"
+                    color="green"
                     buttonType="outline"
                     className="w-full"
                   >
@@ -93,7 +88,7 @@ export default function ForgotPassword() {
                     Remember the password? Please{" "}
                     <Link
                       to="/login"
-                      className="inline-block text-blue-700 hover:text-blue-900 p-2 pl-0"
+                      className="inline-block text-green-700 hover:text-green-900 p-2 pl-0"
                     >
                       login
                     </Link>
@@ -104,7 +99,7 @@ export default function ForgotPassword() {
           </form>
         </Container>
       </Page>
-      <DefaultFooter />
+      
     </>
   );
 }

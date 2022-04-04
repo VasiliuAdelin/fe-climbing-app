@@ -355,7 +355,7 @@ ul {
  */
 
 html {
-  font-family: Roboto, sans-serif; /* 1 */
+  font-family: "Roboto", sans-serif; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -6334,16 +6334,28 @@ video {
   max-height: 100vh;
 }
 
-.min-h-0{
-  min-height: 0px;
+.min-h-50{
+  min-height: 50px;
 }
 
-.min-h-full{
-  min-height: 100%;
+.min-h-100{
+  min-height: 100px;
 }
 
-.min-h-screen{
-  min-height: 100vh;
+.min-h-150{
+  min-height: 150px;
+}
+
+.min-h-200{
+  min-height: 200px;
+}
+
+.min-h-250{
+  min-height: 250px;
+}
+
+.min-h-300{
+  min-height: 300px;
 }
 
 .w-0{
@@ -17135,6 +17147,10 @@ video {
   background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg);
 }
 
+.bg-skills-background{
+  background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://uphillathlete.com/wp-content/uploads/2016/12/IMG_2512-e1483205456919.jpg);
+}
+
 .bg-login-background{
   background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1280.jpg');
 }
@@ -21717,7 +21733,7 @@ video {
 }
 
 .font-sans{
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .font-serif{
@@ -40389,16 +40405,28 @@ video {
     max-height: 100vh;
   }
 
-  .sm\:min-h-0{
-    min-height: 0px;
+  .sm\:min-h-50{
+    min-height: 50px;
   }
 
-  .sm\:min-h-full{
-    min-height: 100%;
+  .sm\:min-h-100{
+    min-height: 100px;
   }
 
-  .sm\:min-h-screen{
-    min-height: 100vh;
+  .sm\:min-h-150{
+    min-height: 150px;
+  }
+
+  .sm\:min-h-200{
+    min-height: 200px;
+  }
+
+  .sm\:min-h-250{
+    min-height: 250px;
+  }
+
+  .sm\:min-h-300{
+    min-height: 300px;
   }
 
   .sm\:w-0{
@@ -51159,6 +51187,10 @@ video {
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg);
   }
 
+  .sm\:bg-skills-background{
+    background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://uphillathlete.com/wp-content/uploads/2016/12/IMG_2512-e1483205456919.jpg);
+  }
+
   .sm\:bg-login-background{
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1280.jpg');
   }
@@ -55741,7 +55773,7 @@ video {
   }
 
   .sm\:font-sans{
-    font-family: Roboto, sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .sm\:font-serif{
@@ -69178,16 +69210,28 @@ video {
     max-height: 100vh;
   }
 
-  .md\:min-h-0{
-    min-height: 0px;
+  .md\:min-h-50{
+    min-height: 50px;
   }
 
-  .md\:min-h-full{
-    min-height: 100%;
+  .md\:min-h-100{
+    min-height: 100px;
   }
 
-  .md\:min-h-screen{
-    min-height: 100vh;
+  .md\:min-h-150{
+    min-height: 150px;
+  }
+
+  .md\:min-h-200{
+    min-height: 200px;
+  }
+
+  .md\:min-h-250{
+    min-height: 250px;
+  }
+
+  .md\:min-h-300{
+    min-height: 300px;
   }
 
   .md\:w-0{
@@ -79948,6 +79992,10 @@ video {
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg);
   }
 
+  .md\:bg-skills-background{
+    background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://uphillathlete.com/wp-content/uploads/2016/12/IMG_2512-e1483205456919.jpg);
+  }
+
   .md\:bg-login-background{
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1280.jpg');
   }
@@ -84530,7 +84578,7 @@ video {
   }
 
   .md\:font-sans{
-    font-family: Roboto, sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .md\:font-serif{
@@ -97967,16 +98015,28 @@ video {
     max-height: 100vh;
   }
 
-  .lg\:min-h-0{
-    min-height: 0px;
+  .lg\:min-h-50{
+    min-height: 50px;
   }
 
-  .lg\:min-h-full{
-    min-height: 100%;
+  .lg\:min-h-100{
+    min-height: 100px;
   }
 
-  .lg\:min-h-screen{
-    min-height: 100vh;
+  .lg\:min-h-150{
+    min-height: 150px;
+  }
+
+  .lg\:min-h-200{
+    min-height: 200px;
+  }
+
+  .lg\:min-h-250{
+    min-height: 250px;
+  }
+
+  .lg\:min-h-300{
+    min-height: 300px;
   }
 
   .lg\:w-0{
@@ -108737,6 +108797,10 @@ video {
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg);
   }
 
+  .lg\:bg-skills-background{
+    background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://uphillathlete.com/wp-content/uploads/2016/12/IMG_2512-e1483205456919.jpg);
+  }
+
   .lg\:bg-login-background{
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1280.jpg');
   }
@@ -113319,7 +113383,7 @@ video {
   }
 
   .lg\:font-sans{
-    font-family: Roboto, sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .lg\:font-serif{
@@ -126756,16 +126820,28 @@ video {
     max-height: 100vh;
   }
 
-  .xl\:min-h-0{
-    min-height: 0px;
+  .xl\:min-h-50{
+    min-height: 50px;
   }
 
-  .xl\:min-h-full{
-    min-height: 100%;
+  .xl\:min-h-100{
+    min-height: 100px;
   }
 
-  .xl\:min-h-screen{
-    min-height: 100vh;
+  .xl\:min-h-150{
+    min-height: 150px;
+  }
+
+  .xl\:min-h-200{
+    min-height: 200px;
+  }
+
+  .xl\:min-h-250{
+    min-height: 250px;
+  }
+
+  .xl\:min-h-300{
+    min-height: 300px;
   }
 
   .xl\:w-0{
@@ -137526,6 +137602,10 @@ video {
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg);
   }
 
+  .xl\:bg-skills-background{
+    background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://uphillathlete.com/wp-content/uploads/2016/12/IMG_2512-e1483205456919.jpg);
+  }
+
   .xl\:bg-login-background{
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1280.jpg');
   }
@@ -142108,7 +142188,7 @@ video {
   }
 
   .xl\:font-sans{
-    font-family: Roboto, sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .xl\:font-serif{
@@ -155545,16 +155625,28 @@ video {
     max-height: 100vh;
   }
 
-  .\32xl\:min-h-0{
-    min-height: 0px;
+  .\32xl\:min-h-50{
+    min-height: 50px;
   }
 
-  .\32xl\:min-h-full{
-    min-height: 100%;
+  .\32xl\:min-h-100{
+    min-height: 100px;
   }
 
-  .\32xl\:min-h-screen{
-    min-height: 100vh;
+  .\32xl\:min-h-150{
+    min-height: 150px;
+  }
+
+  .\32xl\:min-h-200{
+    min-height: 200px;
+  }
+
+  .\32xl\:min-h-250{
+    min-height: 250px;
+  }
+
+  .\32xl\:min-h-300{
+    min-height: 300px;
   }
 
   .\32xl\:w-0{
@@ -166315,6 +166407,10 @@ video {
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg);
   }
 
+  .\32xl\:bg-skills-background{
+    background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://uphillathlete.com/wp-content/uploads/2016/12/IMG_2512-e1483205456919.jpg);
+  }
+
   .\32xl\:bg-login-background{
     background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1280.jpg');
   }
@@ -170897,7 +170993,7 @@ video {
   }
 
   .\32xl\:font-sans{
-    font-family: Roboto, sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .\32xl\:font-serif{

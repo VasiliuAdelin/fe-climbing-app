@@ -2,17 +2,13 @@
 import SettingsForm from "../components/SettingsForm";
 import ProfileCard from "../components/ProfileCard";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  selectState,
-  updateUserDataAsync,
-  setField,
-} from "../features/auth/authSlice";
+import { selectState } from "../features/auth/authSlice";
 import { useEffect, useState } from "react";
-import { Alert } from "gpl-tailwind-theme";
-import CurrentUserDropdown from "../components/CurrentUserDropdown";
+import MainLayout from "../components/layouts/MainLayout";
+import { updateUserDataAsync } from "../features/auth/auth.actions";
 
 export default function Settings() {
-  const { user, errors, message, success } = useSelector(selectState);
+  const { user } = useSelector(selectState);
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
@@ -25,6 +21,7 @@ export default function Settings() {
     country: "Romania",
     postalCode: "",
     description: "",
+    work: "",
   });
 
   useEffect(() => {
@@ -59,48 +56,10 @@ export default function Settings() {
   };
 
   return (
-    <>
-      <div className=" bg-gray-100 lg:px-36 min-h-screen">
-        <div className="flex justify-end px-8">
-          <CurrentUserDropdown />
-        </div>
-
-        {errors && errors.length > 0 && (
-          <Alert
-            color="red"
-            icon="error"
-            iconSize="xl"
-            iconPosition="center"
-            closeIcon="close"
-            closeIconPosition="center"
-            hideAfter={5000}
-            className="fixed bottom-2 right-2 inline-block"
-            handleClose={() =>
-              dispatch(setField({ name: "errors", value: [] }))
-            }
-          >
-            {`${message} | ${errors[0]}`}
-          </Alert>
-        )}
-        {success && (
-          <Alert
-            color="green"
-            icon="check"
-            iconSize="xl"
-            iconPosition="center"
-            closeIcon="close"
-            className="fixed bottom-2 right-2 inline-block"
-            closeIconPosition="center"
-            hideAfter={2000}
-            handleClose={() =>
-              dispatch(setField({ name: "success", value: "" }))
-            }
-          >
-            {`${success}`}
-          </Alert>
-        )}
-        <div className="px-3 md:px-8 h-auto mt-10">
-          <div className="container mx-auto max-w-full">
+    <MainLayout>
+      <div className="bg-gray-100 lg:px-36 min-h-screen">
+        <div className="px-3 md:px-8 h-auto pt-10">
+          <div className="container mx-auto max-w-full mt-20">
             <div className="grid grid-cols-1 xl:grid-cols-6">
               <div className="xl:col-start-1 xl:col-end-3 px-4 mb-16 mt-24 md:mt-0">
                 <ProfileCard {...values} />
@@ -116,6 +75,6 @@ export default function Settings() {
           </div>
         </div>
       </div>
-    </>
+    </MainLayout>
   );
 }

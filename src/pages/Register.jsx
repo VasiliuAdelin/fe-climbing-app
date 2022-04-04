@@ -9,12 +9,12 @@ import DefaultNavbar from "../components/DefaultNavbar";
 import Container from "../components/login/Container";
 import Paragraph from "@material-tailwind/react/Paragraph";
 import { Link } from "react-router-dom";
-import DefaultFooter from "../components/DefaultFooter";
 import { useSelector, useDispatch } from "react-redux";
-import { registerAsync, selectState } from "../features/auth/authSlice";
+import { selectState } from "../features/auth/authSlice";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Alert from "@material-tailwind/react/Alert";
+import { registerAsync } from "../features/auth/auth.actions";
 
 export default function Register() {
   const [values, setValues] = useState({
@@ -78,6 +78,7 @@ export default function Register() {
                     value={values.name}
                     name="name"
                     onChange={handleInputChange}
+                    autoComplete="off"
                   />
                 </div>
                 <div className="mb-10 px-4">
@@ -89,6 +90,7 @@ export default function Register() {
                     value={values.email}
                     name="email"
                     onChange={handleInputChange}
+                    autoComplete="off"
                   />
                 </div>
                 <div className="mb-10 px-4">
@@ -100,6 +102,7 @@ export default function Register() {
                     value={values.password}
                     name="password"
                     onChange={handleInputChange}
+                    autoComplete="off"
                   />
                 </div>
                 <div className="mb-4 px-4">
@@ -111,6 +114,7 @@ export default function Register() {
                     value={values.confirmPassword}
                     name="confirmPassword"
                     onChange={handleInputChange}
+                    autoComplete="off"
                   />
                 </div>
               </CardBody>
@@ -142,7 +146,7 @@ export default function Register() {
           </form>
         </Container>
       </div>
-      <DefaultFooter />
+      
     </>
   );
 }

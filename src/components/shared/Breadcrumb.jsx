@@ -6,13 +6,13 @@ import { NavLink } from "react-router-dom";
 const Breadcrumb = ({ routes }) => {
   return (
     <div>
-      <nav class="flex" aria-label="Breadcrumb">
-        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <nav className="flex m-4" aria-label="Breadcrumb">
+        <ol className="inline-flex items-center space-x-1 md:space-x-3">
           {routes.map(({ name = "", icon = "", urlTo = "/" }, index) => {
             const isLastElement = routes.length === index + 1 ? true : false;
             return (
               <div key={index}>
-                <li class="flex items-center">
+                <li className="flex items-center">
                   <NavLink
                     to={urlTo}
                     className="inline-flex items-center text-gray-700 hover:text-gray-900"
