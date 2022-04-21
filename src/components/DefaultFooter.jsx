@@ -4,14 +4,14 @@ import Icon from "@material-tailwind/react/Icon";
 export default function DefaultFooter() {
   return (
     <>
-      <footer className="relative bg-gray-100 pt-8 pb-6">
+      <footer className="relative bg-darkGray pt-8 pb-6">
         <div className="container max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left pt-6">
             <div className="w-full lg:w-6/12 px-4">
               <div className="-mt-4">
-                <LeadText color="blueGray">
+                <span className="text-lightGreen pt-16">
                   Find us on the other platforms:
-                </LeadText>
+                </span>
               </div>
               <div className="flex gap-2 mt-6 md:justify-start md:mb-0 mb-8 justify-center">
                 <a
@@ -52,7 +52,7 @@ export default function DefaultFooter() {
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top">
                 <div className="w-full lg:w-4/12 px-4 ml-auto md:mb-0 mb-8">
-                  <span className="block uppercase text-gray-900 text-sm font-serif font-medium mb-2">
+                  <span className="block uppercase text-lightGreen text-sm font-serif font-medium mb-2">
                     Useful Links
                   </span>
                   <ul className="list-unstyled">
@@ -61,14 +61,14 @@ export default function DefaultFooter() {
                         href="/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
+                        className="text-accent hover:text-lightGreen block pb-2 text-sm"
                       >
                         Climbing routes map
                       </a>
                     </li>
                     <li>
                       <a
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
+                        className="text-accent hover:text-lightGreen block pb-2 text-sm"
                         target="_blank"
                         href="/"
                       >
@@ -80,7 +80,7 @@ export default function DefaultFooter() {
                         href="/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
+                        className="text-accent hover:text-lightGreen block pb-2 text-sm"
                       >
                         Public Forum
                       </a>
@@ -90,7 +90,7 @@ export default function DefaultFooter() {
                         href="/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
+                        className="text-accent hover:text-lightGreen block pb-2 text-sm"
                       >
                         To Be Deleted
                       </a>
@@ -98,7 +98,7 @@ export default function DefaultFooter() {
                   </ul>
                 </div>
                 <div className="w-full lg:w-4/12 px-4">
-                  <span className="block uppercase text-gray-900 text-sm font-serif font-medium mb-2">
+                  <span className="block uppercase text-lightGreen text-sm font-serif font-medium mb-2">
                     Other Resources
                   </span>
                   <ul className="list-unstyled">
@@ -107,7 +107,7 @@ export default function DefaultFooter() {
                         href="https://27crags.com"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
+                        className="text-accent hover:text-lightGreen block pb-2 text-sm"
                       >
                         27Crags
                       </a>
@@ -117,7 +117,7 @@ export default function DefaultFooter() {
                         href="https://www.climbing.com"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
+                        className="text-accent hover:text-lightGreen block pb-2 text-sm"
                       >
                         Outside
                       </a>
@@ -127,7 +127,7 @@ export default function DefaultFooter() {
                         href="/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-gray-700 hover:text-gray-900 block pb-2 text-sm"
+                        className="text-accent hover:text-lightGreen block pb-2 text-sm"
                       >
                         Contact Us
                       </a>
@@ -140,7 +140,7 @@ export default function DefaultFooter() {
           <hr className="my-6 border-gray-300" />
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
-              <div className="text-sm text-gray-700 font-medium py-1">
+              <div className="text-sm text-accent font-medium py-1">
                 Copyright © {new Date().getFullYear()} ClimbAround
               </div>
             </div>

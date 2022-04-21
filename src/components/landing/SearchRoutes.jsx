@@ -55,7 +55,7 @@ const SearchRoutes = () => {
   return (
     <Card className="mt-10 w-auto inline-block">
       <CardHeader color="green" className="rounded-custom-shape">
-        <span className="text-2xl">Find the Best Rock Climbing Routes</span>
+        <span className="text-2xl">Find the best Rock Climbing Routes</span>
       </CardHeader>
       <CardBody>
         <form onSubmit={onSubmit}>

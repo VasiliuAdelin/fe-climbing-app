@@ -15,7 +15,6 @@ const Landing = () => {
         <ClimbingLocationsSection />
         <NewsFeedPostsSection />
       </main>
-      
     </>
   );
 };

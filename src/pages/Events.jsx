@@ -69,7 +69,7 @@ const Events = () => {
       backgroundImage="skills-background"
       title="Events"
       subtitle="Let's get togheter"
-      customBackground="https://wallpaperaccess.com/full/263963.jpg"
+      customBackground="https://svycarskabouda.cz/wp-content/uploads/2019/07/pexels-photo-1000445.jpeg"
     >
       <div className="w-3/5 m-auto">
         <div className="border border-gray-100 shadow-lg hover:shadow-xl rounded-lg">

@@ -3,12 +3,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     minHeight: {
-      '50':'50px',
-      '100':'100px',
-      '150':'150px',
-      '200':'200px',
-      '250':'250px',
-      '300':'300px'
+      50: "50px",
+      100: "100px",
+      150: "150px",
+      200: "200px",
+      250: "250px",
+      300: "300px",
     },
     borderRadius: {
       "custom-shape": "64% 36% 83% 17% / 23% 81% 19% 77%",
@@ -29,7 +29,7 @@ module.exports = {
       backgroundImage: () => ({
         "new-login-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg)",
-          "skills-background":
+        "skills-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://uphillathlete.com/wp-content/uploads/2016/12/IMG_2512-e1483205456919.jpg)",
         "login-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1280.jpg')",
@@ -40,6 +40,12 @@ module.exports = {
         "profile-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1080.jpg')",
       }),
+      colors: {
+        accent: "#CEEDDB",
+        green: "#007931",
+        lightGreen: "#17b65a",
+        darkGray: "#22333b",
+      },
     },
   },
   variants: {

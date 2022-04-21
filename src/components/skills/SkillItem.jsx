@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const SkillItem = ({ id, title, descripton, mainImage, category, isFirst }) => {
   return (
     <div
-      className={`border my-2 p-1  rounded ${
+      className={`border my-2 p-1 min-h-64 rounded ${
         isFirst ? "flex w-full" : "w-1/3"
       }`}
     >
@@ -39,6 +39,6 @@ SkillItem.defaultProps = {
   mainImage: "https://via.placeholder.com/400",
   category: "Science",
   isFirst: false,
-  id:12345
+  id: 12345,
 };
 export default SkillItem;
