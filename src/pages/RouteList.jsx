@@ -40,21 +40,13 @@ const routesBreadcrumb = [
 
 export default function RouteList() {
   const { query } = useRouter();
-  const [gradeFilters] = useState(
-    formatFilters(cragsTypes.GENRE_TYPE)
-  );
+  const [gradeFilters] = useState(formatFilters(cragsTypes.GENRE_TYPE));
   const [steepnessFilters] = useState(
     formatFilters(cragsTypes.STEEPNESS_TYPES)
   );
-  const [holdFilters] = useState(
-    formatFilters(cragsTypes.HOLD_TYPES)
-  );
-  const [styleFilters] = useState(
-    formatFilters(cragsTypes.STYLE_TYPES)
-  );
-  const [gradesFilters] = useState(
-    formatFilters(cragsTypes.GRADES_TYPES)
-  );
+  const [holdFilters] = useState(formatFilters(cragsTypes.HOLD_TYPES));
+  const [styleFilters] = useState(formatFilters(cragsTypes.STYLE_TYPES));
+  const [gradesFilters] = useState(formatFilters(cragsTypes.GRADES_TYPES));
 
   const { city } = query;
 

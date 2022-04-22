@@ -34,7 +34,7 @@ const AddNewPost = ({ handleOnClick }) => {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-        <Card className="rounded-xl">
+        <Card className="rounded-xl min-w-64">
           <CardHeader color="green" className="rounded-custom-shape">
             <span className="inline-block text-lg font-bold">
               Tell us something awesome!
