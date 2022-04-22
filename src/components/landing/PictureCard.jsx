@@ -3,8 +3,8 @@ import Button from "@material-tailwind/react/Button";
 export default function PictureCard({ image, description, name }) {
   return (
     <>
-      <div className="w-full">
-        <div className="max-w-sm text-center rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-3 mb-3 md:mb-10 min-w-sm">
+      <div className="w-full flex justify-center">
+        <div className="max-w-sm text-center rounded-lg border rounded border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-3 mb-3 md:mb-10 min-w-sm">
           <div className="h-400">
             <img className="rounded-t-lg w-full h-full" src={image} alt=".." />
           </div>

@@ -24,7 +24,7 @@ export default function Sidebar() {
                 <NavLink
                   to="/dashboard"
                   className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                  activeClassName="bg-gradient-to-tr from-green-500 to-green-700 text-white shadow-md"
+                  activeClassName="bg-gradient-to-tr from-greenNormal to-greenDark text-white shadow-md"
                 >
                   <Icon name="dashboard" size="2xl" />
                   Dashboard
@@ -34,7 +34,7 @@ export default function Sidebar() {
                 <NavLink
                   to="/settings"
                   className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                  activeClassName="bg-gradient-to-tr from-green-500 to-green-700 text-white shadow-md"
+                  activeClassName="bg-gradient-to-tr from-greenNormal to-greenDark text-white shadow-md"
                 >
                   <Icon name="settings" size="2xl" />
                   Settings
@@ -42,7 +42,7 @@ export default function Sidebar() {
               </li>
             </ul>
             <ul className="flex-col min-w-full flex list-none absolute bottom-0">
-              <li className="bg-gradient-to-tr from-green-500 to-green-700 px-4 rounded-lg text-white mb-2"></li>
+              <li className="bg-gradient-to-tr from-greenNormal to-greenDark px-4 rounded-lg text-white mb-2"></li>
             </ul>
           </div>
         </div> */}

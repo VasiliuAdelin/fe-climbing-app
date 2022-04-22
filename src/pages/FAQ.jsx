@@ -34,7 +34,7 @@ const RenderItem = ({ question, answer }) => (
   <Accordion
     title={question}
     containerClass="w-full p-3 border border-gray-100 rounded m-1"
-    titleContainerClass="w-full p-4 border-l-2 border-green-500 text-lg"
+    titleContainerClass="w-full p-4 border-l-2 border-greenNormal text-lg"
   >
     <span>{answer}</span>
   </Accordion>
@@ -67,7 +67,7 @@ export default function FAQ() {
                   <Paragraph color="blueGray">
                     <Link
                       to="/forgot-password"
-                      className="inline-block text-green-700 hover:text-green-900 p-0"
+                      className="inline-block text-greenDark hover:text-green-900 p-0"
                     >
                       Ask a question
                     </Link>

@@ -63,14 +63,15 @@ const ClimbingLocationsSection = (props) => {
   return (
     <section className="pb-20 relative block bg-gray-100">
       <div className="container max-w-7xl mx-auto px-4 lg:pt-24 ">
-        <Title heading="Climbing locations around you!"></Title>
-
+        <div className="pt-6">
+          <Title heading="Climbing locations around you!"></Title>
+        </div>
         <Carousel
           swipeable={true}
           draggable={false}
           showDots={true}
           responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
+          ssr={true}
           infinite={true}
           autoPlay={false}
           autoPlaySpeed={2000}
@@ -83,17 +84,14 @@ const ClimbingLocationsSection = (props) => {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          {MOCK_CARDS.map((card, index) => {
-            const { image, description, name } = card;
-            return (
-              <PictureCard
-                key={index}
-                name={name}
-                image={image}
-                description={description}
-              />
-            );
-          })}
+          {MOCK_CARDS.map(({ image, description, name }, index) => (
+            <PictureCard
+              key={index}
+              name={name}
+              image={image}
+              description={description}
+            />
+          ))}
         </Carousel>
       </div>
     </section>

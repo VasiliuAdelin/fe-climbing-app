@@ -88,7 +88,7 @@ export default function ForgotPassword() {
                     Remember the password? Please{" "}
                     <Link
                       to="/login"
-                      className="inline-block text-green-700 hover:text-green-900 p-2 pl-0"
+                      className="inline-block text-greenDark hover:text-green-900 p-2 pl-0"
                     >
                       login
                     </Link>

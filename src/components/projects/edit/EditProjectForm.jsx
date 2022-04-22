@@ -53,7 +53,7 @@ const EditProjectForm = (props) => {
           </div>
         </CardHeader>
         <CardBody>
-          <h6 className="text-green-500 text-sm mt-3 mb-6 font-light uppercase">
+          <h6 className="text-greenNormal text-sm mt-3 mb-6 font-light uppercase">
             Project Information
           </h6>
           <div className="flex flex-wrap mt-10">
@@ -99,7 +99,7 @@ const EditProjectForm = (props) => {
               onChange={handleInputChange}
             />
           </div>
-          <h6 className="mt-8 text-green-500 text-sm mt-3 mb-6 font-light uppercase flex items-center">
+          <h6 className="mt-8 text-greenNormal text-sm mt-3 mb-6 font-light uppercase flex items-center">
             Subtask Management
             <Button
               color="blue"

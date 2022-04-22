@@ -1,7 +1,7 @@
 import React from "react";
 
 const CategoryItem = ({ label, onSelect, isSelected = false }) => (
-  <div className={`m-2 p-2 uppercase ${isSelected ? 'text-green-500' : 'text-green-900'}  font-bold cursor-pointer hover:text-green-500 tracking-wider `}>
+  <div className={`m-2 p-2 uppercase ${isSelected ? 'text-greenNormal' : 'text-green-900'}  font-bold cursor-pointer hover:text-greenNormal tracking-wider `}>
     <span onClick={onSelect}>{label}</span>
   </div>
 );

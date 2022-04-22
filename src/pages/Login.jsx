@@ -97,7 +97,7 @@ export default function Login() {
                     Not having an account? Please{" "}
                     <Link
                       to="/register"
-                      className="inline-block text-green-700 hover:text-green-900 p-2 pl-0"
+                      className="inline-block text-greenDark hover:text-green-900 p-2 pl-0"
                     >
                       register
                     </Link>
@@ -107,7 +107,7 @@ export default function Login() {
                   <Paragraph color="blueGray">
                     <Link
                       to="/forgot-password"
-                      className="inline-block text-green-700 hover:text-green-900 p-0"
+                      className="inline-block text-greenDark hover:text-green-900 p-0"
                     >
                       Forgot Password?
                     </Link>

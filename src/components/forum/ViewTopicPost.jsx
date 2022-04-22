@@ -181,7 +181,7 @@ const ViewTopicPost = () => {
             {["Find a trip", "FAQ List"].map((item, index) => {
               return (
                 <Link key={index} to="/">
-                  <span className="block text-xs m-2 hover:text-green-500">
+                  <span className="block text-xs m-2 hover:text-greenNormal">
                     {item}
                   </span>
                 </Link>

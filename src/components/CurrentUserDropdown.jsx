@@ -32,9 +32,9 @@ const CurrentUserDropdown = () => {
       buttonText={
         <div className="py-2.5 font-medium flex items-center">
           <div className="w-12">
-            <Image src={user?.imageLink} rounded />
+            <Image src={user?.imageLink || 'https://via.placeholder.com/400'} rounded />
           </div>
-          <span className="ml-2 hidden lg:inline-block">{user?.name}</span>
+          <span className="ml-2 hidden lg:inline-block">{user?.name || 'Adnin'}</span>
         </div>
       }
       ripple="light"

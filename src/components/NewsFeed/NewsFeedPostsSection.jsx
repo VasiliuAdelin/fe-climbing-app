@@ -379,14 +379,13 @@ function NewsFeedPostsSection() {
               color="green"
               buttonType="link"
               ripple="dark"
-              rounded
               className="my-4"
               onClick={handleOnClickAddNewPost}
             >
               <Icon family="font-awesome" name="fa-solid fa-plus" size="lg" />
               CREATE
             </Button>
-            <div className="container mx-auto">
+            <div className="lg:container lg:mx-auto">
               <div className="md:masonry before:box-inherit after:box-inherit">
                 {MOCK_POSTS.map((post, index) => {
                   const { imageURL, description, user, createdAt, likes, id } =

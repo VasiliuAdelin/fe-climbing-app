@@ -20,7 +20,7 @@ export default function SettingsForm(props) {
           </div>
         </CardHeader>
         <CardBody>
-          <h6 className="text-green-500 text-sm mt-3 mb-6 font-light uppercase">
+          <h6 className="text-greenNormal text-sm mt-3 mb-6 font-light uppercase">
             User Information
           </h6>
           <div className="flex flex-wrap mt-10">
@@ -69,7 +69,7 @@ export default function SettingsForm(props) {
             </div>
           </div>
 
-          <h6 className="text-green-500 text-sm my-6 font-light uppercase">
+          <h6 className="text-greenNormal text-sm my-6 font-light uppercase">
             Contact Information
           </h6>
           <div className="flex flex-wrap mt-10">
@@ -115,7 +115,7 @@ export default function SettingsForm(props) {
             </div>
           </div>
 
-          <h6 className="text-green-500 text-sm my-6 font-light uppercase">
+          <h6 className="text-greenNormal text-sm my-6 font-light uppercase">
             About Me
           </h6>
           <div className="flex flex-wrap mt-10 font-light">

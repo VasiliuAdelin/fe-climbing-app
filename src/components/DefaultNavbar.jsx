@@ -13,7 +13,7 @@ import Icon from "@material-tailwind/react/Icon";
 import { useSelector } from "react-redux";
 import { selectState } from "../features/auth/authSlice";
 import CurrentUserDropdown from "./CurrentUserDropdown";
-import logo from "../assets/img/logo-white.png";
+import logo from "../assets/img/logo-large-dark.png";
 
 const LoggedInLinks = [
   {
@@ -85,33 +85,34 @@ export default function DefaultNavbar() {
     <Navbar
       color="transparent"
       navbar
-      className="bg-gray-900 lg:bg-transparent mt-3"
+      className="bg-transparent lg:bg-gray-900 mt-3"
     >
       <NavbarContainer>
-        <NavbarWrapper>
+        <NavbarWrapper className="items-center">
           <Link to="/">
             <NavbarBrand>
-              <span className="rounded-custom-shape bg-green-500 p-4 w-50 h-10 inline-block">
-                <img
-                  className="w-36 md:w-56 md:-mt-12 -mt-8 ml-2"
-                  src={logo}
-                  alt=""
-                />
+              <span className=" p-4 w-50 h-10 inline-block">
+                <img className="w-36 -mt-6" src={logo} alt="" />
               </span>
             </NavbarBrand>
           </Link>
-          <div className="flex justify-center">
-            <NavbarToggler
-              onClick={() => setOpenNavbar(!openNavbar)}
-              color="white"
-            />
+          <div className="flex items-center justify-center">
+            <div>
+              <span
+                className="p-4 rounded-full focus:bg-gray-100 lg:hidden"
+                onClick={() => setOpenNavbar(!openNavbar)}
+              >
+                <i className="fa-solid fa-bars text-white"></i>
+              </span>
+            </div>
+
             <div className="lg:hidden">
-            <CurrentUserDropdown />
+              <CurrentUserDropdown />
             </div>
           </div>
         </NavbarWrapper>
         <NavbarCollapse open={openNavbar}>
-          <Nav className="text-white">
+          <ul className="flex lg:items-center flex-col lg:flex-row list-none ml-auto bg-red-500 md:bg-green-500 ">
             {isLoggedIn && (
               <>
                 {LoggedInLinks.map(({ to, name, icon }, index) => (
@@ -131,8 +132,8 @@ export default function DefaultNavbar() {
                   </NavbarWrapper>
                 ))}
                 <div className="hidden lg:flex">
-            <CurrentUserDropdown />
-            </div>
+                  <CurrentUserDropdown />
+                </div>
               </>
             )}
             {!isLoggedIn &&
@@ -141,9 +142,9 @@ export default function DefaultNavbar() {
                   <Link to={to}>
                     <div
                       className={clsx(
-                        "flex justify-center items-center w-full  p-3 font-medium cursor-pointer whitespace-no-wrap rounded-md text-gray-900 text-white hover:bg-green-500 hover:shadow-md-light-green transition-all duration-300",
+                        "flex justify-center items-center w-full  p-3 font-medium cursor-pointer whitespace-no-wrap rounded-md text-gray-900 text-white hover:bg-greenNormal hover:shadow-md-light-green transition-all duration-300",
                         location === to &&
-                          "text-white bg-green-500 transition-all duration-300"
+                          "text-white bg-greenNormal transition-all duration-300"
                       )}
                     >
                       <Icon name={icon} size="2xl" color="white" />
@@ -152,7 +153,7 @@ export default function DefaultNavbar() {
                   </Link>
                 </NavbarWrapper>
               ))}
-          </Nav>
+          </ul>
         </NavbarCollapse>
       </NavbarContainer>
     </Navbar>

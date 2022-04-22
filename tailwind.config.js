@@ -2,13 +2,19 @@ module.exports = {
   purge: ["./src/**/*.js", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    colors: {
+      greenNormal: "#17B65A",
+      greenDark: "#007931",
+      greenLight: "#CEEDDB",
+      grayDark: "#22333B",
+    },
     minHeight: {
-      '50':'50px',
-      '100':'100px',
-      '150':'150px',
-      '200':'200px',
-      '250':'250px',
-      '300':'300px'
+      50: "50px",
+      100: "100px",
+      150: "150px",
+      200: "200px",
+      250: "250px",
+      300: "300px",
     },
     borderRadius: {
       "custom-shape": "64% 36% 83% 17% / 23% 81% 19% 77%",
@@ -29,7 +35,7 @@ module.exports = {
       backgroundImage: () => ({
         "new-login-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg)",
-          "skills-background":
+        "skills-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://uphillathlete.com/wp-content/uploads/2016/12/IMG_2512-e1483205456919.jpg)",
         "login-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1280.jpg')",
@@ -43,7 +49,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['responsive','active'],
+    }
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };

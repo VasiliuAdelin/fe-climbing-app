@@ -10,7 +10,7 @@ const ViewCardInfo = ({
   comments,
 }) => {
   return (
-    <div className="h-full w-4/5 bg-gray-800 bg-opacity-70 flex-row lg:flex rounded-xl overflow-scroll no-scrollbar lg:overflow-hidden">
+    <div className="h-full w-4/5 bg-opacity-70 flex-row lg:flex rounded-xl overflow-scroll no-scrollbar lg:overflow-hidden">
       <div className="w-full my-auto mx-auto lg:w-4/5">
         <img className="w-auto h-auto mx-auto " src={image} alt="" />
       </div>

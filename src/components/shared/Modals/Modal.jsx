@@ -1,11 +1,16 @@
 import React from "react";
-
+import { twMerge } from "tailwind-merge";
 const Modal = ({ open, onClose, children }) => {
   if (!open) {
     return null;
   }
   return (
-    <div className="fixed left-0 bottom-0 w-full h-full bg-gray-800 z-50 bg-opacity-70">
+    <div
+      className={twMerge(
+        "fixed left-0 bottom-0 w-full h-full  bg-gray-700 z-50 ",
+        "bg-opacity-70"
+      )}
+    >
       <div className="absolute top-4 right-4">
         <svg
           className="ml-auto fill-current text-gray-500 cursor-pointer w-10 h-10"

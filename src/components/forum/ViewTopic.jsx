@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const RenderTitle = ({ id, title }) => {
   return (
     <Link to={`/forum/1/${id}`}>
-      <span className="hover:text-green-500">{title}</span>
+      <span className="hover:text-greenNormal">{title}</span>
     </Link>
   );
 };

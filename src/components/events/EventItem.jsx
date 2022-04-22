@@ -8,9 +8,9 @@ const EventItem = ({ name, mainImage }) => {
     <div className="border-b border-gray-100">
       <Accordion
         title={name}
-        // titleContainerClass="w-full p-4 border-l-2 border-green-500 text-lg"
+        // titleContainerClass="w-full p-4 border-l-2 border-greenNormal text-lg"
         containerClass="w-full p-3 border border-gray-100 rounded m-1 hover:bg-gray-100"
-    titleContainerClass="w-full p-4 border-l-2 border-green-500 text-lg"
+    titleContainerClass="w-full p-4 border-l-2 border-greenNormal text-lg"
       >
         <div className="p-2">
           <div className="flex justify-center items-center border-b border-gray-100 p-4">
@@ -25,7 +25,7 @@ const EventItem = ({ name, mainImage }) => {
               <Icon name="access_time" size="xl" color="green" />
               <div className="ml-2">
                 <span className="text-gray-500 text-xs">When ?</span>
-                <p className="text-green-500 text-base">
+                <p className="text-greenNormal text-base">
                   Monday, 28 Septembrie 2020 18:30
                 </p>
               </div>
@@ -34,7 +34,7 @@ const EventItem = ({ name, mainImage }) => {
               <Icon name="merge_type" size="xl" color="green" />
               <div className="ml-2">
                 <span className="text-gray-500 text-xs">What ?</span>
-                <p className="text-green-500 text-base">Seminar</p>
+                <p className="text-greenNormal text-base">Seminar</p>
               </div>
             </div>
 
@@ -42,14 +42,14 @@ const EventItem = ({ name, mainImage }) => {
               <Icon name="timelapse" size="xl" color="green" />
               <div className="ml-2">
                 <span className="text-gray-500 text-xs">How long ?</span>
-                <p className="text-green-500 text-base">2H</p>
+                <p className="text-greenNormal text-base">2H</p>
               </div>
             </div>
             <div className="flex items-center border border-gray-100 p-2 rounded w-2/4 m-2">
               <Icon name="location_on" size="xl" color="green" />
               <div className="ml-2">
                 <span className="text-gray-500 text-xs">Where ?</span>
-                <p className="text-green-500 text-base">
+                <p className="text-greenNormal text-base">
                   {" "}
                   Piatra Mare Venus Saturn, 700676
                 </p>
