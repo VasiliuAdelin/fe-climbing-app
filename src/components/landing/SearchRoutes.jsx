@@ -59,13 +59,13 @@ const SearchRoutes = () => {
       </CardHeader>
       <CardBody>
         <form onSubmit={onSubmit}>
-          <div className="flex justify-around items-center">
+          <div className="lg:flex justify-around items-center">
             <Select
               defaultValue={selectedCountry}
               onChange={onSelectCountry}
               options={COUNTRIES}
               placeholder="Select Country"
-              className="w-full m-2"
+              className="w-full my-2 lg:m-2"
               value={selectedCountry}
             />
             <Select
@@ -74,7 +74,7 @@ const SearchRoutes = () => {
               onChange={onSelectCity}
               options={cities}
               placeholder="Select City"
-              className="w-full m-2"
+              className="w-full my-2 lg:m-2"
               value={selectedCity}
             />
           </div>
@@ -84,7 +84,7 @@ const SearchRoutes = () => {
               type="submit"
               color={selectedCity && selectedCountry ? "green" : "gray"}
               ripple="dark"
-              className="m-4"
+              className="w-full my-2 lg:w-auto lg:m-4"
             >
               SEARCH
             </Button>

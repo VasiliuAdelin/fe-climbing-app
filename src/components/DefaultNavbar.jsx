@@ -6,14 +6,13 @@ import { useLocation } from "react-router-dom";
 import NavbarContainer from "@material-tailwind/react/NavbarContainer";
 import NavbarWrapper from "@material-tailwind/react/NavbarWrapper";
 import NavbarBrand from "@material-tailwind/react/NavbarBrand";
-import NavbarToggler from "@material-tailwind/react/NavbarToggler";
 import NavbarCollapse from "@material-tailwind/react/NavbarCollapse";
-import Nav from "@material-tailwind/react/Nav";
 import Icon from "@material-tailwind/react/Icon";
 import { useSelector } from "react-redux";
 import { selectState } from "../features/auth/authSlice";
 import CurrentUserDropdown from "./CurrentUserDropdown";
 import logo from "../assets/img/logo-large-dark.png";
+import DropdownComponent from "./shared/DropdownComponent";
 
 const LoggedInLinks = [
   {
@@ -78,7 +77,7 @@ const NavbarListAnonym = [
 
 export default function DefaultNavbar() {
   const location = useLocation().pathname;
-  const [openNavbar, setOpenNavbar] = useState(false);
+  const [openNavbar] = useState(false);
   const { isLoggedIn } = useSelector(selectState);
 
   return (
@@ -96,23 +95,15 @@ export default function DefaultNavbar() {
               </span>
             </NavbarBrand>
           </Link>
-          <div className="flex items-center justify-center">
-            <div>
-              <span
-                className="p-4 rounded-full focus:bg-gray-100 lg:hidden"
-                onClick={() => setOpenNavbar(!openNavbar)}
-              >
-                <i className="fa-solid fa-bars text-white"></i>
-              </span>
-            </div>
-
-            <div className="lg:hidden">
-              <CurrentUserDropdown />
-            </div>
+          <div className="lg:hidden flex items-center justify-center">
+            <DropdownComponent
+              navbarList={isLoggedIn ? LoggedInLinks : NavbarListAnonym}
+            />
+            {isLoggedIn && <CurrentUserDropdown />}
           </div>
         </NavbarWrapper>
         <NavbarCollapse open={openNavbar}>
-          <ul className="flex lg:items-center flex-col lg:flex-row list-none ml-auto bg-red-500 md:bg-green-500 ">
+          <ul className="flex lg:items-center flex-col lg:flex-row list-none ml-auto ">
             {isLoggedIn && (
               <>
                 {LoggedInLinks.map(({ to, name, icon }, index) => (

@@ -15,6 +15,31 @@ module.exports = {
       200: "200px",
       250: "250px",
       300: "300px",
+      350: "350px",
+      400: "400px",
+      500: "500px",
+    },
+    maxHeight: {
+      50: "50px",
+      100: "100px",
+      150: "150px",
+      200: "200px",
+      250: "250px",
+      300: "300px",
+      350: "350px",
+      400: "400px",
+      500: "500px",
+    },
+    minWidth: {
+      50: "50px",
+      100: "100px",
+      150: "150px",
+      200: "200px",
+      250: "250px",
+      300: "300px",
+      350: "350px",
+      400: "400px",
+      500: "500px",
     },
     borderRadius: {
       "custom-shape": "64% 36% 83% 17% / 23% 81% 19% 77%",
@@ -31,8 +56,18 @@ module.exports = {
     extend: {
       maxHeight: {
         128: "32rem",
+        50: "50px",
+        100: "100px",
+        150: "150px",
+        200: "200px",
+        250: "250px",
+        300: "300px",
+        350: "350px",
+        400: "400px",
+        500: "500px",
       },
       backgroundImage: () => ({
+        modal: "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75))",
         "new-login-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpapercave.com/wp/wp1871766.jpg)",
         "skills-background":
@@ -56,8 +91,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['responsive','active'],
-    }
+      backgroundColor: ["responsive", "active"],
+    },
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };

@@ -7,7 +7,6 @@ const CommentSection = ({
   postedAt = "",
 }) => {
   return (
-    // <div className="lg:overflow-y-auto no-scrollbar h-full">
     <div className="bg-white dark:bg-gray-800 text-black dark:text-gray-200 p-4 antialiased flex">
       <div>
         <div className="bg-gray-100 dark:bg-gray-700 rounded-xl px-4 pt-2 pb-2.5 w-full">
@@ -28,7 +27,6 @@ const CommentSection = ({
         </div>
       </div>
     </div>
-    // </div>
   );
 };
 

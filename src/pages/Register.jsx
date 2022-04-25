@@ -49,7 +49,7 @@ export default function Register() {
 
   return (
     <>
-      <div className="bg-new-login-background bg-cover bg-center w-full h-screen md:h-screen relative flex flex-col justify-between">
+      <div className="bg-new-login-background bg-cover bg-center w-full h-screen md:h-screen relative lg:flex flex-col justify-between">
         <DefaultNavbar />
         <div className="absolute bottom-2 right-2">
           {errors && errors.length > 0 && (
@@ -61,7 +61,7 @@ export default function Register() {
         </div>
         <Container>
           <form onSubmit={handleSubmit}>
-            <Card>
+            <Card className="rounded-xl">
               <CardHeader color="green" className="rounded-custom-shape">
                 <H5 color="white" style={{ marginBottom: 0 }}>
                   Create an account
