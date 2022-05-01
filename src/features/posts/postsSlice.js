@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPosts } from "./posts.actions";
+import { getPostById, getPosts } from "./posts.actions";
 
 const initialState = {
   posts: [],
+  currentPost: {},
 };
 
 export const postsSlice = createSlice({
@@ -14,11 +15,15 @@ export const postsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getPosts.fulfilled, (state, action) => {
-      const { results = [] } = action.payload;
+    builder
+      .addCase(getPosts.fulfilled, (state, action) => {
+        const { results = [] } = action.payload;
 
-      state.posts = results;
-    });
+        state.posts = results;
+      })
+      .addCase(getPostById.fulfilled, (state, action) => {
+        state.currentPost = action.payload;
+      });
   },
 });
 

@@ -22,7 +22,7 @@ const NotificationContainer = () => {
           closeIcon="close"
           closeIconPosition="center"
           hideAfter={10000}
-          className="fixed bottom-2 right-2 inline-block"
+          className="fixed bottom-2 right-2 inline-block z-50"
           handleClose={() => setField("error", { isError: false, message: "" })}
         >
           {error.message}
@@ -37,7 +37,7 @@ const NotificationContainer = () => {
           closeIcon="close"
           closeIconPosition="center"
           hideAfter={5000}
-          className="fixed bottom-2 right-2 inline-block"
+          className="fixed bottom-2 right-2 inline-block z-50"
           handleClose={() =>
             setField("success", { isSuccess: false, message: "" })
           }
@@ -54,7 +54,7 @@ const NotificationContainer = () => {
           closeIcon="close"
           closeIconPosition="center"
           hideAfter={6000}
-          className="fixed bottom-2 right-2 inline-block"
+          className="fixed bottom-2 right-2 inline-block z-50"
           handleClose={() =>
             setField("notification", { isNotification: false, message: "" })
           }

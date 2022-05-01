@@ -11,8 +11,8 @@ const initialState = {
   loading: true,
   posts: [],
   error: {
-    isError: false,
-    message: "",
+    isError: true,
+    message: "cas",
   },
   success: {
     isSuccess: false,
@@ -98,7 +98,15 @@ export const uiSlice = createSlice({
       .addMatcher(isPendingAction, (state) => {
         state.loading = true;
       })
-      .addMatcher(isAsyncFulfilled, (state) => {
+      .addMatcher(isAsyncFulfilled, (state, action) => {
+        console.log("action.payload", action.payload)
+        const { errors, message, code } = action.payload || {};
+        if ((errors || message) && code) {
+          state.error = {
+            isError: true,
+            message: formatErrorMessage(message, errors),
+          };
+        }
         state.loading = false;
       })
       .addMatcher(isAsyncRejected, (state, action) => {

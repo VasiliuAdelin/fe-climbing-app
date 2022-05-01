@@ -51,17 +51,9 @@ export default function Register() {
     <>
       <div className="bg-new-login-background bg-cover bg-center w-full h-screen md:h-screen relative lg:flex flex-col justify-between">
         <DefaultNavbar />
-        <div className="absolute bottom-2 right-2">
-          {errors && errors.length > 0 && (
-            <Alert color="red">{`${message} | ${errors[0]}`}</Alert>
-          )}
-          {message && errors.length === 0 && (
-            <Alert color="red">{`${message}`}</Alert>
-          )}
-        </div>
         <Container>
           <form onSubmit={handleSubmit}>
-            <Card className="rounded-xl">
+            <Card className="rounded-xl min-w-400">
               <CardHeader color="green" className="rounded-custom-shape">
                 <H5 color="white" style={{ marginBottom: 0 }}>
                   Create an account

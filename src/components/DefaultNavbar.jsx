@@ -16,24 +16,34 @@ import DropdownComponent from "./shared/DropdownComponent";
 
 const LoggedInLinks = [
   {
-    to: "/climb",
-    name: "Climb",
-    icon: "hiking",
+    to: "/faq",
+    name: "FAQ",
+    icon: "question_answer",
   },
   {
-    to: "/news",
-    name: "News",
+    to: "/forum",
+    name: "Forum",
+    icon: "discount",
+  },
+  {
+    to: "/events",
+    name: "Events",
+    icon: "event_available",
+  },
+  {
+    to: "/newsfeed",
+    name: "News Feed",
     icon: "people",
+  },
+  {
+    to: "/trainers",
+    name: "Trainers",
+    icon: "hiking",
   },
   {
     to: "/skills",
     name: "Skills",
     icon: "book",
-  },
-  {
-    to: "/forum",
-    name: "Forum",
-    icon: "forum",
   },
 ];
 
@@ -84,7 +94,7 @@ export default function DefaultNavbar() {
     <Navbar
       color="transparent"
       navbar
-      className="bg-transparent lg:bg-gray-900 mt-3"
+      className="bg-transparent lg:bg-gray-900 mt-3 z-50"
     >
       <NavbarContainer>
         <NavbarWrapper className="items-center">
@@ -111,9 +121,9 @@ export default function DefaultNavbar() {
                     <Link to={to}>
                       <div
                         className={clsx(
-                          "flex justify-center items-center w-full  p-3 font-medium cursor-pointer whitespace-no-wrap rounded-md text-gray-900 text-white hover:bg-light-blue-500 hover:shadow-md-light-blue transition-all duration-300",
+                          "flex justify-center items-center w-full  p-3 font-medium cursor-pointer whitespace-no-wrap rounded-md text-gray-900 text-white hover:bg-light-green-500 hover:shadow-md-light-green transition-all duration-300",
                           location === to &&
-                            "text-white bg-gradient-to-tr from-light-blue-500 to-light-blue-700 shadow-md-light-blue transition-all duration-300"
+                            "text-white bg-gradient-to-tr from-light-green-500 to-light-green-700 shadow-md-light-green transition-all duration-300"
                         )}
                       >
                         <Icon name={icon} size="2xl" color="white" />

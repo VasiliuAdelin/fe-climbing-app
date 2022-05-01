@@ -7,10 +7,7 @@ const Modal = ({ open, onClose, children }) => {
   }
   return (
     <div
-      className={twMerge(
-        "fixed left-0 bottom-0 w-full h-full bg-modal z-50 ",
-        "bg-opacity-70"
-      )}
+      className="fixed left-0 bottom-0 w-full h-auto bg-modal z-50 "
     >
       <div className="absolute top-4 right-4">
         <svg
@@ -22,7 +19,7 @@ const Modal = ({ open, onClose, children }) => {
           <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
         </svg>
       </div>
-      <div className="w-full h-full flex justify-center items-center p-2 md:py-3 md:px-0 lg:py-12 lgpx-24">
+      <div className="w-full h-screen overflow-scroll flex justify-center items-center p-0 lg:p-2 md:py-3 md:px-0 lg:py-12">
         {children}
       </div>
     </div>

@@ -1,56 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { isArray, isEmpty } from "lodash";
 import EventsLanding from "../components/events/EventsLanding";
 import ComplexLayout from "../components/layouts/ComplexLayout";
 import ViewEvents from "../components/events/ViewEvents";
-
-const mockEvents = [
-  {
-    id: 1,
-    name: "Event Name",
-    description: "",
-    location: "Str. Street 28",
-    startDate: new Date().toString(),
-    createdBy: {
-      userID: "21313",
-      userName: "Daniel Pricop",
-    },
-    createdAt: new Date().toDateString(),
-    participants: 23,
-    interested: 123,
-    mainImage: "https://via.placeholder.com/1000",
-  },
-  {
-    id: 2,
-    name: "Event Name",
-    description: "",
-    location: "Str. Street 28",
-    startDate: new Date().toString(),
-    createdBy: {
-      userID: "21313",
-      userName: "Daniel Pricop",
-    },
-    createdAt: new Date().toDateString(),
-    participants: 23,
-    interested: 123,
-    mainImage: "https://via.placeholder.com/1000",
-  },
-  {
-    id: 3,
-    name: "Event Name",
-    description: "",
-    location: "Str. Street 28",
-    startDate: new Date().toString(),
-    createdBy: {
-      userID: "21313",
-      userName: "Daniel Pricop",
-    },
-    createdAt: new Date().toDateString(),
-    participants: 23,
-    interested: 123,
-    mainImage: "https://via.placeholder.com/1000",
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { createEventAsync, getEvents } from "../features/events/events.actions";
+import Modal from "../components/shared/Modals/Modal";
+import CreateEvent from "../components/events/CreateEvent";
 
 const EmptyEvents = () => (
   <div className="w-full p-4 min-h-200 flex justify-center items-center">
@@ -61,8 +17,27 @@ const EmptyEvents = () => (
 );
 
 const Events = () => {
-  const events = mockEvents;
-  const existEvents = isArray(events) && !isEmpty(events);
+  const [openModal, setOpenModal] = useState(false);
+  const [events, setEvents] = useState([]);
+  const { events: reduxEvents } = useSelector((state) => state.events);
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getEvents());
+  }, []);
+
+  useEffect(() => {
+    setEvents(reduxEvents);
+  }, [reduxEvents]);
+
+  const handleOnAddEvent = (payload) => {
+    setOpenModal(false)
+    dispatch(createEventAsync({ ...payload, author: user.id }));
+    setTimeout(() => {
+      dispatch(getEvents());
+    }, 2000);
+  };
 
   return (
     <ComplexLayout
@@ -71,11 +46,18 @@ const Events = () => {
       subtitle="Let's get togheter"
       customBackground="https://svycarskabouda.cz/wp-content/uploads/2019/07/pexels-photo-1000445.jpeg"
     >
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+        <CreateEvent onSubmit={handleOnAddEvent} />
+      </Modal>
       <div className="w-3/5 m-auto">
         <div className="border border-gray-100 shadow-lg hover:shadow-xl rounded-lg">
-          <EventsLanding month="Martie" year="2020" />
-          {!existEvents && <EmptyEvents />}
-          {existEvents && <ViewEvents events={events} />}
+          <EventsLanding
+            onCreate={() => setOpenModal(true)}
+            month="Martie"
+            year="2020"
+          />
+          {isEmpty(events) && <EmptyEvents />}
+          {!isEmpty(events) && <ViewEvents events={events} />}
         </div>
       </div>
     </ComplexLayout>

@@ -1,7 +1,9 @@
 import React from "react";
-import moment from 'moment'
+import { Link } from "react-router-dom";
+import moment from "moment";
 
 const FeedPostCard = ({
+  id,
   userImage,
   userName,
   asset,
@@ -11,19 +13,25 @@ const FeedPostCard = ({
   liked,
   totalComments,
   handleOnClick,
+  handleOnLike,
+  handleOnClikShare,
 }) => (
   <div className="mb-2">
     <div className="rounded overflow-hidden shadow-md bg-white">
       <div className="flex m-4">
-        <img
-          className="w-12 h-12 rounded-full"
-          src={userImage}
-          alt={userName}
-        />
+        <Link to={`/profile/${id}`}>
+          <img
+            className="w-12 h-12 rounded-full"
+            src={userImage}
+            alt={userName}
+          />
+        </Link>
         <div className="ml-2 mt-0.5">
-          <span className="block font-medium text-base leading-snug text-black dark:text-gray-100">
-            {userName}
-          </span>
+          <Link to={`/profile/${id}`}>
+            <span className="block font-medium text-base leading-snug text-black dark:text-gray-100">
+              {userName}
+            </span>
+          </Link>
           <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">
             {moment(createdAt).fromNow()}
           </span>
@@ -52,6 +60,7 @@ const FeedPostCard = ({
               className="w-25 h-25 mr-1 cursor-pointer"
               stroke="green"
               strokeWidth="1.7"
+              onClick={handleOnLike}
             >
               <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
@@ -84,6 +93,7 @@ const FeedPostCard = ({
               stroke="green"
               strokeWidth="1.5"
               className="feather feather-twitter mr-2"
+              onClick={handleOnClikShare}
             >
               <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
             </svg>
@@ -97,6 +107,7 @@ const FeedPostCard = ({
               fill="none"
               stroke="green"
               strokeWidth="1.5"
+              onClick={handleOnClikShare}
               className="feather feather-instagram"
             >
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>

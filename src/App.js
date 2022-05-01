@@ -25,6 +25,9 @@ import Forum from "./pages/Forum";
 import ViewTopic from "./components/forum/ViewTopic";
 import ViewTopicPost from "./components/forum/ViewTopicPost";
 import FAQ from "./pages/FAQ";
+import ViewFeedPost from "./pages/ViewFeedPost";
+import SecureRoute from "./components/security/SecureRoute";
+import ViewUserProfile from "./pages/ViewUserProfile";
 
 const routes = [
   {
@@ -42,6 +45,12 @@ const routes = [
   {
     path: "/profile",
     component: Profile,
+    privateRoute: true,
+    routeName: "Profile",
+  },
+  {
+    path: "/profile/:id",
+    component: ViewUserProfile,
   },
   {
     path: "/skills",
@@ -68,6 +77,10 @@ const routes = [
     component: NewsFeed,
   },
   {
+    path: "/newsfeed/:id",
+    component: ViewFeedPost,
+  },
+  {
     path: "/areas/:city/routelist/:id",
     component: ViewCRag,
   },
@@ -80,8 +93,8 @@ const routes = [
     component: Events,
   },
   {
-    path:'/forum/:id/:postId',
-    component: ViewTopicPost
+    path: "/forum/:id/:postId",
+    component: ViewTopicPost,
   },
   {
     path: "/forum/:id",
@@ -103,12 +116,27 @@ const App = () => {
   useEffect(() => {
     dispatch(aboutMeAsync());
   });
+
   return (
     <>
       <Switch>
-        {routes.map(({ path, component }, index) => (
-          <Route key={index} exact path={path} component={component} />
-        ))}
+        {routes.map(
+          (
+            {
+              privateRoute = false,
+              routeName = "",
+              path,
+              component: RouteComponent,
+            },
+            index
+          ) => (
+            <Route key={index} exact path={path}>
+              <SecureRoute privateRoute={privateRoute} routeName={routeName}>
+                <RouteComponent />
+              </SecureRoute>
+            </Route>
+          )
+        )}
         <Redirect from="*" to="/" />
       </Switch>
       <LoaderContainer />

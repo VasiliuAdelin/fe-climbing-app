@@ -44,7 +44,7 @@ const USEFULL_LINKS = [
 ];
 
 const DefaultFooter = () => (
-  <footer className="relative bg-grayDark pt-8 pb-6">
+  <footer className="relative bg-grayDark pt-8 pb-6 z-0">
     <div className="container max-w-7xl mx-auto px-4">
       <div className="text-center lg:flex flex-between pt-8">
         <div className="w-full">

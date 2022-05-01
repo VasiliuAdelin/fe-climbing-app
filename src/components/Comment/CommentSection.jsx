@@ -18,6 +18,7 @@ const CommentSection = ({ comments, onSubmit }) => {
         {comments.map(({ description, author, createdAt }, index) => (
           <CommentItem
             key={index}
+            id={author.id}
             userImage={author.imageLink}
             userName={author.name}
             message={description}
