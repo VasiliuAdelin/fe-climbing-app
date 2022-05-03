@@ -85,7 +85,7 @@ const routes = [
     component: ViewCRag,
   },
   {
-    path: "/areas/:city/routelist",
+    path: "/areas/:country/:city/routelist",
     component: RouteList,
   },
   {

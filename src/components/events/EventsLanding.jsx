@@ -42,7 +42,7 @@ const EventsLanding = ({ month, year, onCreate, onNext, onPrevious }) => {
           rounded
           ripple="light"
           className="m-1 p-0 opacity-50 hover:opacity-90"
-          onClick={onNext}
+          onClick={onPrevious}
         >
           <Icon name="arrow_back_ios" size="xl" color="white" />
         </Button>
@@ -52,7 +52,7 @@ const EventsLanding = ({ month, year, onCreate, onNext, onPrevious }) => {
           iconOnly
           rounded
           ripple="light"
-          onClick={onPrevious}
+          onClick={onNext}
           className="m-1 opacity-50 hover:opacity-90"
         >
           <Icon name="arrow_forward_ios" size="xl" color="white" />

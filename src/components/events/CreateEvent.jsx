@@ -22,10 +22,7 @@ const INITIAL_STATE = {
 
 const CreateEvent = ({ onSubmit }) => {
   const [values, setValues] = useState(INITIAL_STATE);
-  const [currentTime] = useState({
-    month: moment().month() + 1,
-    year: moment().year(),
-  });
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,12 +39,10 @@ const CreateEvent = ({ onSubmit }) => {
       mainImage,
     } = values;
 
-    const { month, year } = currentTime;
+   
 
     const payload = {
       title,
-      month,
-      year,
       description,
       typeOfEvent,
       duration,

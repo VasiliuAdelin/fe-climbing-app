@@ -2,12 +2,6 @@ module.exports = {
   purge: ["./src/**/*.js", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    colors: {
-      greenNormal: "#17B65A",
-      greenDark: "#007931",
-      greenLight: "#CEEDDB",
-      grayDark: "#22333B",
-    },
     minHeight: {
       50: "50px",
       100: "100px",
@@ -54,6 +48,12 @@ module.exports = {
       body: ["Roboto", "sans-serif"],
     },
     extend: {
+      colors: {
+        greenNormal: "#17B65A",
+        greenDark: "#007931",
+        greenLight: "#CEEDDB",
+        grayDark: "#22333B",
+      },
       maxHeight: {
         128: "32rem",
         50: "50px",
@@ -81,16 +81,16 @@ module.exports = {
         "profile-background":
           "linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1080.jpg')",
       }),
-      colors: {
-        accent: "#CEEDDB",
-        green: "#007931",
-        lightGreen: "#17b65a",
-        darkGray: "#22333b",
-      },
     },
   },
   variants: {
     extend: {
+      colors: {
+        greenNormal: "#17B65A",
+        greenDark: "#007931",
+        greenLight: "#CEEDDB",
+        grayDark: "#22333B",
+      },
       backgroundColor: ["responsive", "active"],
     },
   },

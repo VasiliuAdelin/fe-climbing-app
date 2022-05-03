@@ -5,30 +5,12 @@ import CardHeader from "@material-tailwind/react/CardHeader";
 import CardBody from "@material-tailwind/react/CardBody";
 import { Button } from "@material-tailwind/react";
 import { useRouter } from "../../hooks/useRouter";
+import TYPES from "../../types";
+import { formatCountries, formatCities } from "./landing.utils";
 
-const COUNTRIES = [
-  { value: "romania", label: "Romania" },
-  { value: "italy", label: "Italy" },
-  { value: "spain", label: "Spain" },
-];
+const { COUNTRIES } = TYPES;
 
-const CITIES = {
-  romania: [
-    { value: "iasi", label: "Iasi" },
-    { value: "suceava", label: "Suceava" },
-    { value: "alba-iulia", label: "Alba Iulia" },
-  ],
-  spain: [
-    { value: "madrid", label: "Madrid" },
-    { value: "barcelona", label: "Barcelona" },
-    { value: "sevillia", label: "Sevillia" },
-  ],
-  italy: [
-    { value: "italy1", label: "Italy 1" },
-    { value: "italy2", label: "Genova" },
-    { value: "italy3", label: "Altceva" },
-  ],
-};
+const COUNTRIES_OPTIONS = formatCountries(COUNTRIES);
 
 const SearchRoutes = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -40,7 +22,7 @@ const SearchRoutes = () => {
     const { value } = country;
     setSelectedCity(null);
     setSelectedCountry(country);
-    setCities(CITIES[value]);
+    setCities(formatCities(COUNTRIES, value));
   };
 
   const onSelectCity = (city) => {
@@ -49,7 +31,10 @@ const SearchRoutes = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    push(`/areas/${selectedCity.value}/routelist`);
+    const formatedCity = selectedCity.value;
+    const formatedCountry = selectedCountry.value;
+
+    push(`/areas/${formatedCountry}/${formatedCity}/routelist`);
   };
 
   return (
@@ -63,7 +48,7 @@ const SearchRoutes = () => {
             <Select
               defaultValue={selectedCountry}
               onChange={onSelectCountry}
-              options={COUNTRIES}
+              options={COUNTRIES_OPTIONS}
               placeholder="Select Country"
               className="w-full my-2 lg:m-2"
               value={selectedCountry}

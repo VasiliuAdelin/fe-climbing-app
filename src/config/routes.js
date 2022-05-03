@@ -7,8 +7,8 @@ const routes = {
     me: "/auth/me",
   },
   users: {
-    base: '/users',
-    profile: '/users/profile'
+    base: "/users",
+    profile: "/users/profile",
   },
   post: {
     base: "/posts",
@@ -17,6 +17,10 @@ const routes = {
   event: {
     base: "/events",
     getAll: "/events",
+  },
+  crag: {
+    base: "/crags",
+    getAll: "/crags",
   },
   comment: {
     base: "/comments",

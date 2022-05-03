@@ -94,7 +94,7 @@ export default function DefaultNavbar() {
     <Navbar
       color="transparent"
       navbar
-      className="bg-transparent lg:bg-gray-900 mt-3 z-50"
+      className="mt-3 z-50"
     >
       <NavbarContainer>
         <NavbarWrapper className="items-center">

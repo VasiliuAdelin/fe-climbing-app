@@ -27,7 +27,7 @@ export const getEventById = createAsyncThunk(
 );
 
 export const updateEvent = createAsyncThunk(
-  "auth/fetchUpdateEvent",
+  "auth/fetchUpdateEventAsync",
   async (props) => {
     const { id, payload } = props;
 

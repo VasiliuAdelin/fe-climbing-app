@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-const Accordion = ({ title, children, containerClass, titleClass, titleContainerClass }) => {
+const Accordion = ({
+  title,
+  children,
+  containerClass,
+  titleClass,
+  titleContainerClass,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -19,7 +25,9 @@ const Accordion = ({ title, children, containerClass, titleClass, titleContainer
           )}
         </button>
       </h2>
-      <div className={`p-1 ${isExpanded ? "block" : "hidden"}`}>{children}</div>
+      <div className={`lg: p-1 ${isExpanded ? "block" : "hidden"}`}>
+        {children}
+      </div>
     </div>
   );
 };
@@ -28,7 +36,7 @@ Accordion.defaultProps = {
   title: "Accordion Title Here",
   children: null,
   containerClass: "",
-  titleContainerClass:"",
+  titleContainerClass: "",
   titleClass: "",
 };
 

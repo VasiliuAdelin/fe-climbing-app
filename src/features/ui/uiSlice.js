@@ -11,8 +11,8 @@ const initialState = {
   loading: true,
   posts: [],
   error: {
-    isError: true,
-    message: "cas",
+    isError: false,
+    message: "",
   },
   success: {
     isSuccess: false,

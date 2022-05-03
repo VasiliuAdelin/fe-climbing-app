@@ -1,3 +1,4 @@
-import cragsTypes from "./crags";
+import CRAGS from "./crags";
+import COUNTRIES from "./countries";
 
-export default cragsTypes;
+export default { CRAGS, COUNTRIES };

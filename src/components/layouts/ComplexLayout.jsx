@@ -52,7 +52,7 @@ const ComplexLayout = ({
         <section className="relative py-16 bg-gray-100">
           <div className="container m-0 p-0 max-w-7xl lg:px-4 lg:mx-auto">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-3xl -mt-64 h-auto">
-              <div className="p-5">{children}</div>
+              <div className="px-1 py-5 lg:p-5">{children}</div>
             </div>
           </div>
         </section>
