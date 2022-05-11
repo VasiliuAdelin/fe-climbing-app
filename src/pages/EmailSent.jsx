@@ -5,9 +5,7 @@ import CardBody from '@material-tailwind/react/CardBody';
 import CardFooter from '@material-tailwind/react/CardFooter';
 import H5 from '@material-tailwind/react/Heading5';
 import Paragraph from '@material-tailwind/react/Paragraph';
-import { Link } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { useHistory } from 'react-router';
+import { Link, useHistory } from 'react-router-dom';
 import DefaultNavbar from '../components/DefaultNavbar';
 import Page from '../components/login/Page';
 import Container from '../components/login/Container';
