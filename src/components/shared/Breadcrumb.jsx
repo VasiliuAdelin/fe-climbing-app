@@ -11,7 +11,7 @@ function Breadcrumb({ routes }) {
           {routes.map(({ name = '', icon = '', urlTo = '/' }, index) => {
             const isLastElement = routes.length === index + 1;
 
-            const formatName = name.length > 4 ? `${name.slice(0, 4)}...` : name;
+            const formatName = name.length > 3 ? `${name.slice(0, 3)}...` : name;
 
             return (
               <div key={index}>

@@ -4,8 +4,8 @@ import SearchRoutes from './SearchRoutes';
 
 function Header() {
   return (
-    <div className="relative pt-16 pb-32 flex content-center items-center justify-center h-screen">
-      <div className="bg-login-background2 bg-cover bg-center absolute top-0 w-full h-full" />
+    <div className="relative pt-16 pb-32 flex content-center items-center justify-center h-screen min-h-800">
+      <div className="bg-login-background2 bg-cover bg-center absolute top-0 w-full h-full min-h-800" />
       <div className="mt-32 lg:mt-0 container max-w-8xl relative mx-auto">
         <div className="items-center flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">

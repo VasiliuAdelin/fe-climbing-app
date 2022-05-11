@@ -44,7 +44,7 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-new-login-background bg-cover bg-center w-full h-screen md:h-screen relative lg:flex flex-col justify-between">
+    <div className="bg-new-login-background bg-cover bg-center w-full min-h-800 md:h-screen relative lg:flex flex-col justify-between">
       <DefaultNavbar />
       <Container>
         <form onSubmit={handleSubmit}>

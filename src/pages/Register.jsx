@@ -48,7 +48,7 @@ export default function Register() {
   };
 
   return (
-    <div className="bg-new-login-background bg-cover bg-center w-full lg:h-screen md:h-screen relative lg:flex lg:flex-col lg:justify-between">
+    <div className="bg-new-login-background bg-cover bg-center w-full min-h-800 lg:h-screen md:h-screen relative lg:flex lg:flex-col lg:justify-between">
       <DefaultNavbar />
       <Container>
         <form className="mt-30" onSubmit={handleSubmit}>

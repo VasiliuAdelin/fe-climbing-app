@@ -48,13 +48,13 @@ function FilterSection({ onChange }) {
   return (
     <>
       <h1 className="text-gray-500">Filters:</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div className="lg:grid lg:grid-cols-1 lg:grid-cols-4 gap-4">
         <Select
           defaultValue={values.type}
           onChange={(payload) => handleOnChangeSelect('type', payload)}
           options={TYPE_OF_CRAGS_OPTIONS}
           placeholder="Filter by type"
-          className="w-full"
+          className="mb-4 lg:mb-0 w-full"
           value={values.type}
           isMulti
         />
@@ -63,7 +63,7 @@ function FilterSection({ onChange }) {
           onChange={(payload) => handleOnChangeSelect('grade', payload)}
           options={GRADES_OPTIONS}
           placeholder="Filter by grade"
-          className="w-full"
+          className="mb-4 lg:mb-0 w-full"
           value={values.grade}
           isMulti
         />

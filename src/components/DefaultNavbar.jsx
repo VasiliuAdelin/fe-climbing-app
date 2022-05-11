@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import { selectState } from '../features/auth/authSlice';
 import CurrentUserDropdown from './CurrentUserDropdown';
 import logo from '../assets/img/logo-large-dark.png';
+import logoSmall from '../assets/img/logo-small-dark.png';
 import DropdownComponent from './shared/DropdownComponent';
 
 const LoggedInLinks = [
@@ -100,8 +101,11 @@ export default function DefaultNavbar() {
         <NavbarWrapper className="items-center">
           <Link to="/">
             <NavbarBrand>
-              <span className=" p-4 w-50 h-10 inline-block">
+              <span className="hidden p-4 w-50 h-10 md:inline-block">
                 <img className="w-36 -mt-6" src={logo} alt="" />
+              </span>
+              <span className="inline-block h-10 md:hidden">
+                <img className="w-20" src={logoSmall} alt="" />
               </span>
             </NavbarBrand>
           </Link>
