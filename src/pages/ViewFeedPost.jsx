@@ -12,7 +12,7 @@ import { setFieldPosts } from '../features/posts/postsSlice';
 
 function ViewFeedPost() {
   const [post, setPost] = useState({});
-  const { user, isLoggedIn } = useSelector(selectState);
+  const { user } = useSelector(selectState);
   const { currentPost } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const { query } = useRouter();

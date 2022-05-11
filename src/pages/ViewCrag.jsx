@@ -16,7 +16,7 @@ export default function RouteList() {
   const { query, push } = useRouter();
   const [currentCrag, setCurrentCrag] = useState({});
   const dispatch = useDispatch();
-  const { user, isLoggedIn } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const { currentCrag: reduxCurrentCrag } = useSelector((state) => state.crags);
 
   const { country, city, id } = query;

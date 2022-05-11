@@ -88,13 +88,13 @@ function ResetPassword() {
                 <div className="flex justify-center bg-bb mb-4">
                   <Button type="reset" color="green" buttonType="outline" size="lg">
                     Password changed successfully
-                    </Button>
+                  </Button>
                 </div>
               ) : (
                 <div className="flex justify-center bg-bb mb-4">
                   <Button color="lightBlue" buttonType="outline" size="lg">
-                      {status === 'loading' ? 'Loading' : 'Reset Password'}
-                    </Button>
+                    {status === 'loading' ? 'Loading' : 'Reset Password'}
+                  </Button>
                 </div>
               )}
 
@@ -102,30 +102,30 @@ function ResetPassword() {
                 <div className="p-0 m-0">
                   <Paragraph color="blueGray">
                     Please login with the new credentials
-                      {' '}
+                    {' '}
                     {' '}
                     <Link
-                        to="/login"
-                        className="inline-block text-blue-700 hover:text-blue-900 p-0"
-                      >
-                        Login
-                      </Link>
+                      to="/login"
+                      className="inline-block text-blue-700 hover:text-blue-900 p-0"
+                    >
+                      Login
+                    </Link>
                   </Paragraph>
                 </div>
               ) : (
                 <div className="p-0 m-0">
                   <Paragraph color="blueGray">
-                      Remember your password?
-                      {' '}
-                      {status}
-                      {' '}
-                      <Link
-                        to="/login"
-                        className="inline-block text-blue-700 hover:text-blue-900 p-0"
-                      >
-                        Login
-                      </Link>
-                    </Paragraph>
+                    Remember your password?
+                    {' '}
+                    {status}
+                    {' '}
+                    <Link
+                      to="/login"
+                      className="inline-block text-blue-700 hover:text-blue-900 p-0"
+                    >
+                      Login
+                    </Link>
+                  </Paragraph>
                 </div>
               )}
             </CardFooter>

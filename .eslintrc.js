@@ -19,5 +19,12 @@ module.exports = {
   ],
   rules: {
     'linebreak-style': 0,
+    'react/react-in-jsx-scope': 'off',
+    'no-underscore-dangle': ['error', { allow: ['_place'] }],
+    'no-use-before-define': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/no-array-index-key': 'off',
+    'react/prop-types': 'off',
+    'react/no-unescaped-entities': 'off',
   },
 };

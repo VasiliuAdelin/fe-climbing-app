@@ -57,9 +57,9 @@ const mockCategories = [
 const mockSkilss = () => {
   const results = [];
   [1, 2, 3].forEach((element) => {
-    mockCategories.forEach(({ name, label }) => {
-      name !== 'all'
-        && results.push({
+    mockCategories.forEach(({ name }) => {
+      if (name !== 'all') {
+        results.push({
           id: `${element}-${name}`,
           title: MOCK_CATEGORIES_TITLE[name],
           description:
@@ -67,6 +67,7 @@ const mockSkilss = () => {
           category: name,
           mainImage: MOCK_CATEGORIES_IMAGES[name],
         });
+      }
     });
   });
   return results;

@@ -14,6 +14,7 @@ function RenderTitle({ id, title }) {
     </Link>
   );
 }
+
 const data = [
   {
     id: 1,
@@ -58,7 +59,9 @@ const columns = [
     sortFunction: (rowA, rowB) => {
       const a = rowA.title.toLowerCase();
       const b = rowB.title.toLowerCase();
-      return a > b ? 1 : b > a ? -1 : 0;
+      if (a > b) return 1;
+      if (b > a) return -1;
+      return 0;
     },
   },
   {

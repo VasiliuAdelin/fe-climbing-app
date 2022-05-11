@@ -48,9 +48,9 @@ const mockCategories = [
 const mockTrainers = () => {
   const results = [];
   [1, 2, 3, 4, 5].forEach((element) => {
-    mockCategories.forEach(({ name, label }) => {
-      name !== 'all'
-        && results.push({
+    mockCategories.forEach(({ name }) => {
+      if (name !== 'all') {
+        results.push({
           id: `${element}-${name}`,
           username: `@${name.toLocaleLowerCase()}`,
           position: 'Climbing Trainer',
@@ -63,6 +63,7 @@ const mockTrainers = () => {
           mainImage: MOCK_CATEGORIES_IMAGES[name],
           categories: [name],
         });
+      }
     });
   });
   return results;

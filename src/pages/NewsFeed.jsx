@@ -8,7 +8,6 @@ export default function NewsFeed() {
       title="News Feed"
       subtitle="See what others are doing"
     >
-      {/* TODO: to change the background image */}
       <NewsFeedPostsSection />
     </ComplexLayout>
   );

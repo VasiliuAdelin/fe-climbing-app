@@ -91,12 +91,12 @@ function SearchPerson() {
                 return showEl ? (
                   <RenderItem
                     onClick={() => {
-                        setSelectUser({
-                          ...selectUser,
-                          ...lU,
-                        });
-                        setShowModal(true);
-                      }}
+                      setSelectUser({
+                        ...selectUser,
+                        ...lU,
+                      });
+                      setShowModal(true);
+                    }}
                     key={idx}
                     {...lU}
                   />

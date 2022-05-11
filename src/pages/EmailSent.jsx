@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
@@ -5,6 +6,7 @@ import CardFooter from '@material-tailwind/react/CardFooter';
 import H5 from '@material-tailwind/react/Heading5';
 import Paragraph from '@material-tailwind/react/Paragraph';
 import { Link } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { useHistory } from 'react-router';
 import DefaultNavbar from '../components/DefaultNavbar';
 import Page from '../components/login/Page';

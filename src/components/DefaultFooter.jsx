@@ -93,22 +93,22 @@ function DefaultFooter() {
               {USEFULL_LINKS.map(({ title = '', links = [] }, index) => (
                 <div className="w-full" key={index}>
                   <span className="block uppercase text-greenNormal text-sm font-serif font-medium mb-2">
-                {title}
-              </span>
+                    {title}
+                  </span>
                   <ul className="list-unstyled">
-                {links.map(({ name = '', path = '/' }, idx) => (
-                    <li key={idx}>
-                      <a
-                        href={path}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-greenLight hover:text-greenNormal block pb-2 text-sm"
-                      >
-                        {name}
-                      </a>
-                    </li>
-                  ))}
-              </ul>
+                    {links.map(({ name = '', path = '/' }, idx) => (
+                      <li key={idx}>
+                        <a
+                          href={path}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-greenLight hover:text-greenNormal block pb-2 text-sm"
+                        >
+                          {name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>

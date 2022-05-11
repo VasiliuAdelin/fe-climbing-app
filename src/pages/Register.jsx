@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import Alert from '@material-tailwind/react/Alert';
 import { selectState } from '../features/auth/authSlice';
 import Container from '../components/login/Container';
 import DefaultNavbar from '../components/DefaultNavbar';
@@ -25,7 +24,7 @@ export default function Register() {
   });
   // successRegister
   const {
-    status, errors, message, isLoggedIn,
+    status, isLoggedIn,
   } = useSelector(selectState);
   const dispatch = useDispatch();
   const history = useHistory();

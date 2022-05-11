@@ -8,7 +8,7 @@ function Modal({ isOpen, handleClose, children }) {
         <div className="w-9/12 my-6 mx-auto">
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="text-right">
-              <button className="p-4" onClick={handleClose}>
+              <button type="button" className="p-4" onClick={handleClose}>
                 x
               </button>
             </div>

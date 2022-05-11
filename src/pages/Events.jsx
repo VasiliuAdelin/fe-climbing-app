@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { cloneDeep, isArray, isEmpty } from 'lodash';
+import { cloneDeep, isEmpty } from 'lodash';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import EventsLanding from '../components/events/EventsLanding';

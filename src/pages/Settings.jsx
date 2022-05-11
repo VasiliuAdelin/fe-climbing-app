@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import SettingsForm from '../components/SettingsForm';

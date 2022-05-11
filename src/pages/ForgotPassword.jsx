@@ -32,7 +32,6 @@ export default function ForgotPassword() {
     if (status === 'emailSent') {
       history.push(`/email-sent?email=${values.email}`);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn, history, status]);
 
   const handleInputChange = (e) => {
