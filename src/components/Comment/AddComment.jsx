@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Button } from "gpl-tailwind-theme";
+import React, { useState } from 'react';
+import { Button } from 'gpl-tailwind-theme';
 
-const AddComment = ({ onSubmit }) => {
-  const [message, setMessage] = useState("");
+function AddComment({ onSubmit }) {
+  const [message, setMessage] = useState('');
 
   const handleOnSubmit = () => {
     onSubmit(message);
-    setMessage("");
+    setMessage('');
   };
   return (
     <div className="w-full border-t border-gray-100 rounded">
@@ -17,14 +17,14 @@ const AddComment = ({ onSubmit }) => {
         required
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-      ></textarea>
+      />
       <div className="w-full md:flex md:items-start md:items-center ml-4 mb-4">
         <Button
           color="green"
           size="base"
           ripple="light"
           disabled={!message}
-          className={`rounded m-1 ${!message && "invisible"}`}
+          className={`rounded m-1 ${!message && 'invisible'}`}
           onClick={handleOnSubmit}
         >
           PUBLISH
@@ -37,9 +37,9 @@ const AddComment = ({ onSubmit }) => {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
@@ -48,7 +48,7 @@ const AddComment = ({ onSubmit }) => {
       </div>
     </div>
   );
-};
+}
 
 AddComment.defaultProps = {
   onSubmit: () => null,

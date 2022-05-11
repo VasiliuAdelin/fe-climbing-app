@@ -1,40 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { cloneDeep, isArray, isEmpty } from "lodash";
-import moment from "moment";
-import EventsLanding from "../components/events/EventsLanding";
-import ComplexLayout from "../components/layouts/ComplexLayout";
-import ViewEvents from "../components/events/ViewEvents";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { cloneDeep, isArray, isEmpty } from 'lodash';
+import moment from 'moment';
+import { useDispatch, useSelector } from 'react-redux';
+import EventsLanding from '../components/events/EventsLanding';
+import ComplexLayout from '../components/layouts/ComplexLayout';
+import ViewEvents from '../components/events/ViewEvents';
 import {
   createEventAsync,
   getEvents,
   updateEvent,
-} from "../features/events/events.actions";
-import Modal from "../components/shared/Modals/Modal";
-import CreateEvent from "../components/events/CreateEvent";
+} from '../features/events/events.actions';
+import Modal from '../components/shared/Modals/Modal';
+import CreateEvent from '../components/events/CreateEvent';
 
 const MONTHS = [
-  "Ianuarie",
-  "Feb",
-  "Mar",
-  "April",
-  "Mai",
-  "Iun",
-  "Iulie",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+  'Ianuarie',
+  'Feb',
+  'Mar',
+  'April',
+  'Mai',
+  'Iun',
+  'Iulie',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
 ];
 
-const EmptyEvents = () => (
-  <div className="w-full p-4 min-h-200 flex justify-center items-center">
-    <span className="font-bold text-lg">Oops, there are no events...</span>
-  </div>
-);
+function EmptyEvents() {
+  return (
+    <div className="w-full p-4 min-h-200 flex justify-center items-center">
+      <span className="font-bold text-lg">Oops, there are no events...</span>
+    </div>
+  );
+}
 
-const Events = () => {
+function Events() {
   const [currentTime, setCurrentTime] = useState({
     month: moment().month() + 1,
     year: moment().year(),
@@ -56,7 +58,9 @@ const Events = () => {
   const handleOnAddEvent = (payload) => {
     setOpenModal(false);
     const { month, year } = currentTime;
-    dispatch(createEventAsync({ ...payload, author: user.id, month, year }));
+    dispatch(createEventAsync({
+      ...payload, author: user.id, month, year,
+    }));
     setTimeout(() => {
       dispatch(getEvents(`/?month=${currentTime.month}`));
     }, 2000);
@@ -91,7 +95,7 @@ const Events = () => {
 
   const handleOnParticipate = (id) => {
     let eventsClonde = cloneDeep(events);
-    let selectedEvent = eventsClonde.find((event) => event.id === id);
+    const selectedEvent = eventsClonde.find((event) => event.id === id);
     let selectedEventParticipants = cloneDeep(selectedEvent.participants || []);
     let selectedEventInterested = cloneDeep(selectedEvent.interested || []);
 
@@ -112,7 +116,7 @@ const Events = () => {
           participants: selectedEventParticipants,
           interested: selectedEventInterested,
         },
-      })
+      }),
     );
 
     eventsClonde = eventsClonde.map((event) => {
@@ -126,12 +130,12 @@ const Events = () => {
       return event;
     });
 
-    setEvents(eventsClonde)
+    setEvents(eventsClonde);
   };
 
   const handleOnInterested = (id) => {
     let eventsClonde = cloneDeep(events);
-    let selectedEvent = eventsClonde.find((event) => event.id === id);
+    const selectedEvent = eventsClonde.find((event) => event.id === id);
     let selectedEventParticipants = cloneDeep(selectedEvent.participants || []);
     let selectedEventInterested = cloneDeep(selectedEvent.interested || []);
 
@@ -152,7 +156,7 @@ const Events = () => {
           participants: selectedEventParticipants,
           interested: selectedEventInterested,
         },
-      })
+      }),
     );
 
     eventsClonde = eventsClonde.map((event) => {
@@ -166,7 +170,7 @@ const Events = () => {
       return event;
     });
 
-    setEvents(eventsClonde)
+    setEvents(eventsClonde);
   };
 
   const { month, year } = currentTime;
@@ -202,6 +206,6 @@ const Events = () => {
       </div>
     </ComplexLayout>
   );
-};
+}
 
 export default Events;

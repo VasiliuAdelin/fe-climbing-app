@@ -1,5 +1,5 @@
-import ComplexLayout from "../components/layouts/ComplexLayout";
-import NewsFeedPostsSection from "../components/NewsFeed/NewsFeedPostsSection";
+import ComplexLayout from '../components/layouts/ComplexLayout';
+import NewsFeedPostsSection from '../components/NewsFeed/NewsFeedPostsSection';
 
 export default function NewsFeed() {
   return (

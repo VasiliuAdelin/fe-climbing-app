@@ -1,19 +1,22 @@
-import React from "react";
-import DataTable from "react-data-table-component";
-import { Link } from "react-router-dom";
-import Rating from "../shared/Rating/Rating";
-import TYPES from "../../types";
-import { calculatedRating } from "./crags.utils";
-import { Label } from "gpl-tailwind-theme";
+import React from 'react';
+import DataTable from 'react-data-table-component';
+import { Link } from 'react-router-dom';
+import { Label } from 'gpl-tailwind-theme';
+import Rating from '../shared/Rating/Rating';
+import TYPES from '../../types';
+import { calculatedRating } from './crags.utils';
 
 const { CRAGS } = TYPES;
-const { GENRE_TYPE, STEEPNESS_TYPES, STYLE_TYPES, HOLD_TYPES, GRADES_TYPES } =
-  CRAGS;
+const {
+  GENRE_TYPE, STEEPNESS_TYPES, STYLE_TYPES, HOLD_TYPES, GRADES_TYPES,
+} = CRAGS;
 
-const RenderName = ({ id, city, country, name = "", assets = [] }) => {
-  const mainImage = assets[0] ? assets[0] : "";
+function RenderName({
+  id, city, country, name = '', assets = [],
+}) {
+  const mainImage = assets[0] ? assets[0] : '';
 
-  const goToUrl = `/areas/${country}/${city}/${id}`;
+  const goToUrl = `/areas/${country}/${city}/routelist/${id}`;
 
   return (
     <Link to={goToUrl}>
@@ -23,9 +26,9 @@ const RenderName = ({ id, city, country, name = "", assets = [] }) => {
       </div>
     </Link>
   );
-};
+}
 
-const RenderFeatures = ({ features = [] }) => {
+export function RenderFeatures({ features = [] }) {
   return (
     <div>
       {features.map((feature, index) => {
@@ -54,11 +57,11 @@ const RenderFeatures = ({ features = [] }) => {
       })}
     </div>
   );
-};
+}
 
 const columns = [
   {
-    name: "Name",
+    name: 'Name',
     selector: (row) => <RenderName {...row} />,
     sortable: true,
     sortFunction: (rowA, rowB) => {
@@ -68,7 +71,7 @@ const columns = [
     },
   },
   {
-    name: "Grade",
+    name: 'Grade',
     selector: (row) => GRADES_TYPES[row.grade],
     sortable: true,
     sortFunction: (rowA, rowB) => {
@@ -78,7 +81,7 @@ const columns = [
     },
   },
   {
-    name: "Type",
+    name: 'Type',
     selector: (row) => GENRE_TYPE[row.type],
     sortable: true,
     sortFunction: (rowA, rowB) => {
@@ -88,7 +91,7 @@ const columns = [
     },
   },
   {
-    name: "Rating",
+    name: 'Rating',
     selector: (row) => <Rating ratingScore={calculatedRating(row.rating)} />,
     sortable: true,
     sortFunction: (rowA, rowB) => {
@@ -98,17 +101,16 @@ const columns = [
     },
   },
   {
-    name: "Features",
+    name: 'Features',
     selector: (row) => <RenderFeatures {...row} />,
   },
   {
-    name: "Location",
-    selector: (row) =>
-      `${row.address} ${row.address && "|"} ${row.geoLocation}`,
+    name: 'Location',
+    selector: (row) => `${row.address} ${row.address && '|'} ${row.geoLocation}`,
   },
 ];
 
-const RouteListView = ({ data = [] }) => {
+function RouteListView({ data = [] }) {
   return (
     <div>
       <DataTable
@@ -122,6 +124,6 @@ const RouteListView = ({ data = [] }) => {
       />
     </div>
   );
-};
+}
 
 export default RouteListView;

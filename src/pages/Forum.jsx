@@ -1,50 +1,50 @@
-import { Icon } from "@material-tailwind/react";
-import { Button } from "gpl-tailwind-theme";
-import React from "react";
-import DataTable from "react-data-table-component";
-import ComplexLayout from "../components/layouts/ComplexLayout";
-import moment from "moment";
-import Breadcrumb from "../components/shared/Breadcrumb";
-import { Link } from "react-router-dom";
+import { Icon } from '@material-tailwind/react';
+import { Button } from 'gpl-tailwind-theme';
+import React from 'react';
+import DataTable from 'react-data-table-component';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
+import ComplexLayout from '../components/layouts/ComplexLayout';
+import Breadcrumb from '../components/shared/Breadcrumb';
 
-const RenderTitle = ({ id, title }) => {
+function RenderTitle({ id, title }) {
   return (
     <Link to={`/forum/${id}`}>
       <span className="hover:text-greenNormal">{title}</span>
     </Link>
   );
-};
+}
 const data = [
   {
     id: 1,
-    title: "Find a trip",
+    title: 'Find a trip',
     updatedAt: new Date().toString(),
     totalPosts: 23,
     user: {
-      userName: "Vasiliu Adelin",
-      mainImge: "https://via.placeholder.com/400",
+      userName: 'Vasiliu Adelin',
+      mainImge: 'https://via.placeholder.com/400',
     },
     createdAt: new Date().toString(),
   },
   {
     id: 12,
-    title: "Welcome to the forrum",
+    title: 'Welcome to the forrum',
     updatedAt: new Date().toString(),
     totalPosts: 23,
     user: {
-      userName: "Vasiliu Adelin",
-      mainImge: "https://via.placeholder.com/400",
+      userName: 'Vasiliu Adelin',
+      mainImge: 'https://via.placeholder.com/400',
     },
     createdAt: new Date().toString(),
   },
   {
     id: 123,
-    title: "How to climb",
+    title: 'How to climb',
     updatedAt: new Date().toString(),
     totalPosts: 23,
     user: {
-      userName: "Vasiliu Adelin",
-      mainImge: "https://via.placeholder.com/400",
+      userName: 'Vasiliu Adelin',
+      mainImge: 'https://via.placeholder.com/400',
     },
     createdAt: new Date().toString(),
   },
@@ -52,7 +52,7 @@ const data = [
 
 const columns = [
   {
-    name: "Topic",
+    name: 'Topic',
     selector: (row) => <RenderTitle {...row} />,
     sortable: true,
     sortFunction: (rowA, rowB) => {
@@ -66,34 +66,34 @@ const columns = [
     selector: (row) => row.totalPosts,
   },
   {
-    name: "Last Activity",
+    name: 'Last Activity',
     selector: (row) => moment(row.updatedAt).fromNow(),
   },
 
   {
-    name: "Created By",
+    name: 'Created By',
     selector: (row) => row.user.userName,
   },
   {
-    name: "Created At",
+    name: 'Created At',
     selector: (row) => moment(row.createdAt).fromNow(),
   },
 ];
 
 const routesBreadcrumb = [
   {
-    name: "ClimbAround",
-    icon: "home",
-    urlTo: "/",
+    name: 'ClimbAround',
+    icon: 'home',
+    urlTo: '/',
   },
   {
-    name: "Topics",
-    icon: "article",
-    urlTo: "/forum",
+    name: 'Topics',
+    icon: 'article',
+    urlTo: '/forum',
   },
 ];
 
-const Forum = () => {
+function Forum() {
   return (
     <ComplexLayout
       backgroundImage="skills-background"
@@ -128,6 +128,6 @@ const Forum = () => {
       </div>
     </ComplexLayout>
   );
-};
+}
 
 export default Forum;

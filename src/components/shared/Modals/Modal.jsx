@@ -1,7 +1,7 @@
-import React from "react";
-import { twMerge } from "tailwind-merge";
+import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
-const Modal = ({ open, onClose, children }) => {
+function Modal({ open, onClose, children }) {
   if (!open) {
     return null;
   }
@@ -24,6 +24,6 @@ const Modal = ({ open, onClose, children }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Modal;

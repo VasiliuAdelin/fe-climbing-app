@@ -1,44 +1,44 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import DefaultNavbar from "../../DefaultNavbar";
-import Header from "../../profile/Header";
-import Breadcrumb from "../../shared/Breadcrumb";
-import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { selectState, getProjectById } from "../../../features/auth/authSlice";
-import Loader from "../../shared/Loader";
-import ViewProject from "../ViewProject";
-import EditProjectForm from "./EditProjectForm";
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import DefaultNavbar from '../../DefaultNavbar';
+import Header from '../../profile/Header';
+import Breadcrumb from '../../shared/Breadcrumb';
+import { selectState, getProjectById } from '../../../features/auth/authSlice';
+import Loader from '../../shared/Loader';
+import ViewProject from '../ViewProject';
+import EditProjectForm from './EditProjectForm';
 
-const EditProject = () => {
+function EditProject() {
   const { id = null } = useParams();
   const { currentProject = {}, loading } = useSelector(selectState);
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
-    id: "",
-    logoURL: "",
-    name: "",
-    description: "",
-    manager: "",
-    address: "",
+    id: '',
+    logoURL: '',
+    name: '',
+    description: '',
+    manager: '',
+    address: '',
     subtasks: [],
   });
 
   const routesBreadcrumb = [
     {
-      name: "",
-      icon: "home",
-      urlTo: "/",
+      name: '',
+      icon: 'home',
+      urlTo: '/',
     },
     {
-      name: "Projects",
-      icon: "dashboard",
-      urlTo: "/projects",
+      name: 'Projects',
+      icon: 'dashboard',
+      urlTo: '/projects',
     },
     {
       name: `Project ${id}`,
-      icon: "dashboard",
+      icon: 'dashboard',
       urlTo: `/projects/${id}`,
     },
   ];
@@ -102,9 +102,9 @@ const EditProject = () => {
           )}
         </div>
       </div>
-      
+
     </>
   );
-};
+}
 
 export default EditProject;

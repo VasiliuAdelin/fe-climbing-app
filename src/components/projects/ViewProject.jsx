@@ -1,17 +1,18 @@
-import React from "react";
-import { Button, H3 } from "gpl-tailwind-theme";
-import Image from "@material-tailwind/react/Image";
-import Icon from "@material-tailwind/react/Icon";
-import LeadText from "@material-tailwind/react/LeadText";
-import Card from "@material-tailwind/react/Card";
-import CardHeader from "@material-tailwind/react/CardHeader";
-import CardBody from "@material-tailwind/react/CardBody";
-import Table from "../shared/Table";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Button, H3 } from 'gpl-tailwind-theme';
+import Image from '@material-tailwind/react/Image';
+import Icon from '@material-tailwind/react/Icon';
+import LeadText from '@material-tailwind/react/LeadText';
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
+import { Link } from 'react-router-dom';
+import Table from '../shared/Table';
 
-const ViewProject = (props) => {
-  const { id, logoURL, name, description, address, showOptions, subtasks } =
-    props;
+function ViewProject(props) {
+  const {
+    id, logoURL, name, description, address, showOptions, subtasks,
+  } = props;
 
   return (
     <section className="overflow-y-scroll">
@@ -71,16 +72,16 @@ const ViewProject = (props) => {
                 <Table
                   headers={[
                     {
-                      label: "name",
-                      title: "Task Name",
+                      label: 'name',
+                      title: 'Task Name',
                     },
                     {
-                      label: "createdAt",
-                      title: "CreatedAt",
+                      label: 'createdAt',
+                      title: 'CreatedAt',
                     },
                     {
-                      label: "updatedAt",
-                      title: "UpdatedAt",
+                      label: 'updatedAt',
+                      title: 'UpdatedAt',
                     },
                   ]}
                   rows={subtasks}
@@ -92,17 +93,17 @@ const ViewProject = (props) => {
       </div>
     </section>
   );
-};
+}
 
 ViewProject.defaultProps = {
-  id: "123",
-  logoURL: "https://via.placeholder.com/350x350",
-  name: "Project Name",
-  address: "",
+  id: '123',
+  logoURL: 'https://via.placeholder.com/350x350',
+  name: 'Project Name',
+  address: '',
   showOptions: true,
   subtasks: [],
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga modi natus laborum esse voluptates, dolorem unde. Ex illo ratione eveniet vel similique? Magni tenetur alias explicabo vel recusandae minus omnis!",
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga modi natus laborum esse voluptates, dolorem unde. Ex illo ratione eveniet vel similique? Magni tenetur alias explicabo vel recusandae minus omnis!',
 };
 
 export default ViewProject;

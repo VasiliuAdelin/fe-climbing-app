@@ -1,25 +1,25 @@
-import { Button } from "gpl-tailwind-theme";
-import LayoutPage from "./LayoutPage";
-import { useState } from "react";
-import SearchPerson from "./SearchPerson";
-import Icon from "@material-tailwind/react/Icon";
-import Modal from "../Modal";
-import AddPerson from "./AddPerson";
-import Breadcrumb from "../shared/Breadcrumb";
+import { Button } from 'gpl-tailwind-theme';
+import { useState } from 'react';
+import Icon from '@material-tailwind/react/Icon';
+import LayoutPage from './LayoutPage';
+import SearchPerson from './SearchPerson';
+import Modal from '../Modal';
+import AddPerson from './AddPerson';
+import Breadcrumb from '../shared/Breadcrumb';
 
 export default function ViewPeople() {
   const [showModal, setShowModal] = useState(false);
 
   const routesBreadcrumb = [
     {
-      name: "",
-      icon: "home",
-      urlTo: "/",
+      name: '',
+      icon: 'home',
+      urlTo: '/',
     },
     {
-      name: "People",
-      icon: "people",
-      urlTo: "/people",
+      name: 'People',
+      icon: 'people',
+      urlTo: '/people',
     },
   ];
   return (
@@ -32,7 +32,9 @@ export default function ViewPeople() {
             ripple="light"
             onClick={() => setShowModal(true)}
           >
-            <Icon name="add" /> Add New Employee
+            <Icon name="add" />
+            {' '}
+            Add New Employee
           </Button>
         </div>
         <Modal isOpen={showModal} handleClose={() => setShowModal(false)}>

@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import ComplexLayout from "../components/layouts/ComplexLayout";
-import ViewUserDetails from "../components/profile/ViewUserDetails";
-import { getUserProfile } from "../features/people/people.actions";
-import { useRouter } from "../hooks/useRouter";
-import CommentSection from "../components/Comment/CommentSection";
-import Accordion from "../components/shared/Accordion/Accordion";
-import { createCommentAsync } from "../features/ui/ui.actions";
-import { setFieldPeople } from "../features/people/peopleSlice";
-import { cloneDeep } from "lodash";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { cloneDeep } from 'lodash';
+import ComplexLayout from '../components/layouts/ComplexLayout';
+import ViewUserDetails from '../components/profile/ViewUserDetails';
+import { getUserProfile } from '../features/people/people.actions';
+import { useRouter } from '../hooks/useRouter';
+import CommentSection from '../components/Comment/CommentSection';
+import Accordion from '../components/shared/Accordion/Accordion';
+import { createCommentAsync } from '../features/ui/ui.actions';
+import { setFieldPeople } from '../features/people/peopleSlice';
 import {
   getPosts,
-} from "../features/posts/posts.actions";
-import PostsSection from '../components/NewsFeed/PostsSection'
+} from '../features/posts/posts.actions';
+import PostsSection from '../components/NewsFeed/PostsSection';
 
-const ViewUserProfile = () => {
+function ViewUserProfile() {
   const [posts, setPosts] = useState([]);
   const [profile, setProfile] = useState({});
   const { user } = useSelector((state) => state.auth);
@@ -28,10 +28,10 @@ const ViewUserProfile = () => {
 
   useEffect(() => {
     if (!id) {
-      push("/");
+      push('/');
     } else {
       dispatch(getUserProfile(id));
-      dispatch(getPosts(`/?author=${id}`))
+      dispatch(getPosts(`/?author=${id}`));
     }
   }, [id]);
 
@@ -63,7 +63,7 @@ const ViewUserProfile = () => {
 
     dispatch(createCommentAsync(payloadComment));
 
-    let selectProfile = cloneDeep(profile);
+    const selectProfile = cloneDeep(profile);
     let selectedPostCommentsCopy = cloneDeep(selectProfile.comments || []);
 
     selectedPostCommentsCopy = [...selectedPostCommentsCopy, newComment];
@@ -72,9 +72,9 @@ const ViewUserProfile = () => {
 
     dispatch(
       setFieldPeople({
-        name: "currentUserProfile",
+        name: 'currentUserProfile',
         value: selectProfile,
-      })
+      }),
     );
   };
 
@@ -95,11 +95,11 @@ const ViewUserProfile = () => {
         containerClass="w-full p-3 border border-gray-100 rounded m-1 hover:bg-gray-100"
         titleContainerClass="w-full p-4 border-l-2 border-greenNormal text-lg"
       >
-        <PostsSection posts={posts}/>
+        <PostsSection posts={posts} />
 
       </Accordion>
     </ComplexLayout>
   );
-};
+}
 
 export default ViewUserProfile;

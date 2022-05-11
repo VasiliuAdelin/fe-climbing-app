@@ -1,20 +1,20 @@
-import DefaultNavbar from "../components/DefaultNavbar";
-import Header from "../components/profile/Header";
-import LayoutPage from "../components/people/LayoutPage";
-import Breadcrumb from "../components/shared/Breadcrumb";
-import ProjectsOverview from "../components/projects/ProjectsOverview";
+import DefaultNavbar from '../components/DefaultNavbar';
+import Header from '../components/profile/Header';
+import LayoutPage from '../components/people/LayoutPage';
+import Breadcrumb from '../components/shared/Breadcrumb';
+import ProjectsOverview from '../components/projects/ProjectsOverview';
 
 export default function Projects() {
   const routesBreadcrumb = [
     {
-      name: "",
-      icon: "home",
-      urlTo: "/",
+      name: '',
+      icon: 'home',
+      urlTo: '/',
     },
     {
-      name: "Projects",
-      icon: "dashboard",
-      urlTo: "/projects",
+      name: 'Projects',
+      icon: 'dashboard',
+      urlTo: '/projects',
     },
   ];
   return (
@@ -29,7 +29,7 @@ export default function Projects() {
           <ProjectsOverview />
         </div>
       </LayoutPage>
-      
+
     </>
   );
 }

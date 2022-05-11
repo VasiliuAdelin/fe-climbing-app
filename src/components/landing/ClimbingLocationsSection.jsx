@@ -1,7 +1,7 @@
-import Title from "./Title";
-import PictureCard from "./PictureCard";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import Carousel from 'react-multi-carousel';
+import Title from './Title';
+import PictureCard from './PictureCard';
+import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
   desktop: {
@@ -23,63 +23,63 @@ const responsive = {
 
 const MOCK_CARDS = [
   {
-    name: "Robitza rope",
+    name: 'Robitza rope',
     image:
-      "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg",
+      'https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+      'Lorem Ipsum is simply dummy text of the printing and typesetting',
   },
   {
-    name: "Ler fafasd",
+    name: 'Ler fafasd',
     image:
-      "https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      'https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+      'Lorem Ipsum is simply dummy text of the printing and typesetting',
   },
   {
-    name: "Robitza rope",
+    name: 'Robitza rope',
     image:
-      "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg",
+      'https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+      'Lorem Ipsum is simply dummy text of the printing and typesetting',
   },
   {
-    name: "Ler fafasd",
+    name: 'Ler fafasd',
     image:
-      "https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      'https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+      'Lorem Ipsum is simply dummy text of the printing and typesetting',
   },
   {
-    name: "Robitza rope",
+    name: 'Robitza rope',
     image:
-      "https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg",
+      'https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting",
+      'Lorem Ipsum is simply dummy text of the printing and typesetting',
   },
 ];
 
-const ClimbingLocationsSection = (props) => {
+function ClimbingLocationsSection(props) {
   return (
     <section className="pb-20 relative block bg-gray-100">
       <div className="container max-w-7xl mx-auto px-4 lg:pt-24 ">
         <div className="pt-6">
-          <Title heading="Climbing locations around you!"></Title>
+          <Title heading="Climbing locations around you!" />
         </div>
         <Carousel
-          swipeable={true}
+          swipeable
           draggable={false}
-          showDots={true}
+          showDots
           responsive={responsive}
-          ssr={true}
-          infinite={true}
+          ssr
+          infinite
           autoPlay={false}
           autoPlaySpeed={2000}
-          keyBoardControl={true}
+          keyBoardControl
           customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container z-10 items-center"
-          removeArrowOnDeviceType={["tablet", "mobile"]}
+          removeArrowOnDeviceType={['tablet', 'mobile']}
           deviceType={props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
@@ -96,6 +96,6 @@ const ClimbingLocationsSection = (props) => {
       </div>
     </section>
   );
-};
+}
 
 export default ClimbingLocationsSection;

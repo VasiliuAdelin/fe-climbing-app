@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const Accordion = ({
+function Accordion({
   title,
   children,
   containerClass,
   titleClass,
   titleContainerClass,
-}) => {
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -19,25 +19,25 @@ const Accordion = ({
         >
           <span className={`${titleClass}`}>{title}</span>
           {isExpanded ? (
-            <i className="fa-solid fa-angle-up"></i>
+            <i className="fa-solid fa-angle-up" />
           ) : (
-            <i className="fa-solid fa-angle-down"></i>
+            <i className="fa-solid fa-angle-down" />
           )}
         </button>
       </h2>
-      <div className={`lg: p-1 ${isExpanded ? "block" : "hidden"}`}>
+      <div className={`lg: p-1 ${isExpanded ? 'block' : 'hidden'}`}>
         {children}
       </div>
     </div>
   );
-};
+}
 
 Accordion.defaultProps = {
-  title: "Accordion Title Here",
+  title: 'Accordion Title Here',
   children: null,
-  containerClass: "",
-  titleContainerClass: "",
-  titleClass: "",
+  containerClass: '',
+  titleContainerClass: '',
+  titleClass: '',
 };
 
 export default Accordion;

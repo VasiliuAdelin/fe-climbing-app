@@ -1,16 +1,18 @@
-import React from "react";
-import { noop } from "lodash";
-import { Icon } from "@material-tailwind/react";
-import { Button } from "gpl-tailwind-theme";
+import React from 'react';
+import { noop } from 'lodash';
+import { Icon } from '@material-tailwind/react';
+import { Button } from 'gpl-tailwind-theme';
 
 const style = {
-  background: `linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpaperaccess.com/full/263963.jpg)`,
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
+  background: 'linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://wallpaperaccess.com/full/263963.jpg)',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
 };
 
-const EventsLanding = ({ month, year, onCreate, onNext, onPrevious }) => {
+function EventsLanding({
+  month, year, onCreate, onNext, onPrevious,
+}) {
   return (
     <div
       style={style}
@@ -18,7 +20,8 @@ const EventsLanding = ({ month, year, onCreate, onNext, onPrevious }) => {
     >
       <div>
         <span className="uppercase text-lg font-bold m-2 font-sans">
-          {month},
+          {month}
+          ,
         </span>
         <span>{year}</span>
       </div>
@@ -60,11 +63,11 @@ const EventsLanding = ({ month, year, onCreate, onNext, onPrevious }) => {
       </div>
     </div>
   );
-};
+}
 
 EventsLanding.defaultProps = {
-  month: "Martie",
-  year: "2022",
+  month: 'Martie',
+  year: '2022',
   onCreate: noop,
   onNext: noop,
   onPrevious: noop,

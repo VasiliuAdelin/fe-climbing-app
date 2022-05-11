@@ -1,9 +1,9 @@
-import { useLayoutEffect } from "react";
-import ComplexLayout from "../components/layouts/ComplexLayout";
-import { useRouter } from "../hooks/useRouter";
-import Breadcrumb from "../components/shared/Breadcrumb";
-import Crags from "../components/crags/Crags";
-import TYPES from "../types";
+import { useLayoutEffect } from 'react';
+import ComplexLayout from '../components/layouts/ComplexLayout';
+import { useRouter } from '../hooks/useRouter';
+import Breadcrumb from '../components/shared/Breadcrumb';
+import Crags from '../components/crags/Crags';
+import TYPES from '../types';
 
 const { COUNTRIES } = TYPES;
 
@@ -16,25 +16,25 @@ export default function RouteList() {
 
   useLayoutEffect(() => {
     if (!selectedCountry || !selectedCity) {
-      push("/");
+      push('/');
     }
   }, [selectedCountry, selectedCity]);
 
   const routesBreadcrumb = [
     {
-      name: "ClimbAround",
-      icon: "home",
-      urlTo: "/",
+      name: 'ClimbAround',
+      icon: 'home',
+      urlTo: '/',
     },
     {
       name: selectedCity,
-      icon: "people",
+      icon: 'people',
       urlTo: `/areas/${selectedCity}`,
     },
     {
       name: `All the routes from ${selectedCity}`,
-      icon: "people",
-      urlTo: "#",
+      icon: 'people',
+      urlTo: '#',
     },
   ];
 

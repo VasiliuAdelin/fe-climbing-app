@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 // import { Link, NavLink } from "react-router-dom";
-import AdminNavbar from "./AdminNavbar";
+import AdminNavbar from './AdminNavbar';
 // import Icon from "@material-tailwind/react/Icon";
 // import H6 from "@material-tailwind/react/Heading6";
 
 export default function Sidebar() {
-  const [showSidebar, setShowSidebar] = useState("-left-64");
+  const [showSidebar, setShowSidebar] = useState('-left-64');
   return (
     <>
       <AdminNavbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />

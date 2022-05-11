@@ -1,18 +1,18 @@
-import React from "react";
-import { isEmpty } from "lodash";
-import AddComment from "./AddComment";
-import CommentItem from "./CommentItem";
-import { useSelector } from "react-redux";
-import { selectState } from "../../features/auth/authSlice";
+import React from 'react';
+import { isEmpty } from 'lodash';
+import { useSelector } from 'react-redux';
+import AddComment from './AddComment';
+import CommentItem from './CommentItem';
+import { selectState } from '../../features/auth/authSlice';
 
-const CommentSection = ({ comments, onSubmit }) => {
+function CommentSection({ comments, onSubmit }) {
   const { isLoggedIn } = useSelector(selectState);
   return (
     <div>
       <div className="lg:overflow-y-auto min-h-500 h-500">
         {isEmpty(comments) && (
           <div className="p-4">
-            <span className="text-gray-100 text-xs">Not a comment yet!</span>
+            <span className="text-gray-700 text-xs">Not a comment yet!</span>
           </div>
         )}
         {comments.map(({ description, author, createdAt }, index) => (
@@ -36,7 +36,7 @@ const CommentSection = ({ comments, onSubmit }) => {
       {isLoggedIn && <AddComment onSubmit={onSubmit} />}
     </div>
   );
-};
+}
 
 CommentSection.defaultProps = {
   comments: [],

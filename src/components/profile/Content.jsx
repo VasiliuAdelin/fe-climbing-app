@@ -1,13 +1,13 @@
-import Button from "@material-tailwind/react/Button";
-import Image from "@material-tailwind/react/Image";
-import H3 from "@material-tailwind/react/Heading3";
-import Icon from "@material-tailwind/react/Icon";
-import LeadText from "@material-tailwind/react/LeadText";
-import RoutesList from "./RoutesList";
-import { Link } from "react-router-dom";
-import TestComponent from "./TestComponent";
+import Button from '@material-tailwind/react/Button';
+import Image from '@material-tailwind/react/Image';
+import H3 from '@material-tailwind/react/Heading3';
+import Icon from '@material-tailwind/react/Icon';
+import LeadText from '@material-tailwind/react/LeadText';
+import { Link } from 'react-router-dom';
+import RoutesList from './RoutesList';
+import TestComponent from './TestComponent';
 
-const Content = ({ user }) => {
+function Content({ user }) {
   const {
     name,
     imageLink,
@@ -88,11 +88,16 @@ const Content = ({ user }) => {
               </div>
               <div className="m-1 text-gray-700 font-medium flex items-center justify-center gap-2">
                 <Icon name="work" size="xl" />
-                {position} - {companyName}
+                {position}
+                {' '}
+                -
+                {companyName}
               </div>
               <div className="m-1 text-gray-700 font-medium flex items-center justify-center gap-2">
                 <Icon name="person" size="xl" />
-                Manager - {manager}
+                Manager -
+                {' '}
+                {manager}
               </div>
               <div className="m-1 text-gray-700 font-medium flex items-center justify-center gap-2">
                 <Icon name="phone" size="xl" />
@@ -118,27 +123,27 @@ const Content = ({ user }) => {
       </div>
     </section>
   );
-};
+}
 
 Content.defaultProps = {
   user: {
-    name: "Name Here",
+    name: 'Name Here',
     description: `
     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Fuga modi natus laborum esse voluptates, dolorem unde. Ex
                     illo ratione eveniet vel similique? Magni tenetur alias
                     explicabo vel recusandae minus omnis!
     `,
-    position: "Developer",
-    companyName: "Company.yo",
-    manager: "John Doe",
-    phoneNumber: "0123123123",
-    email: "john.doe@company.yp",
-    imageLink: "https://via.placeholder.com/150",
-    city: "Iasi",
-    country: "Romania",
-    postalCode: "700123",
-    address: "Str.Strret",
+    position: 'Developer',
+    companyName: 'Company.yo',
+    manager: 'John Doe',
+    phoneNumber: '0123123123',
+    email: 'john.doe@company.yp',
+    imageLink: 'https://via.placeholder.com/150',
+    city: 'Iasi',
+    country: 'Romania',
+    postalCode: '700123',
+    address: 'Str.Strret',
   },
 };
 

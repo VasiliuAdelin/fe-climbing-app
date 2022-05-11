@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // const tasks = [
 //   {
@@ -34,7 +34,7 @@ import React from "react";
 //   },
 // ];
 
-const Table = (props) => {
+function Table(props) {
   const { headers, rows } = props;
   return (
     <div className="overflow-x-auto">
@@ -74,36 +74,36 @@ const Table = (props) => {
       </table>
     </div>
   );
-};
+}
 
 Table.defaultProps = {
   headers: [
     {
-      label: "name",
-      title: "Task Name",
+      label: 'name',
+      title: 'Task Name',
     },
     {
-      label: "users",
-      title: "Total Users",
+      label: 'users',
+      title: 'Total Users',
     },
     {
-      label: "createdAt",
-      title: "CreatedAt",
+      label: 'createdAt',
+      title: 'CreatedAt',
     },
     {
-      label: "updatedAt",
-      title: "UpdatedAt",
+      label: 'updatedAt',
+      title: 'UpdatedAt',
     },
   ],
   rows: [
     {
-      name: "EMSOne Frontend",
+      name: 'EMSOne Frontend',
       users: 2,
       createdAt: new Date().toDateString(),
       updatedAt: new Date().toDateString(),
     },
     {
-      name: "EMSOne Backend",
+      name: 'EMSOne Backend',
       users: 2,
       createdAt: new Date().toDateString(),
       updatedAt: new Date().toDateString(),

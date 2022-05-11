@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import Icon from "@material-tailwind/react/Icon";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import Icon from '@material-tailwind/react/Icon';
+import { NavLink } from 'react-router-dom';
 
-const Breadcrumb = ({ routes }) => {
+function Breadcrumb({ routes }) {
   return (
     <div>
       <nav className="flex m-4" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
-          {routes.map(({ name = "", icon = "", urlTo = "/" }, index) => {
-            const isLastElement = routes.length === index + 1 ? true : false;
+          {routes.map(({ name = '', icon = '', urlTo = '/' }, index) => {
+            const isLastElement = routes.length === index + 1;
             return (
               <div key={index}>
                 <li className="flex items-center">
@@ -42,19 +42,19 @@ const Breadcrumb = ({ routes }) => {
       </nav>
     </div>
   );
-};
+}
 
 Breadcrumb.defaultProps = {
   routes: [
     {
-      name: "Home",
-      icon: "home",
-      urlTo: "/",
+      name: 'Home',
+      icon: 'home',
+      urlTo: '/',
     },
     {
-      name: "Home",
-      icon: "",
-      urlTo: "/",
+      name: 'Home',
+      icon: '',
+      urlTo: '/',
     },
   ],
 };

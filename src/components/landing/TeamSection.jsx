@@ -1,5 +1,5 @@
-import Title from "./Title";
-import TeamCard from "./TeamCard";
+import Title from './Title';
+import TeamCard from './TeamCard';
 
 export default function TeamSection() {
   return (

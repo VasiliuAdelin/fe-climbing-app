@@ -1,12 +1,14 @@
-import React from "react";
+import React from 'react';
 
-const CategoryItem = ({ label, onSelect, isSelected = false }) => (
-  <div className={`m-2 p-2 uppercase ${isSelected ? 'text-greenNormal' : 'text-green-900'}  font-bold cursor-pointer hover:text-greenNormal tracking-wider `}>
-    <span onClick={onSelect}>{label}</span>
-  </div>
-);
+function CategoryItem({ label, onSelect, isSelected = false }) {
+  return (
+    <div className={`m-2 p-2 uppercase ${isSelected ? 'text-greenNormal' : 'text-green-900'}  font-bold cursor-pointer hover:text-greenNormal tracking-wider `}>
+      <span onClick={onSelect}>{label}</span>
+    </div>
+  );
+}
 
-const SkillsCategories = ({ categories, onSelect, selected }) => {
+function SkillsCategories({ categories, onSelect, selected }) {
   return (
     <div className="flex justify-center align-center w-full">
       {categories.map(({ name, label }, index) => (
@@ -19,11 +21,11 @@ const SkillsCategories = ({ categories, onSelect, selected }) => {
       ))}
     </div>
   );
-};
+}
 
 SkillsCategories.defaultProps = {
   categories: [],
-  selected: "",
+  selected: '',
   onSelect: (label) => undefined,
 };
 

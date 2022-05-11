@@ -1,43 +1,43 @@
-import Button from "@material-tailwind/react/Button";
-import Icon from "@material-tailwind/react/Icon";
-import React, { useState } from "react";
-import { createArrayOfAlphabeticallyGrouped } from "../../utils";
-import Modal from "../Modal";
-import AddProject from "./AddProject";
-import ViewProject from "./ViewProject";
+import Button from '@material-tailwind/react/Button';
+import Icon from '@material-tailwind/react/Icon';
+import React, { useState } from 'react';
+import { createArrayOfAlphabeticallyGrouped } from '../../utils';
+import Modal from '../Modal';
+import AddProject from './AddProject';
+import ViewProject from './ViewProject';
 
 const projects = [
   {
-    name: "AlphaBank",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'AlphaBank',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "EMSOne",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'EMSOne',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "EMSTwo",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'EMSTwo',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "EMSTwo",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'EMSTwo',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "EMSTwo",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'EMSTwo',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "EMSTwo",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'EMSTwo',
+    logo: 'https://via.placeholder.com/350x350',
   },
 ];
 
-const RenderItem = ({
-  name = "Name Here",
-  logo = "https://via.placeholder.com/350x350",
+function RenderItem({
+  name = 'Name Here',
+  logo = 'https://via.placeholder.com/350x350',
   onClick,
-}) => {
+}) {
   return (
     <li
       onClick={onClick}
@@ -47,10 +47,10 @@ const RenderItem = ({
       <span className="inline-block pl-2">{name}</span>
     </li>
   );
-};
+}
 
-const ProjectsOverview = () => {
-  const [searchedProject, setSearchedProject] = useState("");
+function ProjectsOverview() {
+  const [searchedProject, setSearchedProject] = useState('');
   const [selectUser, setSelectUser] = useState({});
   const groupedElementsArray = createArrayOfAlphabeticallyGrouped(projects);
   const [showModal, setShowModal] = useState(false);
@@ -61,74 +61,70 @@ const ProjectsOverview = () => {
     setSearchedProject(e.target.value);
   };
 
-  const renderListOfProjects = () => {
-    return groupedElementsArray.map((el, index) => {
-      const [letter, firstLetterElements] = el;
-      return (
-        <div key={index}>
-          <h1>{letter}</h1>
-          <ul>
-            {firstLetterElements.map((lU, idx) => {
-              const showEl = lU.name
-                .toLowerCase()
-                .includes(searchedProject.toLowerCase());
-              return showEl ? (
-                <RenderItem
-                  onClick={() => {
-                    setSelectUser({
-                      ...selectUser,
-                      ...lU,
-                    });
-                    setShowModal(true);
-                  }}
-                  key={idx}
-                  {...lU}
-                />
-              ) : null;
-            })}
-          </ul>
-        </div>
-      );
-    });
-  };
+  const renderListOfProjects = () => groupedElementsArray.map((el, index) => {
+    const [letter, firstLetterElements] = el;
+    return (
+      <div key={index}>
+        <h1>{letter}</h1>
+        <ul>
+          {firstLetterElements.map((lU, idx) => {
+            const showEl = lU.name
+              .toLowerCase()
+              .includes(searchedProject.toLowerCase());
+            return showEl ? (
+              <RenderItem
+                onClick={() => {
+                  setSelectUser({
+                    ...selectUser,
+                    ...lU,
+                  });
+                  setShowModal(true);
+                }}
+                key={idx}
+                {...lU}
+              />
+            ) : null;
+          })}
+        </ul>
+      </div>
+    );
+  });
 
   return (
-    <>
-      <div className="relative my-4">
-        <div className="flex justify-between">
-          <input
-            type="text"
-            name="project"
-            onChange={handleOnChangeInput}
-            placeholder="Search project"
-            className="border border-gray-400 rounded-lg p-2 pl-4 mb-4 mr-4"
-          />
-          <Button
-            color="blue"
-            ripple="light"
-            rounded={true}
-            onClick={() => setShowAddProject(true)}
-            iconOnly={true}
-          >
-            <Icon name="add" />
-          </Button>
-        </div>
-        <Modal
-          isOpen={showModal}
-          handleClose={() => setShowModal(false)}
+    <div className="relative my-4">
+      <div className="flex justify-between">
+        <input
+          type="text"
+          name="project"
+          onChange={handleOnChangeInput}
+          placeholder="Search project"
+          className="border border-gray-400 rounded-lg p-2 pl-4 mb-4 mr-4"
+        />
+        <Button
+          color="blue"
+          ripple="light"
+          rounded
+          onClick={() => setShowAddProject(true)}
+          iconOnly
         >
-          <ViewProject/>
-        </Modal>
-        <Modal
-          isOpen={showAddProject}
-          handleClose={() => setShowAddProject(false)}
-        >
-          <AddProject />
-        </Modal>
-        {renderListOfProjects()}
+          <Icon name="add" />
+        </Button>
       </div>
-    </>
+      <Modal
+        isOpen={showModal}
+        handleClose={() => setShowModal(false)}
+      >
+        <ViewProject />
+      </Modal>
+      <Modal
+        isOpen={showAddProject}
+        handleClose={() => setShowAddProject(false)}
+      >
+        <AddProject />
+      </Modal>
+      {renderListOfProjects()}
+    </div>
   );
-};
+}
 
 export default ProjectsOverview;

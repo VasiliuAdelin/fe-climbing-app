@@ -1,10 +1,10 @@
-import Card from "@material-tailwind/react/Card";
-import CardBody from "@material-tailwind/react/CardBody";
-import Image from "@material-tailwind/react/Image";
-import H5 from "@material-tailwind/react/Heading5";
-import Icon from "@material-tailwind/react/Icon";
-import LeadText from "@material-tailwind/react/LeadText";
-import PropTypes from "prop-types";
+import Card from '@material-tailwind/react/Card';
+import CardBody from '@material-tailwind/react/CardBody';
+import Image from '@material-tailwind/react/Image';
+import H5 from '@material-tailwind/react/Heading5';
+import Icon from '@material-tailwind/react/Icon';
+import LeadText from '@material-tailwind/react/LeadText';
+import PropTypes from 'prop-types';
 
 export default function ProfileCard(props) {
   const {
@@ -49,7 +49,11 @@ export default function ProfileCard(props) {
       </div>
       <CardBody>
         <div className="border-t border-lightBlue-200 text-center px-2 ">
-          <LeadText color="blueGray">"{description}"</LeadText>
+          <LeadText color="blueGray">
+            "
+            {description}
+            "
+          </LeadText>
         </div>
       </CardBody>
     </Card>
@@ -72,13 +76,13 @@ ProfileCard.propTypes = {
 };
 
 ProfileCard.defaultProps = {
-  name: "Name Here",
-  description: "Lorem Ipsum",
-  address: "City, Country",
-  phoneNumber: "0123123123",
-  email: "john.doe@company.yp",
-  imageLink: "https://via.placeholder.com/150",
-  city: "",
-  country: "",
-  postalCode: "",
+  name: 'Name Here',
+  description: 'Lorem Ipsum',
+  address: 'City, Country',
+  phoneNumber: '0123123123',
+  email: 'john.doe@company.yp',
+  imageLink: 'https://via.placeholder.com/150',
+  city: '',
+  country: '',
+  postalCode: '',
 };

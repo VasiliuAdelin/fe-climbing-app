@@ -1,4 +1,4 @@
-import H3 from "@material-tailwind/react/Heading3";
+import H3 from '@material-tailwind/react/Heading3';
 // import LeadText from "@material-tailwind/react/LeadText";
 
 export default function Title({ heading, children }) {

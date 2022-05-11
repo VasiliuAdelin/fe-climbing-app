@@ -1,22 +1,16 @@
 export const formatFilters = (arr) => {
   const entriesArr = [...Object.entries(arr)];
-  return entriesArr.map(([key, value]) => {
-    return {
-      name: key,
-      value: value,
-      isChecked: false,
-    };
-  });
+  return entriesArr.map(([key, value]) => ({
+    name: key,
+    value,
+    isChecked: false,
+  }));
 };
 
-export const formatObjectSelect = (obj) => {
-  return Object.entries(obj).map(([key, value]) => {
-    return {
-      value: key,
-      label: value,
-    };
-  });
-};
+export const formatObjectSelect = (obj) => Object.entries(obj).map(([key, value]) => ({
+  value: key,
+  label: value,
+}));
 
 export const calculatedRating = (ratingArr) => {
   console.log(ratingArr);
@@ -28,7 +22,7 @@ export const calculatedRating = (ratingArr) => {
 
   const sumRating = ratingArr.reduce(
     (acc, curr, index) => acc + curr * (index + 1),
-    0
+    0,
   );
 
   return sumRating / sumElements;

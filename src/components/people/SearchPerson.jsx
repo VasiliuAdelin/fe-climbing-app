@@ -1,53 +1,51 @@
-import React, { useState } from "react";
-import Modal from "../Modal";
-import ProfileCard from "../ProfileCard";
+import React, { useState } from 'react';
+import Modal from '../Modal';
+import ProfileCard from '../ProfileCard';
 
 const users = [
   {
-    name: "Angela",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'Angela',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "Ana",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'Ana',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "Banana",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'Banana',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "Amana",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'Amana',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "daniel",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'daniel',
+    logo: 'https://via.placeholder.com/350x350',
   },
   {
-    name: "Mihai",
-    logo: "https://via.placeholder.com/350x350",
+    name: 'Mihai',
+    logo: 'https://via.placeholder.com/350x350',
   },
 ];
 
-const createArrayOfAlphabeticallyGrouped = (data) => {
-  return Object.entries(
-    data.reduce((memo, user) => {
-      const firstLetter = user.name[0].toUpperCase();
-      if (firstLetter in memo) {
-        memo[firstLetter].push(user);
-      } else {
-        memo[firstLetter] = [user];
-      }
-      return memo;
-    }, {})
-  );
-};
+const createArrayOfAlphabeticallyGrouped = (data) => Object.entries(
+  data.reduce((memo, user) => {
+    const firstLetter = user.name[0].toUpperCase();
+    if (firstLetter in memo) {
+      memo[firstLetter].push(user);
+    } else {
+      memo[firstLetter] = [user];
+    }
+    return memo;
+  }, {}),
+);
 
-const RenderItem = ({
-  name = "Name Here",
-  logo = "https://via.placeholder.com/350x350",
+function RenderItem({
+  name = 'Name Here',
+  logo = 'https://via.placeholder.com/350x350',
   onClick,
-}) => {
+}) {
   return (
     <li
       onClick={onClick}
@@ -57,10 +55,10 @@ const RenderItem = ({
       <span className="inline-block pl-2">{name}</span>
     </li>
   );
-};
+}
 
-const SearchPerson = () => {
-  const [user, setUser] = useState("");
+function SearchPerson() {
+  const [user, setUser] = useState('');
   const [selectUser, setSelectUser] = useState({});
   const result = createArrayOfAlphabeticallyGrouped(users);
   const [showModal, setShowModal] = useState(false);
@@ -69,49 +67,47 @@ const SearchPerson = () => {
     setUser(e.target.value);
   };
   return (
-    <>
-      <div className="relative">
-        <input
-          type="text"
-          name="person"
-          onChange={handleOnChangeInput}
-          placeholder="Search person"
-          className="border border-gray-400 rounded-lg p-2 pl-4 mb-4"
-        />
-        <Modal isOpen={showModal} handleClose={() => setShowModal(false)}>
-          <ProfileCard {...selectUser} />
-        </Modal>
-        {result.map((el, index) => {
-          const [letter, letterUsers] = el;
-          return (
-            <div key={index}>
-              <h1>{letter}</h1>
-              <ul>
-                {letterUsers.map((lU, idx) => {
-                  const showEl = lU.name
-                    .toLowerCase()
-                    .includes(user.toLowerCase());
-                  return showEl ? (
-                    <RenderItem
-                      onClick={() => {
+    <div className="relative">
+      <input
+        type="text"
+        name="person"
+        onChange={handleOnChangeInput}
+        placeholder="Search person"
+        className="border border-gray-400 rounded-lg p-2 pl-4 mb-4"
+      />
+      <Modal isOpen={showModal} handleClose={() => setShowModal(false)}>
+        <ProfileCard {...selectUser} />
+      </Modal>
+      {result.map((el, index) => {
+        const [letter, letterUsers] = el;
+        return (
+          <div key={index}>
+            <h1>{letter}</h1>
+            <ul>
+              {letterUsers.map((lU, idx) => {
+                const showEl = lU.name
+                  .toLowerCase()
+                  .includes(user.toLowerCase());
+                return showEl ? (
+                  <RenderItem
+                    onClick={() => {
                         setSelectUser({
                           ...selectUser,
                           ...lU,
                         });
                         setShowModal(true);
                       }}
-                      key={idx}
-                      {...lU}
-                    />
-                  ) : null;
-                })}
-              </ul>
-            </div>
-          );
-        })}
-      </div>
-    </>
+                    key={idx}
+                    {...lU}
+                  />
+                ) : null;
+              })}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
   );
-};
+}
 
 export default SearchPerson;

@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const TrainerCard = ({
+function TrainerCard({
   name,
   username,
   totalPosts,
@@ -10,14 +10,14 @@ const TrainerCard = ({
   description,
   mainImage,
   position,
-}) => {
+}) {
   return (
     <div className="w-1/3 flex justify-center items-center">
       <div className="container mx-auto max-w-sm rounded-lg overflow-hidden shadow-lg my-2 bg-white">
         <div
           className="relative z-10"
           style={{
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw))",
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw))',
           }}
         >
           <img className="w-full" src={mainImage} alt="Profile" />
@@ -33,7 +33,7 @@ const TrainerCard = ({
           </div>
           <Link to="/profile">
             <button className="p-2 w-12 h-12 bg-greenNormal rounded-full hover:bg-green-900 focus:bg-greenDark transition ease-in duration-200 focus:outline-none">
-              <i className="fa-solid fa-envelope text-white"></i>
+              <i className="fa-solid fa-envelope text-white" />
             </button>
           </Link>
         </div>
@@ -61,16 +61,16 @@ const TrainerCard = ({
       </div>
     </div>
   );
-};
+}
 
 TrainerCard.defaultProps = {
-  name: "John Doe",
-  username: "@johndoe",
+  name: 'John Doe',
+  username: '@johndoe',
   totalPosts: 76,
   totalLikes: 123,
   totalFeedback: 34,
-  description: "Lorem ipsum",
-  mainImage: "https://via.placeholder.com/700",
-  position: "Climbing Expert",
+  description: 'Lorem ipsum',
+  mainImage: 'https://via.placeholder.com/700',
+  position: 'Climbing Expert',
 };
 export default TrainerCard;

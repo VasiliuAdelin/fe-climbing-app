@@ -1,9 +1,9 @@
-import React from "react";
-import { Alert } from "gpl-tailwind-theme";
-import { selectUIState, setFieldUI } from "../../features/ui/uiSlice";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { Alert } from 'gpl-tailwind-theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUIState, setFieldUI } from '../../features/ui/uiSlice';
 
-const NotificationContainer = () => {
+function NotificationContainer() {
   const { error, success, notification } = useSelector(selectUIState);
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ const NotificationContainer = () => {
           closeIconPosition="center"
           hideAfter={10000}
           className="fixed bottom-2 right-2 inline-block z-50"
-          handleClose={() => setField("error", { isError: false, message: "" })}
+          handleClose={() => setField('error', { isError: false, message: '' })}
         >
           {error.message}
         </Alert>
@@ -38,9 +38,7 @@ const NotificationContainer = () => {
           closeIconPosition="center"
           hideAfter={5000}
           className="fixed bottom-2 right-2 inline-block z-50"
-          handleClose={() =>
-            setField("success", { isSuccess: false, message: "" })
-          }
+          handleClose={() => setField('success', { isSuccess: false, message: '' })}
         >
           {success.message}
         </Alert>
@@ -55,15 +53,13 @@ const NotificationContainer = () => {
           closeIconPosition="center"
           hideAfter={6000}
           className="fixed bottom-2 right-2 inline-block z-50"
-          handleClose={() =>
-            setField("notification", { isNotification: false, message: "" })
-          }
+          handleClose={() => setField('notification', { isNotification: false, message: '' })}
         >
           {notification.message}
         </Alert>
       )}
     </>
   );
-};
+}
 
 export default NotificationContainer;

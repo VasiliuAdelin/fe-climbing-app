@@ -1,28 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { InputIcon, Textarea, Button } from "@material-tailwind/react";
-import React, { useEffect, useState } from "react";
-import moment from "moment";
-import Card from "../shared/Card/Card";
-import CardBody from "../shared/Card/CardBody";
-import CardFooter from "../shared/Card/CardFooter";
-import CardHeader from "../shared/Card/CardHeader";
+import { InputIcon, Textarea, Button } from '@material-tailwind/react';
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
+import Card from '../shared/Card/Card';
+import CardBody from '../shared/Card/CardBody';
+import CardFooter from '../shared/Card/CardFooter';
+import CardHeader from '../shared/Card/CardHeader';
 
 const INITIAL_STATE = {
-  title: "The best event name",
-  description: "The best description ever",
-  typeOfEvent: "typeOfEvent",
-  duration: "2h",
-  eventDate: "2022-04-06T20:30",
-  city: "city",
-  country: "country",
-  address: "address",
-  geoLocation: "geoLocation",
-  mainImage: "https://via.placeholder.com/400",
+  title: 'The best event name',
+  description: 'The best description ever',
+  typeOfEvent: 'typeOfEvent',
+  duration: '2h',
+  eventDate: '2022-04-06T20:30',
+  city: 'city',
+  country: 'country',
+  address: 'address',
+  geoLocation: 'geoLocation',
+  mainImage: 'https://via.placeholder.com/400',
 };
 
-const CreateEvent = ({ onSubmit }) => {
+function CreateEvent({ onSubmit }) {
   const [values, setValues] = useState(INITIAL_STATE);
- 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,8 +37,6 @@ const CreateEvent = ({ onSubmit }) => {
       geoLocation,
       mainImage,
     } = values;
-
-   
 
     const payload = {
       title,
@@ -208,7 +205,7 @@ const CreateEvent = ({ onSubmit }) => {
       </div>
     </form>
   );
-};
+}
 
 CreateEvent.defaultProps = {
   onSubmit: () => undefined,

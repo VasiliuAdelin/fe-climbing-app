@@ -1,7 +1,7 @@
-import React from "react";
-import EventItem from "./EventItem";
+import React from 'react';
+import EventItem from './EventItem';
 
-const ViewEvents = ({ events, onParticipate, onInterested }) => {
+function ViewEvents({ events, onParticipate, onInterested }) {
   return (
     <>
       {events.map((event, index) => (
@@ -14,7 +14,7 @@ const ViewEvents = ({ events, onParticipate, onInterested }) => {
       ))}
     </>
   );
-};
+}
 
 ViewEvents.defaultProps = {
   events: [],

@@ -1,26 +1,26 @@
-import { LeadText } from "@material-tailwind/react";
-import { H2 } from "gpl-tailwind-theme";
-import React from "react";
-import DefaultNavbar from "../DefaultNavbar";
+import { LeadText } from '@material-tailwind/react';
+import { H2 } from 'gpl-tailwind-theme';
+import React from 'react';
+import DefaultNavbar from '../DefaultNavbar';
 
-const ComplexLayout = ({
+function ComplexLayout({
   children,
-  backgroundImage = "landing-background",
-  title = "",
-  subtitle = "",
-  customBackground = "",
-}) => {
-  const backgroundImageClass = customBackground ? "" : `bg-${backgroundImage}`;
+  backgroundImage = 'landing-background',
+  title = '',
+  subtitle = '',
+  customBackground = '',
+}) {
+  const backgroundImageClass = customBackground ? '' : `bg-${backgroundImage}`;
   const style = customBackground
     ? {
-        
-        background: `linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(${String(
-          customBackground
-        )})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }
+
+      background: `linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(${String(
+        customBackground,
+      )})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+    }
     : {};
 
   return (
@@ -59,6 +59,6 @@ const ComplexLayout = ({
       </main>
     </>
   );
-};
+}
 
 export default ComplexLayout;

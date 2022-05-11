@@ -1,7 +1,7 @@
-import H2 from "@material-tailwind/react/Heading2";
-import LeadText from "@material-tailwind/react/LeadText";
-import { Link } from "react-router-dom";
-import SearchRoutes from "./SearchRoutes";
+import H2 from '@material-tailwind/react/Heading2';
+import LeadText from '@material-tailwind/react/LeadText';
+import { Link } from 'react-router-dom';
+import SearchRoutes from './SearchRoutes';
 
 export default function Header() {
   return (
@@ -13,12 +13,14 @@ export default function Header() {
             <H2 color="white">Welcome to Climb Around!</H2>
             <div className="text-gray-200">
               <LeadText color="gray-200">
-                New here?{" "}
+                New here?
+                {' '}
                 <Link to="/register">
                   <span className=" inline-block text-sky-400">
                     Create an account!
                   </span>
-                </Link>{" "}
+                </Link>
+                {' '}
               </LeadText>
             </div>
             <div className="text-white text-lg">OR</div>

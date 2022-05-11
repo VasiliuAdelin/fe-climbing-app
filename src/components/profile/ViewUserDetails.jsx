@@ -1,10 +1,10 @@
-import Button from "@material-tailwind/react/Button";
-import H3 from "@material-tailwind/react/Heading3";
-import Icon from "@material-tailwind/react/Icon";
-import LeadText from "@material-tailwind/react/LeadText";
-import { Link } from "react-router-dom";
+import Button from '@material-tailwind/react/Button';
+import H3 from '@material-tailwind/react/Heading3';
+import Icon from '@material-tailwind/react/Icon';
+import LeadText from '@material-tailwind/react/LeadText';
+import { Link } from 'react-router-dom';
 
-const ViewUserDetails = ({
+function ViewUserDetails({
   name,
   imageLink,
   description,
@@ -17,7 +17,7 @@ const ViewUserDetails = ({
   routesClimbed,
   personalRoutes,
   futureRoute,
-}) => {
+}) {
   const fullAddress = `${address}, ${city}, ${country}, ${postalCode}`;
 
   return (
@@ -37,7 +37,7 @@ const ViewUserDetails = ({
         <div className="flex justify-center py-4 lg:pt-4 pt-8">
           <div className="mr-4 p-3 text-center">
             <span className="text-xl font-bold block uppercase tracking-wide text-gray-900">
-              {routesClimbed || "N/A"}
+              {routesClimbed || 'N/A'}
             </span>
             <span className="text-sm text-gray-700 whitespace-nowrap">
               Routes climbed
@@ -45,7 +45,7 @@ const ViewUserDetails = ({
           </div>
           <div className="mr-4 p-3 text-center">
             <span className="text-xl font-bold block uppercase tracking-wide text-gray-900">
-              {personalRoutes || "N/A"}
+              {personalRoutes || 'N/A'}
             </span>
             <span className="text-sm text-gray-700 whitespace-nowrap">
               Personal routes
@@ -53,7 +53,7 @@ const ViewUserDetails = ({
           </div>
           <div className="lg:mr-4 p-3 text-center">
             <span className="text-xl font-bold block uppercase tracking-wide text-gray-900">
-              {futureRoute || "N/A"}
+              {futureRoute || 'N/A'}
             </span>
             <span className="text-sm text-gray-700 whitespace-nowrap">
               Future routes
@@ -87,22 +87,22 @@ const ViewUserDetails = ({
       </div>
     </>
   );
-};
+}
 
 ViewUserDetails.defaultProps = {
-  name: "",
-  description: "",
-  position: "",
-  phoneNumber: "N/A",
-  email: "",
-  imageLink: "",
-  city: "",
-  country: "",
-  postalCode: "",
-  address: "",
-  routesClimbed: "",
-  personalRoutes: "",
-  futureRoute: "",
+  name: '',
+  description: '',
+  position: '',
+  phoneNumber: 'N/A',
+  email: '',
+  imageLink: '',
+  city: '',
+  country: '',
+  postalCode: '',
+  address: '',
+  routesClimbed: '',
+  personalRoutes: '',
+  futureRoute: '',
 };
 
 export default ViewUserDetails;

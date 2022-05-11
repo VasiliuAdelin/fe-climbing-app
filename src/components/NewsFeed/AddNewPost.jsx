@@ -1,18 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { InputIcon, Textarea, Button } from "@material-tailwind/react";
-import React, { useEffect, useState } from "react";
-import Card from "../shared/Card/Card";
-import CardBody from "../shared/Card/CardBody";
-import CardFooter from "../shared/Card/CardFooter";
-import CardHeader from "../shared/Card/CardHeader";
+import { InputIcon, Textarea, Button } from '@material-tailwind/react';
+import React, { useEffect, useState } from 'react';
+import Card from '../shared/Card/Card';
+import CardBody from '../shared/Card/CardBody';
+import CardFooter from '../shared/Card/CardFooter';
+import CardHeader from '../shared/Card/CardHeader';
 
-const AddNewPost = ({ onSubmit }) => {
+function AddNewPost({ onSubmit }) {
   const [, setIsDisabled] = useState(true);
-  const [imageLink, setImageLink] = useState("");
-  const [description, setDescription] = useState("");
-  const [location, setLocation] = useState("");
-  const [title, setTitle] = useState("");
-  const [geoLocation, setGeoLocation] = useState("");
+  const [imageLink, setImageLink] = useState('');
+  const [description, setDescription] = useState('');
+  const [location, setLocation] = useState('');
+  const [title, setTitle] = useState('');
+  const [geoLocation, setGeoLocation] = useState('');
 
   useEffect(() => {
     setIsDisabled(!(imageLink && description));
@@ -127,7 +127,7 @@ const AddNewPost = ({ onSubmit }) => {
       </div>
     </form>
   );
-};
+}
 
 AddNewPost.defaultProps = {
   onSubmit: () => undefined,

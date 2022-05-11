@@ -1,52 +1,57 @@
-import Card from "@material-tailwind/react/Card";
-import CardHeader from "@material-tailwind/react/CardHeader";
-import CardBody from "@material-tailwind/react/CardBody";
-import { Button } from "gpl-tailwind-theme";
-import Input from "@material-tailwind/react/Input";
-import Textarea from "@material-tailwind/react/Textarea";
-import Icon from "@material-tailwind/react/Icon";
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
+import { Button } from 'gpl-tailwind-theme';
+import Input from '@material-tailwind/react/Input';
+import Textarea from '@material-tailwind/react/Textarea';
+import Icon from '@material-tailwind/react/Icon';
 
-const EditProjectForm = (props) => {
+function EditProjectForm(props) {
   const {
-    values: { name, logoURL, address, description, subtasks },
+    values: {
+      name, logoURL, address, description, subtasks,
+    },
     handleSubmit,
     handleInputChange,
     handleChangeFieldByName,
   } = props;
 
   const handleTaskOnChange = (e) => {
-    const value = e.target.value;
-    const idx = e.target.name.split("-")[1];
-    let _tempArr = [...subtasks];
+    const { value } = e.target;
+    const idx = e.target.name.split('-')[1];
+    const _tempArr = [...subtasks];
     _tempArr[idx] = {
       ..._tempArr[idx],
       updatedAt: `${new Date().toISOString()}`,
       name: value,
     };
-    handleChangeFieldByName("subtasks", _tempArr);
+    handleChangeFieldByName('subtasks', _tempArr);
   };
 
   const createNewEmptyTask = () => {
-    let _tempArr = [...subtasks];
+    const _tempArr = [...subtasks];
     _tempArr.push({
-      name: "",
+      name: '',
       createdAt: `${new Date().toISOString()}`,
       updatedAt: `${new Date().toISOString()}`,
     });
-    handleChangeFieldByName("subtasks", _tempArr);
+    handleChangeFieldByName('subtasks', _tempArr);
   };
 
   const handleDeleteTask = (idx) => {
-    let _tempArr = [...subtasks];
+    const _tempArr = [...subtasks];
     _tempArr.splice(idx, 1);
-    handleChangeFieldByName("subtasks", _tempArr);
+    handleChangeFieldByName('subtasks', _tempArr);
   };
   return (
     <Card>
       <form onSubmit={handleSubmit}>
         <CardHeader color="lightBlue" contentPosition="none">
           <div className="w-full flex items-center justify-between">
-            <h2 className="text-white text-2xl">Project {name}</h2>
+            <h2 className="text-white text-2xl">
+              Project
+              {name}
+            </h2>
             <Button type="submit" color="lightBlue" ripple="dark">
               Update
             </Button>
@@ -105,8 +110,8 @@ const EditProjectForm = (props) => {
               color="blue"
               size="sm"
               ripple="light"
-              rounded={true}
-              iconOnly={true}
+              rounded
+              iconOnly
               className="ml-4"
               onClick={() => createNewEmptyTask()}
             >
@@ -131,8 +136,8 @@ const EditProjectForm = (props) => {
                   size="sm"
                   color="red"
                   ripple="light"
-                  rounded={true}
-                  iconOnly={true}
+                  rounded
+                  iconOnly
                   onClick={() => handleDeleteTask(index)}
                 >
                   <Icon name="delete" />
@@ -144,16 +149,16 @@ const EditProjectForm = (props) => {
       </form>
     </Card>
   );
-};
+}
 
 EditProjectForm.defaultProps = {
   values: {
-    id: "",
-    logoURL: "",
-    name: "",
-    description: "",
-    manager: "",
-    address: "",
+    id: '',
+    logoURL: '',
+    name: '',
+    description: '',
+    manager: '',
+    address: '',
     subtasks: [],
   },
   handleSubmit: () => undefined,

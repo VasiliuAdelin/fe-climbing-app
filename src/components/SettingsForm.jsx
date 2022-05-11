@@ -1,9 +1,9 @@
-import Card from "@material-tailwind/react/Card";
-import CardHeader from "@material-tailwind/react/CardHeader";
-import CardBody from "@material-tailwind/react/CardBody";
-import Button from "@material-tailwind/react/Button";
-import Input from "@material-tailwind/react/Input";
-import Textarea from "@material-tailwind/react/Textarea";
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
+import Button from '@material-tailwind/react/Button';
+import Input from '@material-tailwind/react/Input';
+import Textarea from '@material-tailwind/react/Textarea';
 
 export default function SettingsForm(props) {
   const { values, handleSubmit, handleInputChange } = props;
@@ -31,7 +31,7 @@ export default function SettingsForm(props) {
                 disabled
                 placeholder="Email Address"
                 className="text-gray-100 disabled"
-                style={{ color: "gray", cursor: "not-allowed" }}
+                style={{ color: 'gray', cursor: 'not-allowed' }}
                 value={values.email}
                 name="email"
                 onChange={handleInputChange}

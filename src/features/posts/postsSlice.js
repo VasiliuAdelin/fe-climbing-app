@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getPostById, getPosts } from "./posts.actions";
+import { createSlice } from '@reduxjs/toolkit';
+import { getPostById, getPosts } from './posts.actions';
 
 const initialState = {
   posts: [],
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const postsSlice = createSlice({
-  name: "posts",
+  name: 'posts',
   initialState,
   reducers: {
     setFieldPosts: (state, { payload }) => {

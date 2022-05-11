@@ -1,18 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import { InputIcon, Textarea, Button } from "@material-tailwind/react";
-import Select from "react-select";
-import { isEmpty } from "lodash";
-import Card from "../shared/Card/Card";
-import CardBody from "../shared/Card/CardBody";
-import CardFooter from "../shared/Card/CardFooter";
-import CardHeader from "../shared/Card/CardHeader";
-import TYPES from "../../types";
-import { formatObjectSelect } from "./crags.utils";
+import React, { useEffect, useState } from 'react';
+import { InputIcon, Textarea, Button } from '@material-tailwind/react';
+import Select from 'react-select';
+import { isEmpty } from 'lodash';
+import Card from '../shared/Card/Card';
+import CardBody from '../shared/Card/CardBody';
+import CardFooter from '../shared/Card/CardFooter';
+import CardHeader from '../shared/Card/CardHeader';
+import TYPES from '../../types';
+import { formatObjectSelect } from './crags.utils';
 
 const { CRAGS } = TYPES;
-const { GENRE_TYPE, STEEPNESS_TYPES, STYLE_TYPES, HOLD_TYPES, GRADES_TYPES } =
-  CRAGS;
+const {
+  GENRE_TYPE, STEEPNESS_TYPES, STYLE_TYPES, HOLD_TYPES, GRADES_TYPES,
+} = CRAGS;
 
 const TYPE_OF_CRAGS_OPTIONS = formatObjectSelect(GENRE_TYPE);
 const GRADES_OPTIONS = formatObjectSelect(GRADES_TYPES);
@@ -23,14 +24,14 @@ const FEATURES_OPTIONS = formatObjectSelect({
 });
 
 const INITIAL_STATE = {
-  name: "The best crag name",
+  name: 'The best crag name',
   grade: null,
   typeOfCrag: null,
   features: null,
-  description: "The best description ever",
-  address: "",
-  geoLocation: "24.123123, 34.123131",
-  mainImage: "https://via.placeholder.com/400",
+  description: 'The best description ever',
+  address: '',
+  geoLocation: '24.123123, 34.123131',
+  mainImage: 'https://via.placeholder.com/400',
 };
 
 const INITIAL_ERRORS = {
@@ -39,7 +40,7 @@ const INITIAL_ERRORS = {
   features: false,
 };
 
-const CreateCrag = ({ onSubmit }) => {
+function CreateCrag({ onSubmit }) {
   const [values, setValues] = useState(INITIAL_STATE);
   const [errors, setErros] = useState(INITIAL_ERRORS);
 
@@ -132,9 +133,7 @@ const CreateCrag = ({ onSubmit }) => {
               <div className="mb-6">
                 <Select
                   defaultValue={values.typeOfCrag}
-                  onChange={(payload) =>
-                    handleOnChangeSelect("typeOfCrag", payload)
-                  }
+                  onChange={(payload) => handleOnChangeSelect('typeOfCrag', payload)}
                   options={TYPE_OF_CRAGS_OPTIONS}
                   placeholder="Select Type Of Crag"
                   className="w-full"
@@ -150,7 +149,7 @@ const CreateCrag = ({ onSubmit }) => {
               <div className="mb-6">
                 <Select
                   defaultValue={values.grade}
-                  onChange={(payload) => handleOnChangeSelect("grade", payload)}
+                  onChange={(payload) => handleOnChangeSelect('grade', payload)}
                   options={GRADES_OPTIONS}
                   placeholder="Select Grade"
                   className="w-full"
@@ -166,9 +165,7 @@ const CreateCrag = ({ onSubmit }) => {
             <div className="w-full mb-6">
               <Select
                 defaultValue={values.features}
-                onChange={(payload) =>
-                  handleOnChangeSelect("features", payload)
-                }
+                onChange={(payload) => handleOnChangeSelect('features', payload)}
                 options={FEATURES_OPTIONS}
                 placeholder="Select Features"
                 className="w-full m-0 p-0"
@@ -228,7 +225,7 @@ const CreateCrag = ({ onSubmit }) => {
       </div>
     </form>
   );
-};
+}
 
 CreateCrag.defaultProps = {
   onSubmit: () => undefined,

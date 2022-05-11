@@ -1,25 +1,25 @@
-import Card from "@material-tailwind/react/Card";
-import CardHeader from "@material-tailwind/react/CardHeader";
-import CardBody from "@material-tailwind/react/CardBody";
-import CardFooter from "@material-tailwind/react/CardFooter";
-import H5 from "@material-tailwind/react/Heading5";
-import InputIcon from "@material-tailwind/react/InputIcon";
-import Button from "@material-tailwind/react/Button";
-import Paragraph from "@material-tailwind/react/Paragraph";
-import { useSelector, useDispatch } from "react-redux";
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
+import CardFooter from '@material-tailwind/react/CardFooter';
+import H5 from '@material-tailwind/react/Heading5';
+import InputIcon from '@material-tailwind/react/InputIcon';
+import Button from '@material-tailwind/react/Button';
+import Paragraph from '@material-tailwind/react/Paragraph';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { Alert } from 'gpl-tailwind-theme';
 import {
   selectState,
   setField,
-} from "../../features/auth/authSlice";
-import { useState } from "react";
-import { Alert } from "gpl-tailwind-theme";
-import { registerAsync } from "../../features/auth/auth.actions";
+} from '../../features/auth/authSlice';
+import { registerAsync } from '../../features/auth/auth.actions';
 
 export default function AddPerson() {
   const [values, setValues] = useState({
-    name: "admin",
-    email: "gligadumitru98@gmail.com",
-    password: "parola111",
+    name: 'admin',
+    email: 'gligadumitru98@gmail.com',
+    password: 'parola111',
   });
 
   const { status, errors, message } = useSelector(selectState);
@@ -51,9 +51,7 @@ export default function AddPerson() {
             closeIconPosition="center"
             hideAfter={5000}
             className="fixed bottom-2 right-2 inline-block"
-            handleClose={() =>
-              dispatch(setField({ name: "message", value: "" }))
-            }
+            handleClose={() => dispatch(setField({ name: 'message', value: '' }))}
           >
             {`${message}`}
           </Alert>
@@ -68,9 +66,7 @@ export default function AddPerson() {
             closeIconPosition="center"
             hideAfter={5000}
             className="fixed bottom-2 right-2 inline-block"
-            handleClose={() =>
-              dispatch(setField({ name: "errors", value: [] }))
-            }
+            handleClose={() => dispatch(setField({ name: 'errors', value: [] }))}
           >
             {`${errors[0]}`}
           </Alert>
@@ -129,12 +125,14 @@ export default function AddPerson() {
                   ripple="dark"
                   type="submit"
                 >
-                  {status === "loading" ? "Loading" : "Create"}
+                  {status === 'loading' ? 'Loading' : 'Create'}
                 </Button>
               </div>
               <div className="mt-4 pt-2 border-t-2">
                 <Paragraph color="blueGray">
-                  An email will be sent in order for the new user to <br />
+                  An email will be sent in order for the new user to
+                  {' '}
+                  <br />
                   change his password and start use the account
                 </Paragraph>
               </div>

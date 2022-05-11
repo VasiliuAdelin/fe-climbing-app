@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import Select from "react-select";
-import TYPES from "../../types";
-import { formatObjectSelect } from "./crags.utils";
+import React, { useState } from 'react';
+import Select from 'react-select';
+import TYPES from '../../types';
+import { formatObjectSelect } from './crags.utils';
 
 const { CRAGS } = TYPES;
-const { GENRE_TYPE, STEEPNESS_TYPES, STYLE_TYPES, HOLD_TYPES, GRADES_TYPES } =
-  CRAGS;
+const {
+  GENRE_TYPE, STEEPNESS_TYPES, STYLE_TYPES, HOLD_TYPES, GRADES_TYPES,
+} = CRAGS;
 
 const TYPE_OF_CRAGS_OPTIONS = formatObjectSelect(GENRE_TYPE);
 const GRADES_OPTIONS = formatObjectSelect(GRADES_TYPES);
@@ -21,7 +22,7 @@ const INITIAL_STATE = {
   features: [],
 };
 
-const FilterSection = ({ onChange }) => {
+function FilterSection({ onChange }) {
   const [values, setValues] = useState(INITIAL_STATE);
 
   const handleOnChangeSelect = (name, data) => {
@@ -50,7 +51,7 @@ const FilterSection = ({ onChange }) => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
         <Select
           defaultValue={values.type}
-          onChange={(payload) => handleOnChangeSelect("type", payload)}
+          onChange={(payload) => handleOnChangeSelect('type', payload)}
           options={TYPE_OF_CRAGS_OPTIONS}
           placeholder="Filter by type"
           className="w-full"
@@ -59,7 +60,7 @@ const FilterSection = ({ onChange }) => {
         />
         <Select
           defaultValue={values.grade}
-          onChange={(payload) => handleOnChangeSelect("grade", payload)}
+          onChange={(payload) => handleOnChangeSelect('grade', payload)}
           options={GRADES_OPTIONS}
           placeholder="Filter by grade"
           className="w-full"
@@ -68,7 +69,7 @@ const FilterSection = ({ onChange }) => {
         />
         <Select
           defaultValue={values.features}
-          onChange={(payload) => handleOnChangeSelect("features", payload)}
+          onChange={(payload) => handleOnChangeSelect('features', payload)}
           options={FEATURES_OPTIONS}
           placeholder="Filter by features"
           className="w-full m-0 p-0 col-span-2"
@@ -78,7 +79,7 @@ const FilterSection = ({ onChange }) => {
       </div>
     </>
   );
-};
+}
 
 FilterSection.defaultProps = {
   onChange: () => undefined,

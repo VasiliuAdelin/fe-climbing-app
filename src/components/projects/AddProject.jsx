@@ -1,27 +1,27 @@
-import React from "react";
-import Card from "@material-tailwind/react/Card";
-import CardHeader from "@material-tailwind/react/CardHeader";
-import CardBody from "@material-tailwind/react/CardBody";
-import CardFooter from "@material-tailwind/react/CardFooter";
-import H5 from "@material-tailwind/react/Heading5";
-import InputIcon from "@material-tailwind/react/InputIcon";
-import Button from "@material-tailwind/react/Button";
-import Paragraph from "@material-tailwind/react/Paragraph";
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
+import CardFooter from '@material-tailwind/react/CardFooter';
+import H5 from '@material-tailwind/react/Heading5';
+import InputIcon from '@material-tailwind/react/InputIcon';
+import Button from '@material-tailwind/react/Button';
+import Paragraph from '@material-tailwind/react/Paragraph';
+
+import { useSelector, useDispatch } from 'react-redux';
+import Textarea from '@material-tailwind/react/Textarea';
 import {
   selectState,
-} from "../../features/auth/authSlice";
-import Textarea from "@material-tailwind/react/Textarea";
-import { registerAsync } from "../../features/auth/auth.actions";
+} from '../../features/auth/authSlice';
+import { registerAsync } from '../../features/auth/auth.actions';
 
-const AddProject = () => {
+function AddProject() {
   const [values, setValues] = useState({
-    name: "Project EMS9",
-    email: "gligadumitru98@gmail.com",
-    description: "",
-    logo: "",
-    password: "parola111",
+    name: 'Project EMS9',
+    email: 'gligadumitru98@gmail.com',
+    description: '',
+    logo: '',
+    password: 'parola111',
   });
 
   const { status } = useSelector(selectState);
@@ -80,7 +80,7 @@ const AddProject = () => {
                 value={values.description}
                 name="description"
                 onChange={handleInputChange}
-              ></Textarea>
+              />
             </div>
           </CardBody>
           <CardFooter>
@@ -92,12 +92,14 @@ const AddProject = () => {
                 ripple="dark"
                 type="submit"
               >
-                {status === "loading" ? "Loading" : "Create"}
+                {status === 'loading' ? 'Loading' : 'Create'}
               </Button>
             </div>
             <div className="mt-4 pt-2 border-t-2">
               <Paragraph color="blueGray">
-                A project will be created and will be able to see it on projects list <br />
+                A project will be created and will be able to see it on projects list
+                {' '}
+                <br />
               </Paragraph>
             </div>
           </CardFooter>
@@ -105,6 +107,6 @@ const AddProject = () => {
       </form>
     </div>
   );
-};
+}
 
 export default AddProject;

@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import { Button } from "gpl-tailwind-theme";
-import { Icon } from "@material-tailwind/react";
-import RouteListView from "../crags/RouteListView";
-import CreateCrag from "./CreateCrag";
-import Modal from "../shared/Modals/Modal";
-import { createCragAsync, getCrags } from "../../features/crags/crags.actions";
-import { useDispatch, useSelector } from "react-redux";
-import FilterSection from "./FilterSection";
-import { cloneDeep, forEach, isEmpty } from "lodash";
+import { useEffect, useState } from 'react';
+import { Button } from 'gpl-tailwind-theme';
+import { Icon } from '@material-tailwind/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { cloneDeep, forEach, isEmpty } from 'lodash';
+import RouteListView from './RouteListView';
+import CreateCrag from './CreateCrag';
+import Modal from '../shared/Modals/Modal';
+import { createCragAsync, getCrags } from '../../features/crags/crags.actions';
+import FilterSection from './FilterSection';
 
-export default function Crags({ country = "", city = "" }) {
+export default function Crags({ country = '', city = '' }) {
   const [crags, setCrags] = useState([]);
   const dispatch = useDispatch();
   const { user, isLoggedIn } = useSelector((state) => state.auth);
@@ -26,7 +26,9 @@ export default function Crags({ country = "", city = "" }) {
 
   const handleOnAdd = (payload) => {
     setOpenModal(false);
-    dispatch(createCragAsync({ ...payload, city, country, author: user.id }));
+    dispatch(createCragAsync({
+      ...payload, city, country, author: user.id,
+    }));
     setTimeout(() => {
       dispatch(getCrags(`/?country=${country}&city=${city}`));
     }, 2000);

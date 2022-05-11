@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-import reportWebVitals from "./reportWebVitals";
-import store from "./store";
-import { Provider } from "react-redux";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import App from './App';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
+import store from './store';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,7 +16,7 @@ ReactDOM.render(
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 serviceWorkerRegistration.unregister();

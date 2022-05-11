@@ -1,6 +1,6 @@
-import Title from "./Title";
-import ContactCard from "./ContactCard";
-import Form from "./Form";
+import Title from './Title';
+import ContactCard from './ContactCard';
+import Form from './Form';
 
 export default function ContactSection() {
   return (

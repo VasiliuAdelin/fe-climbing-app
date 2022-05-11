@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-const CommentSection = ({
-  profile = "",
-  name = "",
-  comment = "",
-  postedAt = "",
-}) => {
+function CommentSection({
+  profile = '',
+  name = '',
+  comment = '',
+  postedAt = '',
+}) {
   return (
     <div className="bg-white dark:bg-gray-800 text-black dark:text-gray-200 p-4 antialiased flex">
       <div>
@@ -28,6 +28,6 @@ const CommentSection = ({
       </div>
     </div>
   );
-};
+}
 
 export default CommentSection;

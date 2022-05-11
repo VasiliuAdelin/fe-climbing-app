@@ -1,9 +1,7 @@
-export const formatCountries = (countries) => {
-  return Object.keys(countries).map((countryKey) => {
-    const { name } = countries[countryKey];
-    return { value: countryKey, label: name };
-  });
-};
+export const formatCountries = (countries) => Object.keys(countries).map((countryKey) => {
+  const { name } = countries[countryKey];
+  return { value: countryKey, label: name };
+});
 
 export const formatCities = (countries, country) => {
   const { cities } = countries[country];

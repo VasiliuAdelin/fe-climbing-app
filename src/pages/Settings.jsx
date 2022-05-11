@@ -1,27 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import SettingsForm from "../components/SettingsForm";
-import ProfileCard from "../components/ProfileCard";
-import { useSelector, useDispatch } from "react-redux";
-import { selectState } from "../features/auth/authSlice";
-import { useEffect, useState } from "react";
-import MainLayout from "../components/layouts/MainLayout";
-import { updateUserDataAsync } from "../features/auth/auth.actions";
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import SettingsForm from '../components/SettingsForm';
+import ProfileCard from '../components/ProfileCard';
+import { selectState } from '../features/auth/authSlice';
+import MainLayout from '../components/layouts/MainLayout';
+import { updateUserDataAsync } from '../features/auth/auth.actions';
 
 export default function Settings() {
   const { user } = useSelector(selectState);
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
-    imageLink: "",
-    username: "Adelin",
-    email: "adelin@gmail.com",
-    name: "Adelin Vasiliu",
-    address: "Iasi",
-    city: "Iasi",
-    country: "Romania",
-    postalCode: "",
-    description: "",
-    work: "",
+    imageLink: '',
+    username: 'Adelin',
+    email: 'adelin@gmail.com',
+    name: 'Adelin Vasiliu',
+    address: 'Iasi',
+    city: 'Iasi',
+    country: 'Romania',
+    postalCode: '',
+    description: '',
+    work: '',
   });
 
   useEffect(() => {
@@ -40,8 +40,9 @@ export default function Settings() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { imageLink, name, address, city, country, postalCode, description } =
-      values;
+    const {
+      imageLink, name, address, city, country, postalCode, description,
+    } = values;
     const { id } = user;
     const payload = {
       imageLink,

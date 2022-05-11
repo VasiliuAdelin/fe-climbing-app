@@ -1,13 +1,13 @@
-import CardImage from "@material-tailwind/react/CardImage";
-import Icon from "@material-tailwind/react/Icon";
-import H4 from "@material-tailwind/react/Heading4";
-import H6 from "@material-tailwind/react/Heading6";
-import LeadText from "@material-tailwind/react/LeadText";
-import Paragraph from "@material-tailwind/react/Paragraph";
-import StatusCard from "./StatusCard";
-import Teamwork from "../../assets/img/teamwork.jpeg";
-import Card from "../shared/Card/Card";
-import CardBody from "../shared/Card/CardBody";
+import CardImage from '@material-tailwind/react/CardImage';
+import Icon from '@material-tailwind/react/Icon';
+import H4 from '@material-tailwind/react/Heading4';
+import H6 from '@material-tailwind/react/Heading6';
+import LeadText from '@material-tailwind/react/LeadText';
+import Paragraph from '@material-tailwind/react/Paragraph';
+import StatusCard from './StatusCard';
+import Teamwork from '../../assets/img/teamwork.jpeg';
+import Card from '../shared/Card/Card';
+import CardBody from '../shared/Card/CardBody';
 
 export default function WorkingSection() {
   return (
@@ -51,7 +51,7 @@ export default function WorkingSection() {
           </div>
 
           <div className="w-full md:w-4/12 px-4 mx-auto flex justify-center mt-24 lg:mt-0">
-            <Card >
+            <Card>
               <CardImage alt="Card Image" src={Teamwork} />
               <CardBody>
                 <H6 color="gray">Lorem Ipsum is simply dummy </H6>

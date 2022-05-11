@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { isEmpty, cloneDeep } from "lodash";
-import { Button } from "gpl-tailwind-theme";
-import FeedPostCard from "./FeedPostCard";
-import Modal from "../shared/Modals/Modal";
-import ViewCardInfo from "../feed/ViewCardInfo";
-import AddNewPost from "./AddNewPost";
-import Icon from "@material-tailwind/react/Icon";
-import { selectState } from "../../features/auth/authSlice";
-import Title from "../landing/Title";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty, cloneDeep } from 'lodash';
+import { Button } from 'gpl-tailwind-theme';
+import Icon from '@material-tailwind/react/Icon';
+import FeedPostCard from './FeedPostCard';
+import Modal from '../shared/Modals/Modal';
+import ViewCardInfo from '../feed/ViewCardInfo';
+import AddNewPost from './AddNewPost';
+import { selectState } from '../../features/auth/authSlice';
+import Title from '../landing/Title';
 import {
   createPostAsync,
-  getPosts,
   updatePost,
-} from "../../features/posts/posts.actions";
-import { createCommentAsync } from "../../features/ui/ui.actions";
-import { setFieldPosts } from "../../features/posts/postsSlice";
-import { useRouter } from "../../hooks/useRouter";
+} from '../../features/posts/posts.actions';
+import { createCommentAsync } from '../../features/ui/ui.actions';
+import { setFieldPosts } from '../../features/posts/postsSlice';
+import { useRouter } from '../../hooks/useRouter';
 
 function PostsSection({
   posts: receivedProps = [],
   showTitle = false,
   showCreate = false,
-  title = "",
-  cbOnSubmitPost = () => undefined
+  title = '',
+  cbOnSubmitPost = () => undefined,
 }) {
   const { user, isLoggedIn } = useSelector(selectState);
   const { push } = useRouter();
@@ -66,10 +65,10 @@ function PostsSection({
         assets: [imageLink],
         location,
         geoLocation,
-      })
+      }),
     );
-    
-    cbOnSubmitPost()
+
+    cbOnSubmitPost();
   };
 
   const handleOnToggleLikePost = (postId) => {
@@ -77,7 +76,7 @@ function PostsSection({
       const { id } = user;
       let postsCopy = cloneDeep(posts || []);
 
-      let selectedPostCopy = postsCopy.find((post) => post.id === postId);
+      const selectedPostCopy = postsCopy.find((post) => post.id === postId);
       let selectedLikesCopy = cloneDeep(selectedPostCopy.likes || []);
 
       if (selectedLikesCopy.includes(id)) {
@@ -92,7 +91,7 @@ function PostsSection({
           payload: {
             likes: selectedLikesCopy,
           },
-        })
+        }),
       );
       postsCopy = postsCopy.map((result) => {
         if (result.id === selectedPostCopy.id) {
@@ -105,9 +104,9 @@ function PostsSection({
       });
       dispatch(
         setFieldPosts({
-          name: "posts",
+          name: 'posts',
           value: postsCopy,
-        })
+        }),
       );
     }
   };
@@ -134,7 +133,7 @@ function PostsSection({
 
     let postsCopy = cloneDeep(posts || []);
 
-    let selectedPostCopy = cloneDeep(selectedPost);
+    const selectedPostCopy = cloneDeep(selectedPost);
     let selectedPostCommentsCopy = cloneDeep(selectedPostCopy.comments || []);
     selectedPostCommentsCopy = [...selectedPostCommentsCopy, newComment];
 
@@ -150,9 +149,9 @@ function PostsSection({
 
     dispatch(
       setFieldPosts({
-        name: "posts",
+        name: 'posts',
         value: postsCopy,
-      })
+      }),
     );
   };
 
@@ -185,7 +184,7 @@ function PostsSection({
       <section className="pb-20 relative block">
         <div className="mb-16">
           <div className="max-w-7xl px-2 lg:px-10 pt-10 mx-auto">
-            {showTitle && <Title heading={title}></Title>}
+            {showTitle && <Title heading={title} />}
             {showCreate && (
               <>
                 {isLoggedIn && (

@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getEventById, getEvents } from "./events.actions";
+import { createSlice } from '@reduxjs/toolkit';
+import { getEventById, getEvents } from './events.actions';
 
 const initialState = {
   events: [],
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const eventsSlice = createSlice({
-  name: "events",
+  name: 'events',
   initialState,
   reducers: {
     setFieldEvents: (state, { payload }) => {

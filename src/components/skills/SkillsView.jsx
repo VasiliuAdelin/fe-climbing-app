@@ -1,7 +1,7 @@
-import React from "react";
-import SkillItem from "./SkillItem";
+import React from 'react';
+import SkillItem from './SkillItem';
 
-const SkillsView = ({ skills, onClick }) => {
+function SkillsView({ skills, onClick }) {
   return (
     <div className="flex flex-wrap justify-center items-center">
       {skills.map((skill, index) => (
@@ -13,7 +13,7 @@ const SkillsView = ({ skills, onClick }) => {
       ))}
     </div>
   );
-};
+}
 
 SkillsView.defaultProps = {
   skills: [],

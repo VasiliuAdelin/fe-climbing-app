@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import Select from "react-select";
-import Card from "@material-tailwind/react/Card";
-import CardHeader from "@material-tailwind/react/CardHeader";
-import CardBody from "@material-tailwind/react/CardBody";
-import { Button } from "@material-tailwind/react";
-import { useRouter } from "../../hooks/useRouter";
-import TYPES from "../../types";
-import { formatCountries, formatCities } from "./landing.utils";
+import React, { useState } from 'react';
+import Select from 'react-select';
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
+import { Button } from '@material-tailwind/react';
+import { useRouter } from '../../hooks/useRouter';
+import TYPES from '../../types';
+import { formatCountries, formatCities } from './landing.utils';
 
 const { COUNTRIES } = TYPES;
 
 const COUNTRIES_OPTIONS = formatCountries(COUNTRIES);
 
-const SearchRoutes = () => {
+function SearchRoutes() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
   const [cities, setCities] = useState([]);
@@ -67,7 +67,7 @@ const SearchRoutes = () => {
             <Button
               disabled={!(selectedCity && selectedCountry)}
               type="submit"
-              color={selectedCity && selectedCountry ? "green" : "gray"}
+              color={selectedCity && selectedCountry ? 'green' : 'gray'}
               ripple="dark"
               className="w-full my-2 lg:w-auto lg:m-4"
             >
@@ -78,6 +78,6 @@ const SearchRoutes = () => {
       </CardBody>
     </Card>
   );
-};
+}
 
 export default SearchRoutes;

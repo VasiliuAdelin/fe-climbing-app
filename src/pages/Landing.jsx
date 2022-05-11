@@ -1,10 +1,10 @@
-import Header from "../components/landing/Header";
-import React from "react";
-import DefaultNavbar from "../components/DefaultNavbar";
-import ClimbingLocationsSection from "../components/landing/ClimbingLocationsSection";
-import NewsFeedPostsSection from "../components/NewsFeed/NewsFeedPostsSection";
+import React from 'react';
+import Header from '../components/landing/Header';
+import DefaultNavbar from '../components/DefaultNavbar';
+import ClimbingLocationsSection from '../components/landing/ClimbingLocationsSection';
+import NewsFeedPostsSection from '../components/NewsFeed/NewsFeedPostsSection';
 
-const Landing = () => {
+function Landing() {
   return (
     <>
       <div className="absolute w-full z-20">
@@ -17,6 +17,6 @@ const Landing = () => {
       </main>
     </>
   );
-};
+}
 
 export default Landing;

@@ -1,75 +1,72 @@
-import React from "react";
-import CommentSection from "../feed/CommentSection";
-import ComplexLayout from "../layouts/ComplexLayout";
-import AddComment from "../Comment/AddComment";
-import { Icon } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
-import Breadcrumb from "../shared/Breadcrumb";
-
+import React from 'react';
+import { Icon } from '@material-tailwind/react';
+import { Link } from 'react-router-dom';
+import CommentSection from '../feed/CommentSection';
+import ComplexLayout from '../layouts/ComplexLayout';
+import AddComment from '../Comment/AddComment';
+import Breadcrumb from '../shared/Breadcrumb';
 
 const MOCK_COMMENTS = [
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-14.png?resize=255%2C255&ssl=1",
-      name: "Darwin Watterson",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-14.png?resize=255%2C255&ssl=1',
+      name: 'Darwin Watterson',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-18.png?resize=250%2C250&ssl=1",
-      name: "Doggo Guda",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-18.png?resize=250%2C250&ssl=1',
+      name: 'Doggo Guda',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     postedAt: new Date().toDateString(),
   },
 ];
 
-const AboutPost = () => {
+function AboutPost() {
   return (
     <div>
       <div className="flex m-4 items-center justify-between">
         <div className="flex">
           <img
             className="w-12 h-12 rounded-full"
-            src={
-              "https://i.natgeofe.com/n/7dbdf95f-fffa-42de-b935-9cbb11aeed16/adam-ondra-day-5-pitch_square.jpg"
-            }
+            src="https://i.natgeofe.com/n/7dbdf95f-fffa-42de-b935-9cbb11aeed16/adam-ondra-day-5-pitch_square.jpg"
             alt="as"
           />
           <div className="ml-2 mt-0.5">
@@ -80,7 +77,7 @@ const AboutPost = () => {
               <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug ">
                 Jun 4, 2021
               </span>
-              <span className="w-2 h-2 rounded bg-gray-500 mx-2"></span>
+              <span className="w-2 h-2 rounded bg-gray-500 mx-2" />
               <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug ">
                 Welcome to the app
               </span>
@@ -90,37 +87,39 @@ const AboutPost = () => {
 
         <div className="flex">
           <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug ">
-            <i className="fa-solid fa-link"></i> Copy link
+            <i className="fa-solid fa-link" />
+            {' '}
+            Copy link
           </span>
         </div>
       </div>
     </div>
   );
-};
+}
 
 const routesBreadcrumb = [
   {
-    name: "ClimbAround",
-    icon: "home",
-    urlTo: "/",
+    name: 'ClimbAround',
+    icon: 'home',
+    urlTo: '/',
   },
   {
-    name: "Topics",
-    icon: "article",
-    urlTo: "/forum",
+    name: 'Topics',
+    icon: 'article',
+    urlTo: '/forum',
   },
   {
-    name: "Welcome to the app",
-    icon: "feed",
-    urlTo: "/forum/1",
+    name: 'Welcome to the app',
+    icon: 'feed',
+    urlTo: '/forum/1',
   },
   {
-    name: "Authentication",
-    icon: "description",
-    urlTo: "/forum/1/1",
+    name: 'Authentication',
+    icon: 'description',
+    urlTo: '/forum/1/1',
   },
 ];
-const ViewTopicPost = () => {
+function ViewTopicPost() {
   return (
     <ComplexLayout
       backgroundImage="skills-background"
@@ -178,20 +177,18 @@ const ViewTopicPost = () => {
           </div>
           <div className="border border-gray-500 p-2">
             <p>Similar Posts</p>
-            {["Find a trip", "FAQ List"].map((item, index) => {
-              return (
-                <Link key={index} to="/">
-                  <span className="block text-xs m-2 hover:text-greenNormal">
-                    {item}
-                  </span>
-                </Link>
-              );
-            })}
+            {['Find a trip', 'FAQ List'].map((item, index) => (
+              <Link key={index} to="/">
+                <span className="block text-xs m-2 hover:text-greenNormal">
+                  {item}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
     </ComplexLayout>
   );
-};
+}
 
 export default ViewTopicPost;

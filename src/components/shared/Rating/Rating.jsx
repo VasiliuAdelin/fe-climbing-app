@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-const EmptyRating = () => (
-  <i className="fa-regular fa-star text-green-500"></i>
-);
+function EmptyRating() {
+  return <i className="fa-regular fa-star text-green-500" />;
+}
 
-const FillesRating = () => (
-  <i className="fa-solid fa-star text-green-500"></i>
-);
+function FillesRating() {
+  return <i className="fa-solid fa-star text-green-500" />;
+}
 
-const Rating = ({ ratingScore }) => {
+function Rating({ ratingScore }) {
   return (
     <div className="flex">
       {[1, 2, 3, 4, 5].map((element) => {
@@ -23,7 +23,7 @@ const Rating = ({ ratingScore }) => {
       })}
     </div>
   );
-};
+}
 
 Rating.defaultProps = {
   ratingScore: null,

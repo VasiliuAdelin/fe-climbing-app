@@ -1,1 +1,1 @@
-export const MONTHS = []
+export const MONTHS = [];

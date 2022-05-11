@@ -1,63 +1,64 @@
-import Button from "@material-tailwind/react/Button";
-import H3 from "@material-tailwind/react/Heading3";
-import Icon from "@material-tailwind/react/Icon";
-import LeadText from "@material-tailwind/react/LeadText";
-import { Link } from "react-router-dom";
-import AddComment from "../Comment/AddComment";
-import CommentSection from "../feed/CommentSection";
+import Button from '@material-tailwind/react/Button';
+import H3 from '@material-tailwind/react/Heading3';
+import Icon from '@material-tailwind/react/Icon';
+import LeadText from '@material-tailwind/react/LeadText';
+import { Link } from 'react-router-dom';
+import AddComment from '../Comment/AddComment';
+import CommentSection from '../feed/CommentSection';
+
 const MOCK_COMMENTS = [
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-14.png?resize=255%2C255&ssl=1",
-      name: "Darwin Watterson",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-14.png?resize=255%2C255&ssl=1',
+      name: 'Darwin Watterson',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-18.png?resize=250%2C250&ssl=1",
-      name: "Doggo Guda",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-18.png?resize=250%2C250&ssl=1',
+      name: 'Doggo Guda',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     postedAt: new Date().toDateString(),
   },
 ];
-const ViewUserProfile = (props) => {
+function ViewUserProfile(props) {
   const {
     name,
     imageLink,
@@ -173,23 +174,23 @@ const ViewUserProfile = (props) => {
       </div>
     </div>
   );
-};
+}
 
 ViewUserProfile.defaultProps = {
-  name: "John Doe",
-  description: "Thebest as everything in the sky",
-  position: "Climbing Trainer",
-  phoneNumber: "113-112-2212",
-  email: "johndoe@yahoo.com",
+  name: 'John Doe',
+  description: 'Thebest as everything in the sky',
+  position: 'Climbing Trainer',
+  phoneNumber: '113-112-2212',
+  email: 'johndoe@yahoo.com',
   imageLink:
-    "https://www.thebmc.co.uk/Handlers/ArticleImageHandler.ashx?id=6609&index=0&w=605&h=434",
-  city: "Iasi",
-  country: "Romania",
-  postalCode: "700333",
-  address: "Str. Climg, Nr.128",
-  routesClimbed: "23",
-  personalRoutes: "2",
-  futureRoute: "12",
+    'https://www.thebmc.co.uk/Handlers/ArticleImageHandler.ashx?id=6609&index=0&w=605&h=434',
+  city: 'Iasi',
+  country: 'Romania',
+  postalCode: '700333',
+  address: 'Str. Climg, Nr.128',
+  routesClimbed: '23',
+  personalRoutes: '2',
+  futureRoute: '12',
 };
 
 export default ViewUserProfile;

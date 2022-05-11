@@ -1,48 +1,42 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 import {
   forgotPasswordAsync,
   loginAsync,
   registerAsync,
   updateUserDataAsync,
-} from "../auth/auth.actions";
+} from '../auth/auth.actions';
 
 const initialState = {
   loading: true,
   posts: [],
   error: {
     isError: false,
-    message: "",
+    message: '',
   },
   success: {
     isSuccess: false,
-    message: "",
+    message: '',
   },
   notification: {
     isNotification: false,
-    message: "",
+    message: '',
   },
 };
 
-export const getPosts = createAsyncThunk("ui/getPostsAsync", async () => {
+export const getPosts = createAsyncThunk('ui/getPostsAsync', async () => {
   const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts"
+    'https://jsonplaceholder.typicode.com/posts',
   );
   const posts = response.data;
   return { posts };
 });
 
-export const isPendingAction = (action) => {
-  return action.type.endsWith("Async/pending");
-};
+export const isPendingAction = (action) => action.type.endsWith('Async/pending');
 
-export const isAsyncRejected = (action) => {
-  return action.type.endsWith("Async/rejected");
-};
+export const isAsyncRejected = (action) => action.type.endsWith('Async/rejected');
 
-export const isAsyncFulfilled = (action) => {
-  return action.type.endsWith("Async/fulfilled");
-};
+export const isAsyncFulfilled = (action) => action.type.endsWith('Async/fulfilled');
 
 export const isAuthFulfilled = (action) => {
   const allowedActionCreators = [
@@ -53,11 +47,10 @@ export const isAuthFulfilled = (action) => {
   return allowedActionCreators.includes(action.type);
 };
 
-const formatErrorMessage = (message = "ERROR", errors = ["Oops"]) =>
-  `${message}: ${errors[0]}`;
+const formatErrorMessage = (message = 'ERROR', errors = ['Oops']) => `${message}: ${errors[0]}`;
 
 export const uiSlice = createSlice({
-  name: "ui",
+  name: 'ui',
   initialState,
   reducers: {
     setFieldUI: (state, { payload }) => {
@@ -72,7 +65,9 @@ export const uiSlice = createSlice({
         state.posts = posts;
       })
       .addCase(updateUserDataAsync.fulfilled, (state, action) => {
-        const { code, errors = [], message = "", user } = action.payload || {};
+        const {
+          code, errors = [], message = '', user,
+        } = action.payload || {};
         if ((errors || message) && code) {
           state.error = {
             isError: true,
@@ -82,7 +77,7 @@ export const uiSlice = createSlice({
         if (user) {
           state.success = {
             isSuccess: true,
-            message: "Updated successfully",
+            message: 'Updated successfully',
           };
         }
       })
@@ -99,7 +94,7 @@ export const uiSlice = createSlice({
         state.loading = true;
       })
       .addMatcher(isAsyncFulfilled, (state, action) => {
-        console.log("action.payload", action.payload)
+        console.log('action.payload', action.payload);
         const { errors, message, code } = action.payload || {};
         if ((errors || message) && code) {
           state.error = {

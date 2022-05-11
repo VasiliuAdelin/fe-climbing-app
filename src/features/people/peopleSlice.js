@@ -1,12 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getUserProfile } from "./people.actions";
+import { createSlice } from '@reduxjs/toolkit';
+import { getUserProfile } from './people.actions';
 
 const initialState = {
   currentUserProfile: {},
 };
 
 export const peopleSlice = createSlice({
-  name: "people",
+  name: 'people',
   initialState,
   reducers: {
     setFieldPeople: (state, { payload }) => {

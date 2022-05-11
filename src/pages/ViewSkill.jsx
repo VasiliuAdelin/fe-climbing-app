@@ -1,79 +1,77 @@
-import React from "react";
-import CommentSection from "../components/feed/CommentSection";
-import ComplexLayout from "../components/layouts/ComplexLayout";
+import React from 'react';
+import CommentSection from '../components/feed/CommentSection';
+import ComplexLayout from '../components/layouts/ComplexLayout';
 import AddComment from '../components/Comment/AddComment';
 
 const mockSkill = {
   id: 12345,
-  title: "How to get to climbing?",
-  description: "Lorem imspun lorem impasjd k asdk sakdn kasd sakdn askd",
+  title: 'How to get to climbing?',
+  description: 'Lorem imspun lorem impasjd k asdk sakdn kasd sakdn askd',
   mainImage:
-    "https://explore-share.imgix.net/wp-content/uploads/2017/11/Arrampicata-trad-avanzato-2.jpg",
+    'https://explore-share.imgix.net/wp-content/uploads/2017/11/Arrampicata-trad-avanzato-2.jpg',
 };
 
 const MOCK_COMMENTS = [
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-14.png?resize=255%2C255&ssl=1",
-      name: "Darwin Watterson",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-14.png?resize=255%2C255&ssl=1',
+      name: 'Darwin Watterson',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-18.png?resize=250%2C250&ssl=1",
-      name: "Doggo Guda",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-18.png?resize=250%2C250&ssl=1',
+      name: 'Doggo Guda',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     postedAt: new Date().toDateString(),
   },
   {
     user: {
       profile:
-        "https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1",
-      name: "Winnie The Pooh",
+        'https://i0.wp.com/www.followchain.org/wp-content/uploads/2021/09/best-discord-profile-pictures-22.png?resize=256%2C256&ssl=1',
+      name: 'Winnie The Pooh',
     },
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     postedAt: new Date().toDateString(),
   },
 ];
 
-const AboutPost = () => {
+function AboutPost() {
   return (
     <div>
       <div className="flex m-4 items-center justify-between">
         <div className="flex">
           <img
             className="w-12 h-12 rounded-full"
-            src={
-              "https://i.natgeofe.com/n/7dbdf95f-fffa-42de-b935-9cbb11aeed16/adam-ondra-day-5-pitch_square.jpg"
-            }
+            src="https://i.natgeofe.com/n/7dbdf95f-fffa-42de-b935-9cbb11aeed16/adam-ondra-day-5-pitch_square.jpg"
             alt="as"
           />
           <div className="ml-2 mt-0.5">
@@ -84,11 +82,11 @@ const AboutPost = () => {
               <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug ">
                 Jun 4, 2021
               </span>
-              <span className="w-2 h-2 rounded bg-gray-500 mx-2"></span>
+              <span className="w-2 h-2 rounded bg-gray-500 mx-2" />
               <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug ">
                 2 min read
               </span>
-              <span className="w-2 h-2 rounded bg-gray-500 mx-2"></span>
+              <span className="w-2 h-2 rounded bg-gray-500 mx-2" />
               <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug ">
                 BELAYING
               </span>
@@ -98,14 +96,16 @@ const AboutPost = () => {
 
         <div className="flex">
           <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug ">
-            <i className="fa-solid fa-link"></i> Copy link
+            <i className="fa-solid fa-link" />
+            {' '}
+            Copy link
           </span>
         </div>
       </div>
     </div>
   );
-};
-const ViewSkill = () => {
+}
+function ViewSkill() {
   const { title, description, mainImage } = mockSkill;
   return (
     <ComplexLayout
@@ -196,6 +196,6 @@ const ViewSkill = () => {
       </div>
     </ComplexLayout>
   );
-};
+}
 
 export default ViewSkill;

@@ -1,12 +1,12 @@
-import React from "react";
-import Card from "@material-tailwind/react/Card";
-import CardHeader from "@material-tailwind/react/CardHeader";
-import CardBody from "@material-tailwind/react/CardBody";
-import Button from "@material-tailwind/react/Button";
-import Table from "../shared/Table";
-import Icon from "@material-tailwind/react/Icon";
+import React from 'react';
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
+import Button from '@material-tailwind/react/Button';
+import Icon from '@material-tailwind/react/Icon';
+import Table from '../shared/Table';
 
-const ViewSubtasks = () => {
+function ViewSubtasks() {
   return (
     <Card>
       <CardHeader color="blue" contentPosition="none">
@@ -22,6 +22,6 @@ const ViewSubtasks = () => {
       </CardBody>
     </Card>
   );
-};
+}
 
 export default ViewSubtasks;

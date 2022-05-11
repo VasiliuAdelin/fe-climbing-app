@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getCragById, getCrags } from "./crags.actions";
+import { createSlice } from '@reduxjs/toolkit';
+import { getCragById, getCrags } from './crags.actions';
 
 const initialState = {
   crags: [],
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const cragsSlice = createSlice({
-  name: "crags",
+  name: 'crags',
   initialState,
   reducers: {
     setFieldCrags: (state, { payload }) => {

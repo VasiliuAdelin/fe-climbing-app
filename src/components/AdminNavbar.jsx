@@ -1,13 +1,13 @@
-import { useLocation } from "react-router-dom";
-import Button from "@material-tailwind/react/Button";
-import Icon from "@material-tailwind/react/Icon";
+import { useLocation } from 'react-router-dom';
+import Button from '@material-tailwind/react/Button';
+import Icon from '@material-tailwind/react/Icon';
 // import NavbarInput from "@material-tailwind/react/NavbarInput";
 // import Image from "@material-tailwind/react/Image";
 // import Dropdown from "@material-tailwind/react/Dropdown";
 // import DropdownItem from "@material-tailwind/react/DropdownItem";
 // import ProfilePicture from "../assets/img/team-gliga.jpg";
 // import DefaultNavbar from "./DefaultNavbar";
-import CurrentUserDropdown from "./CurrentUserDropdown";
+import CurrentUserDropdown from './CurrentUserDropdown';
 
 export default function AdminNavbar({ showSidebar, setShowSidebar }) {
   const location = useLocation().pathname;
@@ -23,13 +23,13 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
             iconOnly
             rounded
             ripple="light"
-            onClick={() => setShowSidebar("left-0")}
+            onClick={() => setShowSidebar('left-0')}
           >
             <Icon name="menu" size="2xl" color="white" />
           </Button>
           <div
             className={`absolute top-2 ${
-              showSidebar === "left-0" ? "left-64" : "-left-64"
+              showSidebar === 'left-0' ? 'left-64' : '-left-64'
             } z-50 transition-all duration-300`}
           >
             <Button
@@ -39,7 +39,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
               iconOnly
               rounded
               ripple="light"
-              onClick={() => setShowSidebar("-left-64")}
+              onClick={() => setShowSidebar('-left-64')}
             >
               <Icon name="close" size="2xl" color="white" />
             </Button>
@@ -48,9 +48,9 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
 
         <div className="flex justify-between items-center w-full">
           <h4 className="uppercase text-white text-sm tracking-wider mt-1">
-            {location === "/"
-              ? "DASHBOARD"
-              : location.toUpperCase().replace("/", "")}
+            {location === '/'
+              ? 'DASHBOARD'
+              : location.toUpperCase().replace('/', '')}
           </h4>
 
           <div className="flex">

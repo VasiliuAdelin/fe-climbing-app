@@ -1,12 +1,12 @@
-import { Icon } from "@material-tailwind/react";
-import { Button } from "gpl-tailwind-theme";
-import { Link } from "react-router-dom";
-import React from "react";
-import moment from "moment";
-import Accordion from "../shared/Accordion/Accordion";
-import { useSelector } from "react-redux";
+import { Icon } from '@material-tailwind/react';
+import { Button } from 'gpl-tailwind-theme';
+import { Link } from 'react-router-dom';
+import React from 'react';
+import moment from 'moment';
+import { useSelector } from 'react-redux';
+import Accordion from '../shared/Accordion/Accordion';
 
-const EventItem = ({
+function EventItem({
   id,
   title,
   description,
@@ -20,11 +20,11 @@ const EventItem = ({
   author,
   onParticipate,
   onInterested,
-}) => {
+}) {
   const { user, isLoggedIn } = useSelector((state) => state.auth);
   const { city, country, address } = location;
 
-  const mainImage = assets[0] ? assets[0] : "";
+  const mainImage = assets[0] ? assets[0] : '';
   const where = `${address}, ${city}, ${country}`;
 
   const totalParticipants = participants.length;
@@ -32,10 +32,8 @@ const EventItem = ({
 
   const isFinished = moment(eventDate).isBefore(moment());
 
-  const userIsParticipating =
-    isLoggedIn && participants.length > 0 && participants.includes(user.id);
-  const userIsInterested =
-    isLoggedIn && interested.length > 0 && interested.includes(user.id);
+  const userIsParticipating = isLoggedIn && participants.length > 0 && participants.includes(user.id);
+  const userIsInterested = isLoggedIn && interested.length > 0 && interested.includes(user.id);
 
   return (
     <div className="border-b border-gray-100">
@@ -78,7 +76,7 @@ const EventItem = ({
               <div className="ml-2">
                 <span className="text-gray-500 text-xs">When ?</span>
                 <p className="text-greenNormal text-base">
-                  {moment(eventDate).format("lll")}
+                  {moment(eventDate).format('lll')}
                 </p>
               </div>
             </div>
@@ -118,24 +116,28 @@ const EventItem = ({
                   <span className="text-gray-500 text-xs">Status</span>
                   <div className="flex">
                     <Button
-                      color={userIsParticipating ? "green" : "gray"}
+                      color={userIsParticipating ? 'green' : 'gray'}
                       size="base"
                       ripple="light"
                       className="m-1 opacity-70 hover:opacity-90"
                       onClick={() => onParticipate(id)}
                     >
                       <Icon name="check" size="xl" color="white" />
-                      Participate ({totalParticipants})
+                      Participate (
+                      {totalParticipants}
+                      )
                     </Button>
                     <Button
-                      color={userIsInterested ? "blue" : "gray"}
+                      color={userIsInterested ? 'blue' : 'gray'}
                       size="base"
                       ripple="light"
                       className="m-1 opacity-70 hover:opacity-90"
                       onClick={() => onInterested(id)}
                     >
                       <Icon name="add" size="xl" color="white" />
-                      Interested ({totalInterested})
+                      Interested (
+                      {totalInterested}
+                      )
                     </Button>
                   </div>
                 </div>
@@ -158,29 +160,29 @@ const EventItem = ({
       </Accordion>
     </div>
   );
-};
+}
 
 EventItem.defaultProps = {
-  title: "N/A",
-  month: "N/A",
-  year: "N/A",
-  description: "N/A",
-  typeOfEvent: "N/A",
-  duration: "N/A",
-  eventDate: "N/A",
+  title: 'N/A',
+  month: 'N/A',
+  year: 'N/A',
+  description: 'N/A',
+  typeOfEvent: 'N/A',
+  duration: 'N/A',
+  eventDate: 'N/A',
   location: {
-    city: "N/A",
-    country: "N/A",
-    address: "N/A",
-    geoLocation: "N/A",
+    city: 'N/A',
+    country: 'N/A',
+    address: 'N/A',
+    geoLocation: 'N/A',
   },
   assets: [],
   participants: [],
   interested: [],
   author: {
-    id: "",
-    imageLink: "",
-    name: "",
+    id: '',
+    imageLink: '',
+    name: '',
   },
   onInterested: () => undefined,
   onParticipate: () => undefined,
