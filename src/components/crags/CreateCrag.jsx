@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { InputIcon, Textarea, Button } from '@material-tailwind/react';
 import Select from 'react-select';
 import { isEmpty } from 'lodash';

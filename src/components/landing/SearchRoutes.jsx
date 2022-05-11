@@ -4,7 +4,7 @@ import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import { Button } from '@material-tailwind/react';
-import { useRouter } from '../../hooks/useRouter';
+import useRouter from '../../hooks/useRouter';
 import TYPES from '../../types';
 import { formatCountries, formatCities } from './landing.utils';
 

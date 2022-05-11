@@ -39,12 +39,13 @@ function FeedPostCard({
           </div>
         </div>
         <div>
-          <img
-            onClick={handleOnClick}
-            className="mt-5 cursor-pointer m-auto"
-            src={asset}
-            alt="description"
-          />
+          <button type="button" onClick={handleOnClick}>
+            <img
+              className="mt-5 cursor-pointer m-auto"
+              src={asset}
+              alt="description"
+            />
+          </button>
           <p className="text-center text-gray-600 text-base pt-3 font-normal line-clamp-3 px-6 mt-5">
             {description}
           </p>

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchAPI, getAPI, getToken } from '../../api';
 import {
@@ -12,7 +13,7 @@ import config from '../../config';
 
 const { routes } = config;
 const { base, auth } = routes;
-const base_url = 'http://localhost:5001';
+const baseUrl = 'http://localhost:5001';
 
 const initialState = {
   user: {},
@@ -30,7 +31,7 @@ export const getProjectById = createAsyncThunk(
   async (id) => {
     const accessToken = getToken('access');
     return accessToken
-      ? await getAPI(
+      ? getAPI(
         `https://8bbc7624-a55c-425e-b713-6a13d3f3a967.mock.pstmn.io/v1/projects/${id}`,
       )
       : null;
@@ -39,16 +40,17 @@ export const getProjectById = createAsyncThunk(
 
 export const aboutMeAsync = createAsyncThunk('auth/aboutMeAsync', async () => {
   const accessToken = getToken('access');
-  if (accessToken) return accessToken ? await getAPI(`${base}${auth.me}`) : '';
+  if (accessToken) return accessToken ? getAPI(`${base}${auth.me}`) : '';
+  return null;
 });
 
 export const resetPasswordAsync = createAsyncThunk(
   'auth/resetPassword',
   async (data) => {
     const { password, token } = data;
-    return await fetchAPI(
+    return fetchAPI(
       { password },
-      `${base_url}/v1/auth/reset-password?token=${token}`,
+      `${baseUrl}/v1/auth/reset-password?token=${token}`,
     );
   },
 );
@@ -151,16 +153,14 @@ export const authSlice = createSlice({
         }
       })
       .addCase(getProjectById.fulfilled, (state, action) => {
-        console.log('getProjectById.fulfilled', action.payload);
         const { data = {} } = action.payload || {};
-        console.log(action.payload);
         state.currentProject = {
           ...data,
         };
         state.status = 'idle';
         state.loading = false;
       })
-      .addCase(getProjectById.rejected, (state, action) => {
+      .addCase(getProjectById.rejected, (state) => {
         state.status = 'error';
         state.errors = ['Error on getProjectById'];
         state.loading = false;

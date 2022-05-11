@@ -1,28 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Icon } from '@material-tailwind/react';
 import { Button } from 'gpl-tailwind-theme';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { getCragById } from '../../../features/crags/crags.actions';
-import AddComment from '../../Comment/AddComment';
 import TYPES from '../../../types';
 import Rating from '../../shared/Rating/Rating';
 import { calculatedRating } from '../crags.utils';
 import { RenderFeatures } from '../RouteListView';
 import CommentSection from '../../Comment/CommentSection';
 
-const mockSkill = {
-  id: 12345,
-  title: 'How to get to climbing?',
-  description: 'Lorem imspun lorem impasjd k asdk sakdn kasd sakdn askd',
-  mainImage:
-    'https://explore-share.imgix.net/wp-content/uploads/2017/11/Arrampicata-trad-avanzato-2.jpg',
-};
-
 const { CRAGS } = TYPES;
 const {
-  GENRE_TYPE, STEEPNESS_TYPES, STYLE_TYPES, HOLD_TYPES, GRADES_TYPES,
+  GENRE_TYPE, GRADES_TYPES,
 } = CRAGS;
 
 function RenderUserInfo({
@@ -58,10 +48,11 @@ function RenderUserInfo({
 }
 
 function CragItem({
-  crag = {}, handleOnSubmitComment = () => undefined, onAscending = () => undefined, onInterested = () => undefined,
+  crag = {},
+  handleOnSubmitComment = () => undefined,
+  onAscending = () => undefined,
+  onInterested = () => undefined,
 }) {
-  const { mainImage } = mockSkill;
-
   const {
     author = {},
     createdAt,
@@ -70,7 +61,6 @@ function CragItem({
     grade,
     type,
     rating,
-    country,
     address,
     geoLocation,
     features,

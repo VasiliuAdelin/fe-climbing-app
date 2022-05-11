@@ -3,7 +3,7 @@ import React from 'react';
 function CategoryItem({ label, onSelect, isSelected = false }) {
   return (
     <div className={`m-2 p-2 uppercase ${isSelected ? 'text-greenNormal' : 'text-green-900'}  font-bold cursor-pointer hover:text-greenNormal tracking-wider `}>
-      <span onClick={onSelect}>{label}</span>
+      <span role="button" tabIndex={0} onClick={onSelect}>{label}</span>
     </div>
   );
 }
@@ -26,7 +26,7 @@ function SkillsCategories({ categories, onSelect, selected }) {
 SkillsCategories.defaultProps = {
   categories: [],
   selected: '',
-  onSelect: (label) => undefined,
+  onSelect: () => undefined,
 };
 
 export default SkillsCategories;

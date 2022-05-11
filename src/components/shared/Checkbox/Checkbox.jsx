@@ -1,17 +1,15 @@
 import React from 'react';
 
 function Checkbox({ options, onChange }) {
-  console.log(options);
   return (
     <div>
-      {options.map(({ name, value, isChecked }, index) => (
+      {options.map(({ name, value }, index) => (
         <div className="">
           <input
             type="checkbox"
             id={`custom-checkbox-${name}-${index}`}
             name={name}
             value={value}
-            //   checked={isChecked}
             onChange={onChange}
             className="mx-2"
           />

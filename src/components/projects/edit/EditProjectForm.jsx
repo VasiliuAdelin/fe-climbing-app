@@ -19,29 +19,29 @@ function EditProjectForm(props) {
   const handleTaskOnChange = (e) => {
     const { value } = e.target;
     const idx = e.target.name.split('-')[1];
-    const _tempArr = [...subtasks];
-    _tempArr[idx] = {
-      ..._tempArr[idx],
+    const tempArrClone = [...subtasks];
+    tempArrClone[idx] = {
+      ...tempArrClone[idx],
       updatedAt: `${new Date().toISOString()}`,
       name: value,
     };
-    handleChangeFieldByName('subtasks', _tempArr);
+    handleChangeFieldByName('subtasks', tempArrClone);
   };
 
   const createNewEmptyTask = () => {
-    const _tempArr = [...subtasks];
-    _tempArr.push({
+    const tempArrClone = [...subtasks];
+    tempArrClone.push({
       name: '',
       createdAt: `${new Date().toISOString()}`,
       updatedAt: `${new Date().toISOString()}`,
     });
-    handleChangeFieldByName('subtasks', _tempArr);
+    handleChangeFieldByName('subtasks', tempArrClone);
   };
 
   const handleDeleteTask = (idx) => {
-    const _tempArr = [...subtasks];
-    _tempArr.splice(idx, 1);
-    handleChangeFieldByName('subtasks', _tempArr);
+    const tempArrClone = [...subtasks];
+    tempArrClone.splice(idx, 1);
+    handleChangeFieldByName('subtasks', tempArrClone);
   };
   return (
     <Card>
@@ -119,7 +119,7 @@ function EditProjectForm(props) {
             </Button>
           </h6>
           <div className="flex flex-wrap">
-            {subtasks.map(({ name }, index) => (
+            {subtasks.map((subtask, index) => (
               <div
                 key={index}
                 className="w-full lg:w-12/12 mb-10 font-light flex justify-between items-center"
@@ -128,7 +128,7 @@ function EditProjectForm(props) {
                   type="text"
                   color="purple"
                   placeholder="Create new task"
-                  value={name}
+                  value={subtask.name}
                   name={`task-${index}`}
                   onChange={handleTaskOnChange}
                 />

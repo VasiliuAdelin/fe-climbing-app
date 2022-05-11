@@ -31,7 +31,9 @@ export default function TrafficCard() {
                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
                   Visitors
                 </th>
-                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left w-56" />
+                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left w-56">
+                  {' '}
+                </th>
               </tr>
             </thead>
             <tbody>

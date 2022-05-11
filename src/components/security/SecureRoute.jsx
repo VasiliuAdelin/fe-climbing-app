@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFieldUI } from '../../features/ui/uiSlice';
-import { useRouter } from '../../hooks/useRouter';
+import useRouter from '../../hooks/useRouter';
 
 function SecureRoute({ routeName = '', privateRoute = false, children }) {
   const { isLoggedIn } = useSelector((state) => state.auth);

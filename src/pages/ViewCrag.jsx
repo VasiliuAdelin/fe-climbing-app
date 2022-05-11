@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cloneDeep, isEmpty } from 'lodash';
 import ComplexLayout from '../components/layouts/ComplexLayout';
-import { useRouter } from '../hooks/useRouter';
+import useRouter from '../hooks/useRouter';
 import Breadcrumb from '../components/shared/Breadcrumb';
 import TYPES from '../types';
 import CragItem from '../components/crags/CragItem';

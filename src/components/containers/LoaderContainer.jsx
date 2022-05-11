@@ -5,7 +5,9 @@ import Loader from '../shared/Loader';
 
 function LoaderContainer() {
   const { loading } = useSelector(selectUIState);
-  return <>{loading && <Loader />}</>;
+
+  if (loading) return <Loader />;
+  return null;
 }
 
 export default LoaderContainer;

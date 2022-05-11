@@ -7,17 +7,17 @@ const { base, crag } = routes;
 
 export const getCrags = createAsyncThunk(
   'auth/fetchCragsAsync',
-  async (query = '') => await getAPI(`${base}${crag.getAll}${query}`),
+  async (query = '') => getAPI(`${base}${crag.getAll}${query}`),
 );
 
 export const createCragAsync = createAsyncThunk(
   'auth/createCragAsync',
-  async (data) => await fetchAPIWithBearer(data, `${base}${crag.base}`),
+  async (data) => fetchAPIWithBearer(data, `${base}${crag.base}`),
 );
 
 export const getCragById = createAsyncThunk(
   'auth/fetchGetCragByIdAsync',
-  async (id) => await getAPI(`${base}${crag.base}/${id}`),
+  async (id) => getAPI(`${base}${crag.base}/${id}`),
 );
 
 export const updateCrag = createAsyncThunk(
@@ -25,10 +25,6 @@ export const updateCrag = createAsyncThunk(
   async (props) => {
     const { id, payload } = props;
 
-    return await fetchAPIWithBearer(
-      payload,
-      `${base}${crag.base}/${id}`,
-      'PATCH',
-    );
+    return fetchAPIWithBearer(payload, `${base}${crag.base}/${id}`, 'PATCH');
   },
 );

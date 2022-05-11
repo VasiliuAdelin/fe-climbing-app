@@ -1,11 +1,13 @@
+/* eslint-disable import/prefer-default-export */
 export const createArrayOfAlphabeticallyGrouped = (data) => Object.entries(
   data.reduce((memo, user) => {
     const fL = user.name[0].toUpperCase();
-    if (fL in memo) {
-      memo[fL].push(user);
+    const memoCopy = memo;
+    if (fL in memoCopy) {
+      memoCopy[fL].push(user);
     } else {
-      memo[fL] = [user];
+      memoCopy[fL] = [user];
     }
-    return memo;
+    return memoCopy;
   }, {}),
 );

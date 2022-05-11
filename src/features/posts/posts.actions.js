@@ -7,17 +7,17 @@ const { base, post } = routes;
 
 export const getPosts = createAsyncThunk(
   'auth/fetchPostsAsync',
-  async (query = '') => await getAPI(`${base}${post.getAll}${query}`),
+  async (query = '') => getAPI(`${base}${post.getAll}${query}`),
 );
 
 export const createPostAsync = createAsyncThunk(
   'auth/createPostAsync',
-  async (data) => await fetchAPIWithBearer(data, `${base}${post.base}`),
+  async (data) => fetchAPIWithBearer(data, `${base}${post.base}`),
 );
 
 export const getPostById = createAsyncThunk(
   'auth/fetchGetPostByIdAsync',
-  async (id) => await getAPI(`${base}${post.base}/${id}`),
+  async (id) => getAPI(`${base}${post.base}/${id}`),
 );
 
 export const updatePost = createAsyncThunk(
@@ -25,7 +25,7 @@ export const updatePost = createAsyncThunk(
   async (props) => {
     const { id, payload } = props;
 
-    return await fetchAPIWithBearer(
+    return fetchAPIWithBearer(
       payload,
       `${base}${post.base}/${id}`,
       'PATCH',

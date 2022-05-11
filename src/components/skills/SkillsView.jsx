@@ -1,7 +1,7 @@
 import React from 'react';
 import SkillItem from './SkillItem';
 
-function SkillsView({ skills, onClick }) {
+function SkillsView({ skills }) {
   return (
     <div className="flex flex-wrap justify-center items-center">
       {skills.map((skill, index) => (

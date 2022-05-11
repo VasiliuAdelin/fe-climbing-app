@@ -31,7 +31,7 @@ function RenderName({
 export function RenderFeatures({ features = [] }) {
   return (
     <div>
-      {features.map((feature, index) => {
+      {features.map((feature) => {
         if (STEEPNESS_TYPES[feature]) {
           return (
             <Label key={feature} color="green">
@@ -67,7 +67,9 @@ const columns = [
     sortFunction: (rowA, rowB) => {
       const a = rowA.name.toLowerCase();
       const b = rowB.name.toLowerCase();
-      return a > b ? 1 : b > a ? -1 : 0;
+      if (a > b) return 1;
+      if (b > a) return -1;
+      return 0;
     },
   },
   {
@@ -77,7 +79,9 @@ const columns = [
     sortFunction: (rowA, rowB) => {
       const a = rowA.grade;
       const b = rowB.grade;
-      return a > b ? 1 : b > a ? -1 : 0;
+      if (a > b) return 1;
+      if (b > a) return -1;
+      return 0;
     },
   },
   {
@@ -87,7 +91,9 @@ const columns = [
     sortFunction: (rowA, rowB) => {
       const a = rowA.type.toLowerCase();
       const b = rowB.type.toLowerCase();
-      return a > b ? 1 : b > a ? -1 : 0;
+      if (a > b) return 1;
+      if (b > a) return -1;
+      return 0;
     },
   },
   {
@@ -97,7 +103,9 @@ const columns = [
     sortFunction: (rowA, rowB) => {
       const a = calculatedRating(rowA.rating);
       const b = calculatedRating(rowB.rating);
-      return a > b ? 1 : b > a ? -1 : 0;
+      if (a > b) return 1;
+      if (b > a) return -1;
+      return 0;
     },
   },
   {

@@ -1,7 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { InputIcon, Textarea, Button } from '@material-tailwind/react';
-import React, { useEffect, useState } from 'react';
-import moment from 'moment';
+import React, { useState } from 'react';
 import Card from '../shared/Card/Card';
 import CardBody from '../shared/Card/CardBody';
 import CardFooter from '../shared/Card/CardFooter';

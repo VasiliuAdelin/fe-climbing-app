@@ -4,8 +4,8 @@ import { Button } from 'gpl-tailwind-theme';
 import Paragraph from '@material-tailwind/react/Paragraph';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
+import useRouter from '../hooks/useRouter';
 import { selectState } from '../features/auth/authSlice';
 import Container from '../components/login/Container';
 import DefaultNavbar from '../components/DefaultNavbar';
@@ -23,13 +23,13 @@ export default function Login() {
 
   const { isLoggedIn } = useSelector(selectState);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const { push } = useRouter();
 
   useEffect(() => {
     if (isLoggedIn === true) {
-      history.push('/');
+      push('/');
     }
-  }, [isLoggedIn, history]);
+  }, [isLoggedIn]);
 
   const handleInputChange = (e) => {
     setValues({

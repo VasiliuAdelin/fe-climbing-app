@@ -59,7 +59,7 @@ const MOCK_CARDS = [
   },
 ];
 
-function ClimbingLocationsSection(props) {
+function ClimbingLocationsSection({ deviceType }) {
   return (
     <section className="pb-20 relative block bg-gray-100">
       <div className="container max-w-7xl mx-auto px-4 lg:pt-24 ">
@@ -80,7 +80,7 @@ function ClimbingLocationsSection(props) {
           transitionDuration={500}
           containerClass="carousel-container z-10 items-center"
           removeArrowOnDeviceType={['tablet', 'mobile']}
-          deviceType={props.deviceType}
+          deviceType={deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >

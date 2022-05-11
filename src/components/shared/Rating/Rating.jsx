@@ -12,7 +12,7 @@ function Rating({ ratingScore }) {
   return (
     <div className="flex">
       {[1, 2, 3, 4, 5].map((element) => {
-        if (isNaN(ratingScore)) {
+        if (Number.isNaN(ratingScore)) {
           return <EmptyRating />;
         }
         return Number(element) <= Number(ratingScore) ? (

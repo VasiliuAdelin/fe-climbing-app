@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import { getUserProfile } from './people.actions';
 
@@ -15,7 +16,6 @@ export const peopleSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getUserProfile.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.currentUserProfile = action.payload;
     });
   },

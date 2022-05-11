@@ -15,7 +15,7 @@ import {
 } from '../../features/posts/posts.actions';
 import { createCommentAsync } from '../../features/ui/ui.actions';
 import { setFieldPosts } from '../../features/posts/postsSlice';
-import { useRouter } from '../../hooks/useRouter';
+import useRouter from '../../hooks/useRouter';
 
 function PostsSection({
   posts: receivedProps = [],
@@ -50,7 +50,7 @@ function PostsSection({
   };
 
   const handleOnSubmit = ({
-    title,
+    title: propTitle,
     description,
     imageLink,
     location,
@@ -59,7 +59,7 @@ function PostsSection({
     setshowAddNewPostModal(false);
     dispatch(
       createPostAsync({
-        title,
+        title: propTitle,
         description,
         author: user.id,
         assets: [imageLink],
@@ -185,27 +185,18 @@ function PostsSection({
         <div className="mb-16">
           <div className="max-w-7xl px-2 lg:px-10 pt-10 mx-auto">
             {showTitle && <Title heading={title} />}
-            {showCreate && (
-              <>
-                {isLoggedIn && (
-                  <Button
-                    color="green"
-                    buttonType="link"
-                    ripple="dark"
-                    className="my-4"
-                    onClick={() => setshowAddNewPostModal(true)}
-                  >
-                    <Icon
-                      family="font-awesome"
-                      name="fa-solid fa-plus"
-                      size="lg"
-                    />
-                    CREATE
-                  </Button>
-                )}
-              </>
+            {showCreate && isLoggedIn && (
+              <Button
+                color="green"
+                buttonType="link"
+                ripple="dark"
+                className="my-4"
+                onClick={() => setshowAddNewPostModal(true)}
+              >
+                <Icon family="font-awesome" name="fa-solid fa-plus" size="lg" />
+                CREATE
+              </Button>
             )}
-
             <div className="lg:container lg:mx-auto">
               <div className="md:masonry before:box-inherit after:box-inherit">
                 {posts.map((result) => {

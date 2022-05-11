@@ -32,7 +32,7 @@ function TrainerCard({
             </Link>
           </div>
           <Link to="/profile">
-            <button className="p-2 w-12 h-12 bg-greenNormal rounded-full hover:bg-green-900 focus:bg-greenDark transition ease-in duration-200 focus:outline-none">
+            <button type="button" className="p-2 w-12 h-12 bg-greenNormal rounded-full hover:bg-green-900 focus:bg-greenDark transition ease-in duration-200 focus:outline-none">
               <i className="fa-solid fa-envelope text-white" />
             </button>
           </Link>

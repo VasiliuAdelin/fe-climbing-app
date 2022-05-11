@@ -7,17 +7,17 @@ const { base, event } = routes;
 
 export const getEvents = createAsyncThunk(
   'auth/fetchEventsAsync',
-  async (query = '') => await getAPI(`${base}${event.getAll}${query}`),
+  async (query = '') => getAPI(`${base}${event.getAll}${query}`),
 );
 
 export const createEventAsync = createAsyncThunk(
   'auth/createEventAsync',
-  async (data) => await fetchAPIWithBearer(data, `${base}${event.base}`),
+  async (data) => fetchAPIWithBearer(data, `${base}${event.base}`),
 );
 
 export const getEventById = createAsyncThunk(
   'auth/fetchGetEventByIdAsync',
-  async (id) => await getAPI(`${base}${event.base}/${id}`),
+  async (id) => getAPI(`${base}${event.base}/${id}`),
 );
 
 export const updateEvent = createAsyncThunk(
@@ -25,10 +25,6 @@ export const updateEvent = createAsyncThunk(
   async (props) => {
     const { id, payload } = props;
 
-    return await fetchAPIWithBearer(
-      payload,
-      `${base}${event.base}/${id}`,
-      'PATCH',
-    );
+    return fetchAPIWithBearer(payload, `${base}${event.base}/${id}`, 'PATCH');
   },
 );

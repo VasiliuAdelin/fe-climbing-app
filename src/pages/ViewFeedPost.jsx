@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ViewCardInfo from '../components/feed/ViewCardInfo';
 import ComplexLayout from '../components/layouts/ComplexLayout';
 import { getPostById } from '../features/posts/posts.actions';
-import { useRouter } from '../hooks/useRouter';
+import useRouter from '../hooks/useRouter';
 import Breadcrumb from '../components/shared/Breadcrumb';
 import { selectState } from '../features/auth/authSlice';
 import { createCommentAsync } from '../features/ui/ui.actions';

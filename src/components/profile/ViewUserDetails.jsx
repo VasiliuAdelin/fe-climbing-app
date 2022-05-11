@@ -1,8 +1,6 @@
-import Button from '@material-tailwind/react/Button';
 import H3 from '@material-tailwind/react/Heading3';
 import Icon from '@material-tailwind/react/Icon';
 import LeadText from '@material-tailwind/react/LeadText';
-import { Link } from 'react-router-dom';
 
 function ViewUserDetails({
   name,

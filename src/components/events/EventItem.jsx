@@ -32,7 +32,8 @@ function EventItem({
 
   const isFinished = moment(eventDate).isBefore(moment());
 
-  const userIsParticipating = isLoggedIn && participants.length > 0 && participants.includes(user.id);
+  const userIsParticipating = isLoggedIn
+  && participants.length > 0 && participants.includes(user.id);
   const userIsInterested = isLoggedIn && interested.length > 0 && interested.includes(user.id);
 
   return (

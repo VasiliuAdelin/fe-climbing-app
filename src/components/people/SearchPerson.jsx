@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { useState } from 'react';
 import Modal from '../Modal';
 import ProfileCard from '../ProfileCard';

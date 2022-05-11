@@ -118,22 +118,17 @@ export default function CardHeader({
 
   headerSize = headerSize.join(' ');
 
-  const finalClassName = twMerge('bg-gradient-to-tr', fromColors[color], toColors[color], '-mt-10 mb-4 text-white grid items-center', headerSize, shadowColors[color], className);
-  return (
-    <div
-      className={finalClassName}
-    >
-      {children}
-    </div>
+  const finalClassName = twMerge(
+    'bg-gradient-to-tr',
+    fromColors[color],
+    toColors[color],
+    '-mt-10 mb-4 text-white grid items-center',
+    headerSize,
+    shadowColors[color],
+    className,
   );
+  return <div className={finalClassName}>{children}</div>;
 }
-
-CardHeader.defaultProps = {
-  color: 'lightBlue',
-  size: 'regular',
-  contentPosition: 'center',
-  iconOnly: false,
-};
 
 CardHeader.propTypes = {
   children: PropTypes.node.isRequired,

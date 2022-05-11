@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { InputIcon, Textarea } from '@material-tailwind/react';
 import { Button } from 'gpl-tailwind-theme';
 import React, { useEffect, useState } from 'react';
@@ -8,7 +7,7 @@ import CardBody from '../shared/Card/CardBody';
 import CardFooter from '../shared/Card/CardFooter';
 import CardHeader from '../shared/Card/CardHeader';
 
-function ModalAddNewsPost({ handleOnClick }) {
+function ModalAddNewsPost() {
   const [postValues, setPostValues] = useState({
     imageLink: '',
     description: '',
@@ -36,12 +35,6 @@ function ModalAddNewsPost({ handleOnClick }) {
       <form onSubmit={handleSubmit}>
         <Card className="rounded-xl">
           <CardHeader color="green" className="rounded-custom-shape">
-            {/* <input
-                  type="file"
-                  value={selectedFile}
-                  onChange={(e) => setSelectedFile(e.target.files[0])}
-                  className="cursor-pointer relative block opacity-0 w-full h-full p-20"
-                /> */}
             <div className="mb-12 px-4 w-full">
               <InputIcon
                 style={{ color: 'white' }}
@@ -54,9 +47,6 @@ function ModalAddNewsPost({ handleOnClick }) {
                 onChange={handleInputChange}
               />
             </div>
-            {/* <p className="absolute text-white mx-7">
-                  Drop files anywhere to upload{" "}
-                </p> */}
           </CardHeader>
           <CardBody>
             <img

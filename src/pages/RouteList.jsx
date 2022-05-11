@@ -1,6 +1,6 @@
 import { useLayoutEffect } from 'react';
 import ComplexLayout from '../components/layouts/ComplexLayout';
-import { useRouter } from '../hooks/useRouter';
+import useRouter from '../hooks/useRouter';
 import Breadcrumb from '../components/shared/Breadcrumb';
 import Crags from '../components/crags/Crags';
 import TYPES from '../types';

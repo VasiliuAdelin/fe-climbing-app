@@ -4,7 +4,7 @@ import { cloneDeep } from 'lodash';
 import ComplexLayout from '../components/layouts/ComplexLayout';
 import ViewUserDetails from '../components/profile/ViewUserDetails';
 import { getUserProfile } from '../features/people/people.actions';
-import { useRouter } from '../hooks/useRouter';
+import useRouter from '../hooks/useRouter';
 import CommentSection from '../components/Comment/CommentSection';
 import Accordion from '../components/shared/Accordion/Accordion';
 import { createCommentAsync } from '../features/ui/ui.actions';

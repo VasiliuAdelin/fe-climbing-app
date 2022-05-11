@@ -13,12 +13,11 @@ export const formatObjectSelect = (obj) => Object.entries(obj).map(([key, value]
 }));
 
 export const calculatedRating = (ratingArr) => {
-  console.log(ratingArr);
   if (!ratingArr || ratingArr.length < 5) {
     return 0;
   }
 
-  const sumElements = ratingArr.reduce((acc, curr, index) => acc + curr, 0);
+  const sumElements = ratingArr.reduce((acc, curr) => acc + curr, 0);
 
   const sumRating = ratingArr.reduce(
     (acc, curr, index) => acc + curr * (index + 1),

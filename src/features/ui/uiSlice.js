@@ -1,5 +1,7 @@
+/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+
 import {
   forgotPasswordAsync,
   loginAsync,
@@ -94,7 +96,6 @@ export const uiSlice = createSlice({
         state.loading = true;
       })
       .addMatcher(isAsyncFulfilled, (state, action) => {
-        console.log('action.payload', action.payload);
         const { errors, message, code } = action.payload || {};
         if ((errors || message) && code) {
           state.error = {

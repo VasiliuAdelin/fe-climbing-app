@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { InputIcon, Textarea, Button } from '@material-tailwind/react';
 import React, { useEffect, useState } from 'react';
 import Card from '../shared/Card/Card';
