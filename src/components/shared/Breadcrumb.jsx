@@ -10,6 +10,9 @@ function Breadcrumb({ routes }) {
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
           {routes.map(({ name = '', icon = '', urlTo = '/' }, index) => {
             const isLastElement = routes.length === index + 1;
+
+            const formatName = name.length > 4 ? `${name.slice(0, 4)}...` : name;
+
             return (
               <div key={index}>
                 <li className="flex items-center">
@@ -22,7 +25,15 @@ function Breadcrumb({ routes }) {
                       <div className="flex items-center -mt-1">
                         <Icon name={icon} size="xl" className="-mt-1" />
                       </div>
-                      <span className="inline-block ml-1">{name}</span>
+                      {
+                        index > 0 && (
+                          <>
+                            <span className="inline-block lg:hidden ml-1">{formatName}</span>
+                            <span className="hidden lg:inline-block ml-1">{name}</span>
+                          </>
+                        )
+                      }
+
                       {!isLastElement && (
                         <div className="flex items-center ml-2">
                           <Icon

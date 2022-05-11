@@ -1,5 +1,4 @@
 import { LeadText } from '@material-tailwind/react';
-import { H2 } from 'gpl-tailwind-theme';
 import React from 'react';
 import DefaultNavbar from '../DefaultNavbar';
 
@@ -37,7 +36,11 @@ function ComplexLayout({
           <div className="relative mx-auto">
             <div className="items-center flex flex-wrap">
               <div className="w-full px-4 ml-auto mr-auto text-center mt-24">
-                {title && <H2 color="white">{title}</H2>}
+                {title && (
+                <h2 className="text-2xl md:text-3xl text-white lg:text-5xl font-serif font-bold leading-normal m-0">
+                  {title}
+                </h2>
+                )}
                 {subtitle && (
                   <div className="text-gray-200">
                     <LeadText color="text-sky-400">

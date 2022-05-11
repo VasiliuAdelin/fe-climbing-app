@@ -63,15 +63,15 @@ function CreateEvent({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="w-screen h-screen flex justify-center items-center p-2">
+    <form className="h-screen overflow-y-scroll overflow-x-hidden py-12 pl-1" onSubmit={handleSubmit}>
+      <div className="lg:w-screen lg:h-screen lg:flex lg:justify-center lg:items-center lg:p-2">
         <Card className="rounded-xl w-full lg:w-3/5">
           <CardHeader color="green" className="rounded-xl">
             <span className="inline-block text-lg font-bold">
               Wow, a new event is comming! Rock it!
             </span>
           </CardHeader>
-          <CardBody className="max-h-500 overflow-y-auto">
+          <CardBody>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
               <div className="mb-6">
                 <InputIcon

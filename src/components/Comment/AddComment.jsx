@@ -9,7 +9,7 @@ function AddComment({ onSubmit }) {
     setMessage('');
   };
   return (
-    <div className="w-full border-t border-gray-100 rounded">
+    <div className="w-full border-t border-gray-100 rounded bg-white">
       <textarea
         className="w-full text-gray-700 focus:outline-none font-medium placeholder-gray-500 focus:outline-none focus:bg-gray-100 p-4"
         name="body"
@@ -17,14 +17,15 @@ function AddComment({ onSubmit }) {
         required
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        row={4}
       />
-      <div className="w-full md:flex md:items-start md:items-center ml-4 mb-4">
+      <div className="w-full flex justify-center items-center m-0 p-4">
         <Button
-          color="green"
+          color={!message ? 'gray' : 'green'}
           size="base"
           ripple="light"
           disabled={!message}
-          className={`rounded m-1 ${!message && 'invisible'}`}
+          className="rounded m-1"
           onClick={handleOnSubmit}
         >
           PUBLISH

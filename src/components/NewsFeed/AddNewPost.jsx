@@ -31,15 +31,15 @@ function AddNewPost({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="w-screen h-screen flex justify-center items-center p-2">
+    <form className="h-screen w-screen overflow-y-scroll overflow-x-hidden py-12 pl-1" onSubmit={handleSubmit}>
+      <div className="lg:w-screen lg:h-screen lg:flex lg:justify-center lg:items-center lg:p-2">
         <Card className="rounded-xl w-full lg:w-3/5">
           <CardHeader color="green" className="rounded-xl">
             <span className="inline-block text-lg font-bold">
               Tell us something awesome!
             </span>
           </CardHeader>
-          <CardBody className="max-h-500 overflow-y-auto">
+          <CardBody>
             <div className="lg:flex w-full ">
               <div className="lg:mr-4 lg:w-2/5 p-1">
                 <div className="w-full mb-8">

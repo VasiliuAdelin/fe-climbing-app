@@ -38,7 +38,7 @@ function FeedPostCard({
             </span>
           </div>
         </div>
-        <div>
+        <div className="text-center">
           <button type="button" onClick={handleOnClick}>
             <img
               className="mt-5 cursor-pointer m-auto"
@@ -68,7 +68,7 @@ function FeedPostCard({
               </svg>
               <span className="mt-0.5">{totalLikes}</span>
             </div>
-            <div className="flex mr-2 text-gray-700 text-sm">
+            <div className="flex mr-2 text-gray-700 text-sm" tabIndex={0} role="button" onClick={handleOnClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

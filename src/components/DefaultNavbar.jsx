@@ -106,10 +106,10 @@ export default function DefaultNavbar() {
             </NavbarBrand>
           </Link>
           <div className="lg:hidden flex items-center justify-center">
+            {isLoggedIn && <CurrentUserDropdown />}
             <DropdownComponent
               navbarList={isLoggedIn ? LoggedInLinks : NavbarListAnonym}
             />
-            {isLoggedIn && <CurrentUserDropdown />}
           </div>
         </NavbarWrapper>
         <NavbarCollapse open={openNavbar}>

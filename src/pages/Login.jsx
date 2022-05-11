@@ -48,7 +48,7 @@ export default function Login() {
       <DefaultNavbar />
       <Container>
         <form onSubmit={handleSubmit}>
-          <Card className="rounded-xl min-w-400">
+          <Card className="rounded-xl lg:min-w-400">
             <CardHeader color="green" className="rounded-custom-shape">
               <H5 color="white" style={{ marginBottom: 0 }}>
                 Welcome back

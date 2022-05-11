@@ -11,3 +11,10 @@
   outline: 0px solid slategrey;
   border-radius: 10px;
 }
+
+.customDropdownItem span{
+  display: none;
+}
+.customDropdownItem {
+  padding: 10px;
+}

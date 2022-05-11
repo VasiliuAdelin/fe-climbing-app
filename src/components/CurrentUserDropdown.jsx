@@ -38,6 +38,7 @@ function CurrentUserDropdown() {
         </div>
       )}
       ripple="light"
+      className="customDropdownItem"
     >
       {NavbarList.map(({ to, name, icon }, idx) => (
         <Link key={idx} to={to}>

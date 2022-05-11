@@ -7,14 +7,13 @@ function DropdownComponent({ navbarList = [] }) {
   return (
     <Dropdown
       color="transparent"
-      size="sm"
-      buttonType="link"
       buttonText={(
-        <div className="py-2.5 font-medium flex items-center">
-          <i className="fa-solid fa-bars text-white" />
+        <div className="font-lg flex items-center">
+          <i className="fa-solid fa-bars text-white text-xl" />
         </div>
-    )}
+      )}
       ripple="light"
+      className="customDropdownItem"
     >
       {navbarList.map(({ to, name, icon }, idx) => (
         <Link key={idx} to={to}>

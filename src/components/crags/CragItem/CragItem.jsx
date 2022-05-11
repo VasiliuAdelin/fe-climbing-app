@@ -82,7 +82,7 @@ function CragItem({
 
   return (
     <>
-      <section className="flex pb-4">
+      <section className="flex justify-center lg:justify-start pb-4">
         {isLoggedIn && (
           <>
             <Button
@@ -118,7 +118,7 @@ function CragItem({
         )}
       </section>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        <div className="w-full">
+        <div className="w-full col-span-3 lg:col-span-1">
           <section className="p-4 bg-white rounded shadow-md hover:shadow-lg">
             <RenderUserInfo createdAt={createdAt} {...author} />
             <div className="font-bold text-xl my-2">{name}</div>

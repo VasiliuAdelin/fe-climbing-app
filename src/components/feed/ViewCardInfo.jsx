@@ -14,15 +14,19 @@ function ViewCardInfo({
   onSubmit,
 }) {
   return (
-    <div className="h-full w-full lg:w-full bg-opacity-70 flex-row lg:flex rounded-xl overflow-scroll no-scrollbar lg:overflow-hidden border border-white">
+    <div className="h-full w-full lg:w-full bg-opacity-70 flex-row lg:flex lg:rounded-xl overflow-scroll no-scrollbar lg:overflow-hidden lg:border lg:border-white">
       <div className="w-full my-auto mx-auto lg:w-4/5">
         <img className="w-auto h-auto mx-auto " src={image} alt="" />
       </div>
-      <div className="w-full lg:w-3/6 lg:h-full 2xl:w-2/6 bg-white max-h-screen">
+      <div className="w-full lg:w-3/6 lg:h-full 2xl:w-2/6 bg-white max-h-screen min-h-500">
         <div className="flex-row border-b">
           <div className="flex pt-5 px-5 lg:m-4">
             <Link to={`/profile/${id}`}>
-              <img className="w-12 h-12 rounded-full" src={profile} alt={name} />
+              <img
+                className="w-12 h-12 rounded-full"
+                src={profile}
+                alt={name}
+              />
             </Link>
             <div className="ml-2 mt-0.5">
               <Link to={`/profile/${id}`}>

@@ -9,7 +9,7 @@ function CommentSection({ comments, onSubmit }) {
   const { isLoggedIn } = useSelector(selectState);
   return (
     <div>
-      <div className="lg:overflow-y-auto min-h-500 h-500">
+      <div className="overflow-y-auto max-h-500">
         {isEmpty(comments) && (
           <div className="p-4">
             <span className="text-gray-700 text-xs">Not a comment yet!</span>
@@ -28,7 +28,7 @@ function CommentSection({ comments, onSubmit }) {
       </div>
       {!isLoggedIn && (
         <div className="p-4">
-          <span className="text-gray-100 text-xs">
+          <span className="text-gray-700 text-xs">
             Please login to comment!
           </span>
         </div>

@@ -48,11 +48,11 @@ export default function Register() {
   };
 
   return (
-    <div className="bg-new-login-background bg-cover bg-center w-full h-screen md:h-screen relative lg:flex flex-col justify-between">
+    <div className="bg-new-login-background bg-cover bg-center w-full lg:h-screen md:h-screen relative lg:flex lg:flex-col lg:justify-between">
       <DefaultNavbar />
       <Container>
-        <form onSubmit={handleSubmit}>
-          <Card className="rounded-xl min-w-400">
+        <form className="mt-30" onSubmit={handleSubmit}>
+          <Card className="rounded-xl w-full lg:min-w-400">
             <CardHeader color="green" className="rounded-custom-shape">
               <H5 color="white" style={{ marginBottom: 0 }}>
                 Create an account
