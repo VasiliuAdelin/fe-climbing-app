@@ -22,7 +22,7 @@ function InforWindowCard({
       </div>
       <div className="relative flex justify-between items-center flex-row z-50 -mt-10">
         <div>
-          <p className="text-dark tracking-wide uppercase text-lg font-bold">
+          <p className="text-dark tracking-wide uppercase text-lg font-bold" style={{ width: '200px' }}>
             {name}
           </p>
           <p className="text-gray-500 text-sm">{`${type}, ${grade}`}</p>

@@ -100,7 +100,7 @@ export default function DefaultNavbar({ bgColor = 'transparent' }) {
     <Navbar
       color={bgColor}
       navbar
-      className="mt-3 z-50"
+      className="z-50"
     >
       <NavbarContainer>
         <NavbarWrapper className="items-center">

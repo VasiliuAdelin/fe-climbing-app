@@ -22,237 +22,6 @@ const divStyle = {
   padding: 15,
 };
 
-const MARKERS = [
-  {
-    lat: 47.1382258,
-    lng: 27.5812629,
-    name: 'The best crag name',
-    grade: 150,
-    type: 'TRADITIONAL',
-    rating: [
-      0,
-      0,
-      0,
-      0,
-      0,
-    ],
-    city: 501,
-    country: 9500,
-    address: 'a',
-    description: 'The best description ever',
-    geoLocation: '24.123123, 34.123131',
-    author: {
-      name: 'Adelin Ionut',
-      imageLink: 'https://i.pinimg.com/736x/c5/fe/c9/c5fec94ac85ac74709f6f17b8160c752.jpg',
-      id: '621dd236c25f37253f78661f',
-    },
-    assets: [
-      'https://via.placeholder.com/400',
-    ],
-    isValidated: false,
-    isHidden: false,
-    features: [
-      'OVERHANG',
-    ],
-    likes: [],
-    ascents: [],
-    interested: [],
-    createdAt: '2022-05-03T06:14:18.977Z',
-    updatedAt: '2022-05-03T06:14:18.977Z',
-    id: '6270c83ad8cb8e8081197df1',
-  },
-  {
-    name: 'The best crag name',
-    grade: 150,
-    type: 'TRADITIONAL',
-    rating: [
-      0,
-      0,
-      0,
-      0,
-      0,
-    ],
-    city: 501,
-    country: 9500,
-    address: 'a',
-    description: 'The best description ever',
-    geoLocation: '24.123123, 34.123131',
-    author: {
-      name: 'Adelin Ionut',
-      imageLink: 'https://i.pinimg.com/736x/c5/fe/c9/c5fec94ac85ac74709f6f17b8160c752.jpg',
-      id: '621dd236c25f37253f78661f',
-    },
-    assets: [
-      'https://via.placeholder.com/400',
-    ],
-    isValidated: false,
-    isHidden: false,
-    features: [
-      'OVERHANG',
-    ],
-    likes: [],
-    ascents: [],
-    interested: [],
-    createdAt: '2022-05-03T06:14:18.977Z',
-    updatedAt: '2022-05-03T06:14:18.977Z',
-    id: '6270c83ad8cb8e8081197df2',
-    lat: 47.17608842733052,
-    lng: 27.548107366931614,
-  },
-  {
-    name: 'The best crag name',
-    grade: 150,
-    type: 'TRADITIONAL',
-    rating: [
-      0,
-      0,
-      0,
-      0,
-      0,
-    ],
-    city: 501,
-    country: 9500,
-    address: 'a',
-    description: 'The best description ever',
-    geoLocation: '24.123123, 34.123131',
-    author: {
-      name: 'Adelin Ionut',
-      imageLink: 'https://i.pinimg.com/736x/c5/fe/c9/c5fec94ac85ac74709f6f17b8160c752.jpg',
-      id: '621dd236c25f37253f78661f',
-    },
-    assets: [
-      'https://via.placeholder.com/400',
-    ],
-    isValidated: false,
-    isHidden: false,
-    features: [
-      'OVERHANG',
-    ],
-    likes: [],
-    ascents: [],
-    interested: [],
-    createdAt: '2022-05-03T06:14:18.977Z',
-    updatedAt: '2022-05-03T06:14:18.977Z',
-    id: '6270c83ad8cb8e8081197df3',
-    lat: 47.15794059480529,
-    lng: 27.62089178484818,
-  },
-  {
-    name: 'The best crag name',
-    grade: 150,
-    type: 'TRADITIONAL',
-    rating: [
-      0,
-      0,
-      0,
-      0,
-      0,
-    ],
-    city: 501,
-    country: 9500,
-    address: 'a',
-    description: 'The best description ever',
-    geoLocation: '24.123123, 34.123131',
-    author: {
-      name: 'Adelin Ionut',
-      imageLink: 'https://i.pinimg.com/736x/c5/fe/c9/c5fec94ac85ac74709f6f17b8160c752.jpg',
-      id: '621dd236c25f37253f78661f',
-    },
-    assets: [
-      'https://via.placeholder.com/400',
-    ],
-    isValidated: false,
-    isHidden: false,
-    features: [
-      'OVERHANG',
-    ],
-    likes: [],
-    ascents: [],
-    interested: [],
-    createdAt: '2022-05-03T06:14:18.977Z',
-    updatedAt: '2022-05-03T06:14:18.977Z',
-    id: '6270c83ad8cb8e8081197df4',
-    lat: 47.17608842711112,
-    lng: 27.548107366931614,
-  },
-  {
-    name: 'The best crag name',
-    grade: 150,
-    type: 'TRADITIONAL',
-    rating: [
-      0,
-      0,
-      0,
-      0,
-      0,
-    ],
-    city: 501,
-    country: 9500,
-    address: 'a',
-    description: 'The best description ever',
-    geoLocation: '24.123123, 34.123131',
-    author: {
-      name: 'Adelin Ionut',
-      imageLink: 'https://i.pinimg.com/736x/c5/fe/c9/c5fec94ac85ac74709f6f17b8160c752.jpg',
-      id: '621dd236c25f37253f78661f',
-    },
-    assets: [
-      'https://via.placeholder.com/400',
-    ],
-    isValidated: false,
-    isHidden: false,
-    features: [
-      'OVERHANG',
-    ],
-    likes: [],
-    ascents: [],
-    interested: [],
-    createdAt: '2022-05-03T06:14:18.977Z',
-    updatedAt: '2022-05-03T06:14:18.977Z',
-    id: '6270c83ad8cb8e8081197df5',
-    lat: 47.15356317993755,
-    lng: 27.502359613689247,
-  },
-  {
-    name: 'The best crag name',
-    grade: 150,
-    type: 'TRADITIONAL',
-    rating: [
-      0,
-      0,
-      0,
-      0,
-      0,
-    ],
-    city: 501,
-    country: 9500,
-    address: 'a',
-    description: 'The best description ever',
-    geoLocation: '24.123123, 34.123131',
-    author: {
-      name: 'Adelin Ionut',
-      imageLink: 'https://i.pinimg.com/736x/c5/fe/c9/c5fec94ac85ac74709f6f17b8160c752.jpg',
-      id: '621dd236c25f37253f78661f',
-    },
-    assets: [
-      'https://via.placeholder.com/400',
-    ],
-    isValidated: false,
-    isHidden: false,
-    features: [
-      'OVERHANG',
-    ],
-    likes: [],
-    ascents: [],
-    interested: [],
-    createdAt: '2022-05-03T06:14:18.977Z',
-    updatedAt: '2022-05-03T06:14:18.977Z',
-    id: '6270c83ad8cb8e8081197df6',
-    lat: 47.18046398637152,
-    lng: 27.506565317083016,
-  },
-];
-
 function MapComponent(props) {
   const [currentLocation, setCurrentLocatiion] = useState({
     lat: 47.1382258,
@@ -260,8 +29,11 @@ function MapComponent(props) {
   });
 
   const [showingInfoWindow, setShowingInfoWindow] = useState(false);
+  const [showingInfoWindowCurrent, setShowingInfoWindowCurrent] = useState(true);
   const [activeMarker, setActiveMarker] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState(null);
+
+  const { markers = [] } = props;
 
   const onMarkerClick = (propsData, marker, e) => {
     setSelectedPlace(propsData);
@@ -274,7 +46,7 @@ function MapComponent(props) {
     setActiveMarker(null);
   };
 
-  const displayMarkers = () => MARKERS.map(({
+  const displayMarkers = () => markers.map(({
     lat, lng, id, ...rest
   }, index) => {
     const pos = {
@@ -313,14 +85,28 @@ function MapComponent(props) {
         initialCenter={currentLocation}
       >
         {displayMarkers()}
-
+        <Marker
+          position={currentLocation}
+          name="Current Location"
+          title="Current Location"
+          onClick={() => setShowingInfoWindowCurrent(true)}
+        />
+        <InfoWindow
+          position={currentLocation}
+          visible={showingInfoWindowCurrent}
+          onClose={() => setShowingInfoWindowCurrent(false)}
+        >
+          <div className="max-w-300">
+            Current Location
+          </div>
+        </InfoWindow>
         <InfoWindow
           marker={activeMarker}
           onClose={onInfoWindowClose}
           visible={showingInfoWindow}
         >
           <div className="max-w-300">
-            <InforWindowCard />
+            <InforWindowCard {...selectedPlace?.name} />
           </div>
         </InfoWindow>
       </Map>

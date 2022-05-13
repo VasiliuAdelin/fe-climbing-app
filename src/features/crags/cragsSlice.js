@@ -5,6 +5,7 @@ import { getCragById, getCrags } from './crags.actions';
 const initialState = {
   crags: [],
   currentCrag: {},
+  markers: [],
 };
 
 export const cragsSlice = createSlice({

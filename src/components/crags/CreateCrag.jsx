@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { InputIcon, Textarea, Button } from '@material-tailwind/react';
 import Select from 'react-select';
 import { isEmpty } from 'lodash';
@@ -23,13 +23,13 @@ const FEATURES_OPTIONS = formatObjectSelect({
 });
 
 const INITIAL_STATE = {
-  name: 'The best crag name',
+  name: '',
   grade: null,
   typeOfCrag: null,
   features: null,
-  description: 'The best description ever',
+  description: '',
   address: '',
-  geoLocation: '24.123123, 34.123131',
+  geoLocation: '',
   mainImage: 'https://via.placeholder.com/400',
 };
 
@@ -42,6 +42,18 @@ const INITIAL_ERRORS = {
 function CreateCrag({ onSubmit }) {
   const [values, setValues] = useState(INITIAL_STATE);
   const [errors, setErros] = useState(INITIAL_ERRORS);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((positionPayload) => {
+      if (positionPayload?.coords?.latitude) {
+        const geoLocationData = `${positionPayload.coords.latitude}, ${positionPayload.coords.longitude}`;
+        setValues({
+          ...values,
+          geoLocation: geoLocationData,
+        });
+      }
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
