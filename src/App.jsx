@@ -13,7 +13,7 @@ import { aboutMeAsync } from './features/auth/authSlice';
 import NewsComponent from './pages/News';
 import LoaderContainer from './components/containers/LoaderContainer';
 import NotificationContainer from './components/containers/NotificationContainer';
-import DefaultFooter from './components/DefaultFooter';
+// import DefaultFooter from './components/DefaultFooter';
 import Skills from './pages/Skills';
 import ViewSkill from './pages/ViewSkill';
 import Trainers from './pages/Trainers';
@@ -28,11 +28,16 @@ import FAQ from './pages/FAQ';
 import ViewFeedPost from './pages/ViewFeedPost';
 import SecureRoute from './components/security/SecureRoute';
 import ViewUserProfile from './pages/ViewUserProfile';
+import ViewMap from './pages/ViewMap';
 
 const routes = [
   {
     path: '/',
     component: Landing,
+  },
+  {
+    path: '/areas',
+    component: ViewMap,
   },
   {
     path: '/login',
@@ -140,7 +145,7 @@ function App() {
       </Switch>
       <LoaderContainer />
       <NotificationContainer />
-      <DefaultFooter />
+      {/* <DefaultFooter /> */}
     </>
   );
 }

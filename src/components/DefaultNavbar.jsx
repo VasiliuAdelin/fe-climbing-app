@@ -17,6 +17,11 @@ import DropdownComponent from './shared/DropdownComponent';
 
 const LoggedInLinks = [
   {
+    to: '/areas',
+    name: 'Map',
+    icon: 'map',
+  },
+  {
     to: '/faq',
     name: 'FAQ',
     icon: 'question_answer',
@@ -86,14 +91,14 @@ const NavbarListAnonym = [
   },
 ];
 
-export default function DefaultNavbar() {
+export default function DefaultNavbar({ bgColor = 'transparent' }) {
   const location = useLocation().pathname;
   const [openNavbar] = useState(false);
   const { isLoggedIn } = useSelector(selectState);
 
   return (
     <Navbar
-      color="transparent"
+      color={bgColor}
       navbar
       className="mt-3 z-50"
     >

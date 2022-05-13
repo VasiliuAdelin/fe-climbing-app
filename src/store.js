@@ -7,6 +7,7 @@ import postsReducer from './features/posts/postsSlice';
 import peopleReducer from './features/people/peopleSlice';
 import eventsReducer from './features/events/eventsSlice';
 import cragsReducer from './features/crags/cragsSlice';
+import trainersReducer from './features/trainers/trainersSlice';
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     people: peopleReducer,
     events: eventsReducer,
     crags: cragsReducer,
+    trainers: trainersReducer,
   },
 });
 
