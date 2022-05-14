@@ -1,14 +1,17 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { Button } from 'gpl-tailwind-theme';
 import { Icon } from '@material-tailwind/react';
 import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty } from 'lodash';
 import SkillsCategories from '../skills/SkillsCategories';
 // import TrainerCard from './TrainerCard';
-import { getTrainers } from '../../features/trainers/trainers.actions';
+import { createTrainerAsync, getTrainers } from '../../features/trainers/trainers.actions';
 import TYPES from '../../types';
 import { formatTrainers } from './trainers.utils';
 import Modal from '../shared/Modals/Modal';
 import BecomeTrainer from './BecomeTrainer';
+import TrainerCard from './TrainerCard';
 
 const { CATEGORIES } = TYPES;
 
@@ -16,6 +19,7 @@ export default function ViewTrainers() {
   const [trainers, setTrainers] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('ALL');
+  const { user } = useSelector((state) => state.auth);
   const { trainers: reduxTrainers } = useSelector((state) => state.trainers);
   const dispatch = useDispatch();
 
@@ -24,12 +28,12 @@ export default function ViewTrainers() {
     ...CATEGORIES,
   });
 
-  const onSelect = (label) => {
-    setSelectedCategory(label);
+  const onSelect = (category) => {
+    setSelectedCategory(category);
     setTrainers(
-      label === 'all'
+      category.value === 'ALL'
         ? reduxTrainers
-        : reduxTrainers.filter((trainer) => trainer.categories.includes(label)),
+        : reduxTrainers.filter((trainer) => trainer.categories.includes(category.value)),
     );
   };
 
@@ -41,8 +45,16 @@ export default function ViewTrainers() {
     setTrainers(reduxTrainers);
   }, [reduxTrainers]);
 
-  const handleOnBecameTrainer = () => {};
-  // AIzaSyDOLqlshJjIXJimeALA_GLRUyQ4_to5wVs
+  const handleOnBecameTrainer = (payload) => {
+    setOpenModal(false);
+    dispatch(createTrainerAsync({
+      ...payload,
+      author: user.id,
+    }));
+
+    setTimeout(() => dispatch(getTrainers()), 2000);
+  };
+
   return (
     <>
       <SkillsCategories
@@ -52,7 +64,6 @@ export default function ViewTrainers() {
       />
       <Button
         color="green"
-        buttonType="link"
         ripple="dark"
         rounded
         className="m-4"
@@ -64,7 +75,24 @@ export default function ViewTrainers() {
       <Modal open={openModal} onClose={() => setOpenModal(false)}>
         <BecomeTrainer onSubmit={handleOnBecameTrainer} />
       </Modal>
-      <div className="flex flex-wrap">{JSON.stringify(trainers)}</div>
+      {
+        isEmpty(trainers) && (<span>No trainers</span>)
+      }
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {
+        trainers.map((trainer) => (
+          <TrainerCard
+            key={trainer?.id}
+            id={trainer?.author?.id}
+            name={trainer?.author?.name}
+            description={trainer?.description}
+            mainImage={trainer?.author?.mainImage}
+            position={trainer?.title}
+          />
+        ))
+      }
+      </div>
+
     </>
   );
 }

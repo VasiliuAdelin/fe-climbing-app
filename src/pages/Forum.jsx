@@ -1,55 +1,23 @@
 import { Icon } from '@material-tailwind/react';
 import { Button } from 'gpl-tailwind-theme';
-import React from 'react';
+import { isEmpty } from 'lodash';
+import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
-import moment from 'moment';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CreateForumTopic from '../components/forum/CreateForumTopic';
 import ComplexLayout from '../components/layouts/ComplexLayout';
 import Breadcrumb from '../components/shared/Breadcrumb';
+import Modal from '../components/shared/Modals/Modal';
+import { createTopicAsync, getTopicsDistinct } from '../features/topics/topics.actions';
 
-function RenderTitle({ id, title }) {
+function RenderTitle({ value, label }) {
   return (
-    <Link to={`/forum/${id}`}>
-      <span className="hover:text-greenNormal">{title}</span>
+    <Link to={`/forum/${value}`}>
+      <span className="hover:text-greenNormal capitalize">{label}</span>
     </Link>
   );
 }
-
-const data = [
-  {
-    id: 1,
-    title: 'Find a trip',
-    updatedAt: new Date().toString(),
-    totalPosts: 23,
-    user: {
-      userName: 'Vasiliu Adelin',
-      mainImge: 'https://via.placeholder.com/400',
-    },
-    createdAt: new Date().toString(),
-  },
-  {
-    id: 12,
-    title: 'Welcome to the forrum',
-    updatedAt: new Date().toString(),
-    totalPosts: 23,
-    user: {
-      userName: 'Vasiliu Adelin',
-      mainImge: 'https://via.placeholder.com/400',
-    },
-    createdAt: new Date().toString(),
-  },
-  {
-    id: 123,
-    title: 'How to climb',
-    updatedAt: new Date().toString(),
-    totalPosts: 23,
-    user: {
-      userName: 'Vasiliu Adelin',
-      mainImge: 'https://via.placeholder.com/400',
-    },
-    createdAt: new Date().toString(),
-  },
-];
 
 const columns = [
   {
@@ -63,23 +31,6 @@ const columns = [
       if (b > a) return -1;
       return 0;
     },
-  },
-  {
-    name: <Icon name="topic" size="xl" color="dark" />,
-    selector: (row) => row.totalPosts,
-  },
-  {
-    name: 'Last Activity',
-    selector: (row) => moment(row.updatedAt).fromNow(),
-  },
-
-  {
-    name: 'Created By',
-    selector: (row) => row.user.userName,
-  },
-  {
-    name: 'Created At',
-    selector: (row) => moment(row.createdAt).fromNow(),
   },
 ];
 
@@ -96,7 +47,57 @@ const routesBreadcrumb = [
   },
 ];
 
+const formatTopic = (value) => {
+  if (!value) {
+    return '';
+  }
+
+  return value.split('-').join(' ');
+};
+
+const formatDistinctTopics = (dataProp) => {
+  if (!dataProp || isEmpty(dataProp)) {
+    return [];
+  }
+  return dataProp.map((item) => ({
+    value: item,
+    label: formatTopic(item),
+  }));
+};
+
 function Forum() {
+  const [topics, setTopics] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const { user } = useSelector((state) => state.auth);
+  const { distinctTopics } = useSelector((state) => state.topics);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTopicsDistinct());
+  }, []);
+
+  useEffect(() => {
+    setTopics(formatDistinctTopics(distinctTopics));
+  }, [distinctTopics]);
+
+  const handleOnCreatePost = (dataProp) => {
+    setOpenModal(false);
+
+    const { topicName } = dataProp;
+    const formatedTopicName = topicName.toLowerCase().split(' ').join('-');
+    const payload = {
+      name: formatedTopicName,
+      title: 'Welcome',
+      body: 'Welcome to this new topic',
+      author: user.id,
+    };
+
+    dispatch(createTopicAsync(payload));
+    setTimeout(() => {
+      dispatch(getTopicsDistinct());
+    }, 2000);
+  };
+
   return (
     <ComplexLayout
       backgroundImage="skills-background"
@@ -105,6 +106,9 @@ function Forum() {
       customBackground="https://wallpaperaccess.com/full/263963.jpg"
     >
       <Breadcrumb routes={routesBreadcrumb} />
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+        <CreateForumTopic onSubmit={handleOnCreatePost} />
+      </Modal>
       <div className="w-4/5 m-auto border border-gray-100 rounded">
         <div className="flex justify-between items-center p-4 border-b border-gray-100 mb-2">
           <span>General Topics</span>
@@ -112,6 +116,7 @@ function Forum() {
             color="green"
             size="base"
             ripple="light"
+            onClick={() => setOpenModal(true)}
             className="m-1 opacity-70 hover:opacity-90 rounded"
           >
             <Icon name="add" size="xl" color="white" />
@@ -121,7 +126,7 @@ function Forum() {
         <div>
           <DataTable
             columns={columns}
-            data={data}
+            data={topics}
             highlightOnHover
             pagination
             pointerOnHover

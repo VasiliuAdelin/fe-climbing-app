@@ -22,11 +22,6 @@ const LoggedInLinks = [
     icon: 'map',
   },
   {
-    to: '/faq',
-    name: 'FAQ',
-    icon: 'question_answer',
-  },
-  {
     to: '/forum',
     name: 'Forum',
     icon: 'discount',
@@ -45,21 +40,11 @@ const LoggedInLinks = [
     to: '/trainers',
     name: 'Trainers',
     icon: 'hiking',
-  },
-  {
-    to: '/skills',
-    name: 'Skills',
-    icon: 'book',
   },
 ];
 
 const NavbarListAnonym = [
   {
-    to: '/faq',
-    name: 'FAQ',
-    icon: 'question_answer',
-  },
-  {
     to: '/forum',
     name: 'Forum',
     icon: 'discount',
@@ -78,11 +63,6 @@ const NavbarListAnonym = [
     to: '/trainers',
     name: 'Trainers',
     icon: 'hiking',
-  },
-  {
-    to: '/skills',
-    name: 'Skills',
-    icon: 'book',
   },
   {
     to: '/login',

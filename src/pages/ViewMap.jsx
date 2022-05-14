@@ -11,7 +11,7 @@ export default function ViewMap() {
   const { crags: reduxCrags } = useSelector((state) => state.crags);
 
   useEffect(() => {
-    dispatch(getCrags());
+    dispatch(getCrags('/?limit=1000'));
   }, []);
 
   useEffect(() => {

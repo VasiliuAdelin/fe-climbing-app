@@ -3,6 +3,6 @@ export const formatTrainers = (data) => Object.keys(data).map((key) => {
   const label = data[key];
   return {
     label,
-    name: key,
+    value: key,
   };
 });

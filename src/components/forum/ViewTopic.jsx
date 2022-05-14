@@ -1,55 +1,26 @@
+/* eslint-disable no-unused-vars */
 import { Icon } from '@material-tailwind/react';
 import { Button } from 'gpl-tailwind-theme';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
+import { capitalize } from 'lodash';
 import moment from 'moment';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ComplexLayout from '../layouts/ComplexLayout';
 import Breadcrumb from '../shared/Breadcrumb';
+import { createTopicAsync, getTopics } from '../../features/topics/topics.actions';
+import Modal from '../shared/Modals/Modal';
+import CreateForumPost from './CreateForumPost';
+import useRouter from '../../hooks/useRouter';
 
-function RenderTitle({ id, title }) {
+function RenderTitle({ id, name, title }) {
   return (
-    <Link to={`/forum/1/${id}`}>
+    <Link to={`/forum/${name}/${id}`}>
       <span className="hover:text-greenNormal">{title}</span>
     </Link>
   );
 }
-
-const data = [
-  {
-    id: 12,
-    title: 'Authentication',
-    updatedAt: new Date().toString(),
-    totalComments: 23,
-    user: {
-      userName: 'Vasiliu Adelin',
-      mainImge: 'https://via.placeholder.com/400',
-    },
-    createdAt: new Date().toString(),
-  },
-  {
-    id: 122,
-    title: 'Feedback',
-    updatedAt: new Date().toString(),
-    totalComments: 23,
-    user: {
-      userName: 'Vasiliu Adelin',
-      mainImge: 'https://via.placeholder.com/400',
-    },
-    createdAt: new Date().toString(),
-  },
-  {
-    id: 1232,
-    title: 'FAQ',
-    updatedAt: new Date().toString(),
-    totalComments: 23,
-    user: {
-      userName: 'Vasiliu Adelin',
-      mainImge: 'https://via.placeholder.com/400',
-    },
-    createdAt: new Date().toString(),
-  },
-];
 
 const columns = [
   {
@@ -65,17 +36,12 @@ const columns = [
     },
   },
   {
-    name: <Icon name="article" size="xl" color="dark" />,
-    selector: (row) => row.totalComments,
+    name: 'Created By',
+    selector: (row) => row?.author?.name || 'Anonim',
   },
   {
     name: 'Last Activity',
     selector: (row) => moment(row.updatedAt).fromNow(),
-  },
-
-  {
-    name: 'Created By',
-    selector: (row) => row.user.userName,
   },
   {
     name: 'Created At',
@@ -83,40 +49,78 @@ const columns = [
   },
 ];
 
-const routesBreadcrumb = [
-  {
-    name: 'ClimbAround',
-    icon: 'home',
-    urlTo: '/',
-  },
-  {
-    name: 'Topics',
-    icon: 'article',
-    urlTo: '/forum',
-  },
-  {
-    name: 'Welcome to the app',
-    icon: 'feed',
-    urlTo: '/forum/1',
-  },
-];
-
 function ViewTopic() {
+  const { query } = useRouter();
+  const [topics, setTopics] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const { user } = useSelector((state) => state.auth);
+  const { topics: reduxTopics } = useSelector((state) => state.topics);
+  const dispatch = useDispatch();
+
+  const { topic } = query;
+  const formatedTopicName = capitalize(topic.split('-').join(' '));
+
+  useEffect(() => {
+    dispatch(getTopics(`/?name=${topic}`));
+  }, []);
+
+  useEffect(() => {
+    setTopics(reduxTopics);
+  }, [reduxTopics]);
+
+  const handleOnCreatePost = (dataProp) => {
+    setOpenModal(false);
+
+    const { title, description } = dataProp;
+    const payload = {
+      name: topic,
+      title,
+      body: description,
+      author: user.id,
+    };
+
+    dispatch(createTopicAsync(payload));
+    setTimeout(() => {
+      dispatch(getTopics());
+    }, 2000);
+  };
+
+  const routesBreadcrumb = [
+    {
+      name: 'ClimbAround',
+      icon: 'home',
+      urlTo: '/',
+    },
+    {
+      name: 'Topics',
+      icon: 'article',
+      urlTo: '/forum',
+    },
+    {
+      name: formatedTopicName,
+      icon: 'feed',
+      urlTo: '/forum/1',
+    },
+  ];
+
   return (
     <ComplexLayout
       backgroundImage="skills-background"
-      title="Welcome to the app"
-      subtitle="How do you fill?"
+      title={formatedTopicName}
       customBackground="https://wallpaperaccess.com/full/2010872.jpg"
     >
       <Breadcrumb routes={routesBreadcrumb} />
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+        <CreateForumPost onSubmit={handleOnCreatePost} />
+      </Modal>
       <div className="w-4/5 m-auto border border-gray-100 rounded">
         <div className="flex justify-between items-center p-4 border-b border-gray-100 mb-2">
-          <span>Welcome to the app</span>
+          <span>{formatedTopicName}</span>
           <Button
             color="green"
             size="base"
             ripple="light"
+            onClick={() => setOpenModal(true)}
             className="m-1 opacity-70 hover:opacity-90 rounded"
           >
             <Icon name="add" size="xl" color="white" />
@@ -126,7 +130,7 @@ function ViewTopic() {
         <div>
           <DataTable
             columns={columns}
-            data={data}
+            data={topics}
             highlightOnHover
             pagination
             pointerOnHover

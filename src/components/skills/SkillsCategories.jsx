@@ -1,4 +1,5 @@
 import React from 'react';
+import Select from 'react-select';
 
 function CategoryItem({ label, onSelect, isSelected = false }) {
   return (
@@ -10,16 +11,30 @@ function CategoryItem({ label, onSelect, isSelected = false }) {
 
 function SkillsCategories({ categories, onSelect, selected }) {
   return (
-    <div className="flex justify-center align-center w-full">
-      {categories.map(({ name, label }, index) => (
-        <CategoryItem
-          key={`${name}-${index}`}
-          label={label}
-          onSelect={() => onSelect(name)}
-          isSelected={selected === name}
+    <>
+      <div className="lg:hidden z-50">
+        <Select
+          defaultValue={selected}
+          onChange={(category) => onSelect(category)}
+          options={categories}
+          placeholder="Select Category"
+          className="w-full m-0 p-0 z-50"
+          value={selected}
         />
-      ))}
-    </div>
+      </div>
+
+      <div className="hidden lg:flex justify-center align-center w-full">
+        {categories.map((category, index) => (
+          <CategoryItem
+            key={`${category.value}-${index}`}
+            label={category.label}
+            onSelect={() => onSelect(category)}
+            isSelected={selected.value === category.value}
+          />
+        ))}
+      </div>
+    </>
+
   );
 }
 

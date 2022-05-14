@@ -98,11 +98,11 @@ const routes = [
     component: Events,
   },
   {
-    path: '/forum/:id/:postId',
+    path: '/forum/:topic/:id',
     component: ViewTopicPost,
   },
   {
-    path: '/forum/:id',
+    path: '/forum/:topic',
     component: ViewTopic,
   },
   {
