@@ -86,7 +86,7 @@ export default function ViewTrainers() {
             id={trainer?.author?.id}
             name={trainer?.author?.name}
             description={trainer?.description}
-            mainImage={trainer?.author?.mainImage}
+            mainImage={trainer?.author?.imageLink}
             position={trainer?.title}
           />
         ))

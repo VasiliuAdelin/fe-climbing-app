@@ -44,12 +44,14 @@ export const formatCragsIntoMarkers = (data) => {
 
   return data.map((crag) => {
     const {
-      name = '', id, grade, type, assets, geoLocation, address,
+      name = '', id, grade, type, assets, geoLocation, address, country, city,
     } = crag;
 
     const mainImage = assets[0] ? assets[0] : '';
 
     const { lat, lng, searchLink } = formatLatLngValue(geoLocation);
+
+    const linkToBack = `/areas/${country}/${city}/routelist/${id}`;
 
     const payload = {
       name,
@@ -61,6 +63,7 @@ export const formatCragsIntoMarkers = (data) => {
       mainImage,
       location: address,
       linkToGo: searchLink,
+      linkToBack,
     };
     return payload;
   });

@@ -169,11 +169,14 @@ export default function RouteList() {
     },
   ];
 
+  const customBgImage = currentCrag?.assets && currentCrag?.assets[0] ? currentCrag?.assets[0] : '';
+
   return (
     <ComplexLayout
       backgroundImage="skills-background"
       title={currentCrag?.name}
       subtitle={`${selectedCountry.name}, ${selectedCity}`}
+      customBackground={customBgImage}
     >
       <Breadcrumb routes={routesBreadcrumb} />
       {!isEmpty(currentCrag) && (

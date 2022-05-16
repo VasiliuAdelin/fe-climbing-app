@@ -9,6 +9,7 @@ function InforWindowCard({
   mainImage,
   location,
   linkToGo,
+  linkToBack,
 }) {
   return (
     <div className="container mx-auto max-w-sm rounded-lg overflow-hidden  bg-white">
@@ -18,7 +19,9 @@ function InforWindowCard({
           clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw))',
         }}
       >
-        <img style={{ width: '200px', height: '200px' }} src={mainImage} alt="Profile" />
+        <a href={linkToBack}>
+          <img style={{ width: '200px', height: '200px' }} src={mainImage} alt="Profile" />
+        </a>
       </div>
       <div className="relative flex justify-between items-center flex-row z-50 -mt-10">
         <div>
@@ -53,5 +56,6 @@ InforWindowCard.defaultProps = {
   mainImage: 'https://via.placeholder.com/700',
   location: 'Str. Sucidava NR.9',
   linkToGo: 'https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393',
+  linkToBack: '/',
 };
 export default InforWindowCard;

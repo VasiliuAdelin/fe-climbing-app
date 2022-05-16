@@ -58,6 +58,7 @@ function CragItem({
     createdAt,
     name = 'Crag Name',
     description = 'Crag Description',
+    assets,
     grade,
     type,
     rating,
@@ -79,6 +80,8 @@ function CragItem({
 
   const userIsAscending = isLoggedIn && ascents.length > 0 && ascents.includes(user.id);
   const userIsInterested = isLoggedIn && interested.length > 0 && interested.includes(user.id);
+
+  const mainCragImage = assets && assets[0] ? assets[0] : '';
 
   return (
     <>
@@ -132,6 +135,15 @@ function CragItem({
           <section className="mt-4 p-4 bg-white rounded shadow-md hover:shadow-lg">
             <Rating ratingScore={calculatedRating(rating)} />
           </section>
+          {
+            mainCragImage && (
+              <section className="mt-4 p-4 bg-white rounded shadow-md hover:shadow-lg">
+                <a href={mainCragImage} target="_blank" rel="noreferrer">
+                  <img src={mainCragImage} alt={crag} className="w-full rounded shadow-xl" />
+                </a>
+              </section>
+            )
+          }
           <section className="mt-4 p-4 bg-white rounded shadow-md hover:shadow-lg">
             <span>
               <i className="text-green-500 fa-solid fa-location-crosshairs inline-block mr-2" />

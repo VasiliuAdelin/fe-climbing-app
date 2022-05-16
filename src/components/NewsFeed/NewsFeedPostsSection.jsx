@@ -10,7 +10,7 @@ function NewsFeedPostsSection() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    dispatch(getPosts());
+    dispatch(getPosts('/?sortBy=createdAt:desc'));
   }, []);
 
   useEffect(() => {

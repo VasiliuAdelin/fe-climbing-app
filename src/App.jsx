@@ -13,7 +13,7 @@ import { aboutMeAsync } from './features/auth/authSlice';
 import NewsComponent from './pages/News';
 import LoaderContainer from './components/containers/LoaderContainer';
 import NotificationContainer from './components/containers/NotificationContainer';
-// import DefaultFooter from './components/DefaultFooter';
+import DefaultFooter from './components/DefaultFooter';
 import Skills from './pages/Skills';
 import ViewSkill from './pages/ViewSkill';
 import Trainers from './pages/Trainers';
@@ -145,7 +145,7 @@ function App() {
       </Switch>
       <LoaderContainer />
       <NotificationContainer />
-      {/* <DefaultFooter /> */}
+      <DefaultFooter />
     </>
   );
 }
