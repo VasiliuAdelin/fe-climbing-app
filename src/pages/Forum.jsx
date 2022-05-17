@@ -68,7 +68,7 @@ const formatDistinctTopics = (dataProp) => {
 function Forum() {
   const [topics, setTopics] = useState([]);
   const [openModal, setOpenModal] = useState(false);
-  const { user } = useSelector((state) => state.auth);
+  const { user, isLoggedIn } = useSelector((state) => state.auth);
   const { distinctTopics } = useSelector((state) => state.topics);
   const dispatch = useDispatch();
 
@@ -112,16 +112,21 @@ function Forum() {
       <div className="w-4/5 m-auto border border-gray-100 rounded">
         <div className="flex justify-between items-center p-4 border-b border-gray-100 mb-2">
           <span>General Topics</span>
-          <Button
-            color="green"
-            size="base"
-            ripple="light"
-            onClick={() => setOpenModal(true)}
-            className="m-1 opacity-70 hover:opacity-90 rounded"
-          >
-            <Icon name="add" size="xl" color="white" />
-            Create New Topic
-          </Button>
+          {
+            isLoggedIn && (
+            <Button
+              color="green"
+              size="base"
+              ripple="light"
+              onClick={() => setOpenModal(true)}
+              className="m-1 opacity-70 hover:opacity-90 rounded"
+            >
+              <Icon name="add" size="xl" color="white" />
+              Create New Topic
+            </Button>
+            )
+          }
+
         </div>
         <div>
           <DataTable

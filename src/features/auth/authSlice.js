@@ -38,7 +38,7 @@ export const getProjectById = createAsyncThunk(
   },
 );
 
-export const aboutMeAsync = createAsyncThunk('auth/aboutMeAsync', async () => {
+export const aboutMeAsync = createAsyncThunk('auth/aboutMe', async () => {
   const accessToken = getToken('access');
   if (accessToken) return accessToken ? getAPI(`${base}${auth.me}`) : '';
   return null;

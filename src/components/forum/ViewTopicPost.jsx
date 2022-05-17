@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
 import { Icon } from '@material-tailwind/react';
 import moment from 'moment';
+import draftToHtml from 'draftjs-to-html';
 import { useDispatch, useSelector } from 'react-redux';
 import { cloneDeep, isEmpty } from 'lodash';
 import ComplexLayout from '../layouts/ComplexLayout';
@@ -116,6 +119,18 @@ function ViewTopicPost() {
     },
   ];
 
+  const formatBody = (data) => {
+    if (!data) return '';
+
+    if (data.includes('entityMap') && data.includes('blocks')) {
+      const parsedData = JSON.parse(data);
+      const content = draftToHtml(parsedData);
+      return <div dangerouslySetInnerHTML={{ __html: content }} />;
+    }
+
+    return data;
+  };
+
   return (
     <ComplexLayout
       backgroundImage="skills-background"
@@ -132,7 +147,7 @@ function ViewTopicPost() {
               <AboutPost author={author} />
             </section>
             <section className="w-full p-4 bg-white rounded shadow-md hover:shadow-lg mb-6">
-              { body }
+              { formatBody(body) }
             </section>
 
             <section className="w-full p-4 bg-white rounded shadow-md hover:shadow-lg mb-6">

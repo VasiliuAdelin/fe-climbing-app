@@ -53,7 +53,7 @@ function ViewTopic() {
   const { query } = useRouter();
   const [topics, setTopics] = useState([]);
   const [openModal, setOpenModal] = useState(false);
-  const { user } = useSelector((state) => state.auth);
+  const { user, isLoggedIn } = useSelector((state) => state.auth);
   const { topics: reduxTopics } = useSelector((state) => state.topics);
   const dispatch = useDispatch();
 
@@ -81,7 +81,7 @@ function ViewTopic() {
 
     dispatch(createTopicAsync(payload));
     setTimeout(() => {
-      dispatch(getTopics());
+      dispatch(getTopics(`/?name=${topic}`));
     }, 2000);
   };
 
@@ -99,7 +99,7 @@ function ViewTopic() {
     {
       name: formatedTopicName,
       icon: 'feed',
-      urlTo: '/forum/1',
+      urlTo: `/forum/${topic}`,
     },
   ];
 
@@ -116,16 +116,21 @@ function ViewTopic() {
       <div className="w-4/5 m-auto border border-gray-100 rounded">
         <div className="flex justify-between items-center p-4 border-b border-gray-100 mb-2">
           <span>{formatedTopicName}</span>
-          <Button
-            color="green"
-            size="base"
-            ripple="light"
-            onClick={() => setOpenModal(true)}
-            className="m-1 opacity-70 hover:opacity-90 rounded"
-          >
-            <Icon name="add" size="xl" color="white" />
-            Create New Post
-          </Button>
+          {
+            isLoggedIn && (
+              <Button
+                color="green"
+                size="base"
+                ripple="light"
+                onClick={() => setOpenModal(true)}
+                className="m-1 opacity-70 hover:opacity-90 rounded"
+              >
+                <Icon name="add" size="xl" color="white" />
+                Create New Post
+              </Button>
+            )
+          }
+
         </div>
         <div>
           <DataTable

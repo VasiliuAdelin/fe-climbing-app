@@ -1,25 +1,32 @@
+/* eslint-disable react/no-danger */
+/* eslint-disable no-unused-vars */
 import { InputIcon, Textarea, Button } from '@material-tailwind/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { EditorState, convertToRaw, ContentState } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
 import Card from '../shared/Card/Card';
 import CardBody from '../shared/Card/CardBody';
 import CardFooter from '../shared/Card/CardFooter';
 import CardHeader from '../shared/Card/CardHeader';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const INITIAL_STATE = {
   title: '',
-  description: '',
 };
 
 function CreateForumPost({ onSubmit }) {
   const [values, setValues] = useState(INITIAL_STATE);
+  const [content, setContent] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { title, description } = values;
+    const { title } = values;
 
     const payload = {
       title,
-      description,
+      description: JSON.stringify(content),
     };
 
     onSubmit(payload);
@@ -58,13 +65,11 @@ function CreateForumPost({ onSubmit }) {
               />
             </div>
             <div className="mb-6">
-              <Textarea
-                color="green"
-                placeholder="Description *"
-                value={values.description}
-                name="description"
-                onChange={handleOnChange}
-                required
+              <Editor
+                onContentStateChange={(newState) => {
+                  setContent(newState);
+                  // setContent(draftToHtml(newState));
+                }}
               />
             </div>
           </CardBody>
