@@ -210,7 +210,7 @@ function PostsSection({
                     comments = [],
                   } = result;
                   return (
-                    <div className="md:break-inside">
+                    <div className="md:break-inside" key={id}>
                       <FeedPostCard
                         key={id}
                         id={author?.id}

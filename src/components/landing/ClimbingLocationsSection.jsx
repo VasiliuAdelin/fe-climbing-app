@@ -2,6 +2,7 @@ import Carousel from 'react-multi-carousel';
 import Title from './Title';
 import PictureCard from './PictureCard';
 import 'react-multi-carousel/lib/styles.css';
+import useRouter from '../../hooks/useRouter';
 
 const responsive = {
   desktop: {
@@ -21,50 +22,13 @@ const responsive = {
   },
 };
 
-const MOCK_CARDS = [
-  {
-    name: 'Robitza rope',
-    image:
-      'https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting',
-  },
-  {
-    name: 'Ler fafasd',
-    image:
-      'https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting',
-  },
-  {
-    name: 'Robitza rope',
-    image:
-      'https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting',
-  },
-  {
-    name: 'Ler fafasd',
-    image:
-      'https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting',
-  },
-  {
-    name: 'Robitza rope',
-    image:
-      'https://27crags.s3.amazonaws.com/photos/000/128/128736/large-a25926280eca.jpg',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting',
-  },
-];
-
-function ClimbingLocationsSection({ deviceType }) {
+function ClimbingLocationsSection({ deviceType, routes = [] }) {
+  const { push } = useRouter();
   return (
     <section className="pb-20 relative block bg-gray-100">
       <div className="container max-w-7xl mx-auto px-4 lg:pt-24 ">
         <div className="pt-6">
-          <Title heading="Climbing locations around you!" />
+          <Title heading="Top Climbing Locations!" />
         </div>
         <Carousel
           swipeable
@@ -84,12 +48,15 @@ function ClimbingLocationsSection({ deviceType }) {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          {MOCK_CARDS.map(({ image, description, name }, index) => (
+          {routes.map(({
+            assets = [], description, name, country, city, id,
+          }, index) => (
             <PictureCard
               key={index}
               name={name}
-              image={image}
+              image={assets[0] || ''}
               description={description}
+              onClick={() => push(`/areas/${country}/${city}/routelist/${id}`)}
             />
           ))}
         </Carousel>
