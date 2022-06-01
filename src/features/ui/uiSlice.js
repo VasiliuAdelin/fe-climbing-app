@@ -8,10 +8,12 @@ import {
   registerAsync,
   updateUserDataAsync,
 } from '../auth/auth.actions';
+import { fetchCommentsAsync } from './ui.actions';
 
 const initialState = {
   loading: true,
   posts: [],
+  comments: [],
   error: {
     isError: false,
     message: '',
@@ -65,6 +67,10 @@ export const uiSlice = createSlice({
         const { posts = [] } = action.payload || {};
         state.loading = false;
         state.posts = posts;
+      })
+      .addCase(fetchCommentsAsync.fulfilled, (state, action) => {
+        const { results = [] } = action.payload || {};
+        state.comments = results;
       })
       .addCase(updateUserDataAsync.fulfilled, (state, action) => {
         const {

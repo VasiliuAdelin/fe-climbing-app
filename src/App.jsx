@@ -29,6 +29,8 @@ import ViewFeedPost from './pages/ViewFeedPost';
 import SecureRoute from './components/security/SecureRoute';
 import ViewUserProfile from './pages/ViewUserProfile';
 import ViewMap from './pages/ViewMap';
+import AdminLayout from './components/layouts/AdminLayout';
+import CommentsAdmin from './pages/Admin/CommentsAdmin';
 
 const routes = [
   {
@@ -68,6 +70,12 @@ const routes = [
   {
     path: '/settings',
     component: Settings,
+    admin: true,
+  },
+  {
+    path: '/comments-admin',
+    component: CommentsAdmin,
+    admin: true,
   },
   {
     path: '/news',
@@ -132,11 +140,18 @@ function App() {
               routeName = '',
               path,
               component: RouteComponent,
+              admin = false,
             },
           ) => (
             <Route key={path} exact path={path}>
               <SecureRoute privateRoute={privateRoute} routeName={routeName}>
-                <RouteComponent />
+                {
+                  admin ? (
+                    <AdminLayout>
+                      <RouteComponent />
+                    </AdminLayout>
+                  ) : <RouteComponent />
+                }
               </SecureRoute>
             </Route>
           ),
