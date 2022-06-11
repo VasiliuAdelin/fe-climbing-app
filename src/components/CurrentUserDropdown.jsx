@@ -7,22 +7,22 @@ import Image from '@material-tailwind/react/Image';
 import { selectState } from '../features/auth/authSlice';
 import { logout } from '../features/auth/auth.actions';
 
-const NavbarList = [
-  {
-    to: '/profile',
-    name: 'Profile',
-    icon: 'account_circle',
-  },
-  {
-    to: '/settings',
-    name: 'Settings',
-    icon: 'settings',
-  },
-];
-
 function CurrentUserDropdown() {
   const { user } = useSelector(selectState);
   const dispatch = useDispatch();
+
+  const NavbarList = [
+    {
+      to: `/profile/${user?.id}`,
+      name: 'Profile',
+      icon: 'account_circle',
+    },
+    {
+      to: '/settings',
+      name: 'Settings',
+      icon: 'settings',
+    },
+  ];
 
   return (
     <Dropdown
