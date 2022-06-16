@@ -1,6 +1,6 @@
 const routes = {
-  base: 'http://localhost:5001/api/v1',
-  // base: 'https://be-climbing-app-2022.herokuapp.com/api/v1',
+  // base: 'http://localhost:5001/api/v1',
+  base: 'https://be-climbing-app-2022.herokuapp.com/api/v1',
   auth: {
     login: '/auth/login',
     register: '/auth/register',
