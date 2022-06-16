@@ -19,7 +19,8 @@ export default function Settings() {
     country: 'Romania',
     postalCode: '',
     description: '',
-    work: '',
+    position: '',
+    phone: '',
   });
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Settings() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const {
-      imageLink, name, address, city, country, postalCode, description,
+      imageLink, name, address, city, country, postalCode, description, position, phone,
     } = values;
     const { id } = user;
     const payload = {
@@ -50,6 +51,8 @@ export default function Settings() {
       country,
       postalCode,
       description,
+      position,
+      phone,
     };
     dispatch(updateUserDataAsync({ id, payload }));
   };

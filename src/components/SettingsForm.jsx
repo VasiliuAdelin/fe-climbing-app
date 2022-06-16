@@ -27,7 +27,7 @@ export default function SettingsForm(props) {
             <div className="w-full lg:w-6/12 pr-4 mb-10 font-light">
               <Input
                 type="email"
-                color="purple"
+                color="green"
                 disabled
                 placeholder="Email Address"
                 className="text-gray-100 disabled"
@@ -40,7 +40,7 @@ export default function SettingsForm(props) {
             <div className="w-full lg:w-6/12 pr-4 mb-10 font-light">
               <Input
                 type="text"
-                color="purple"
+                color="green"
                 placeholder="Full Name"
                 value={values.name}
                 name="name"
@@ -50,7 +50,7 @@ export default function SettingsForm(props) {
             <div className="w-full pr-4 mb-10 font-light">
               <Input
                 type="text"
-                color="purple"
+                color="green"
                 placeholder="Image Link"
                 value={values.imageLink}
                 name="imageLink"
@@ -60,10 +60,10 @@ export default function SettingsForm(props) {
             <div className="w-full pr-4 mb-10 font-light">
               <Input
                 type="text"
-                color="purple"
+                color="green"
                 placeholder="Job Position"
-                value={values.work}
-                name="work"
+                value={values.position}
+                name="position"
                 onChange={handleInputChange}
               />
             </div>
@@ -73,20 +73,30 @@ export default function SettingsForm(props) {
             Contact Information
           </h6>
           <div className="flex flex-wrap mt-10">
-            <div className="w-full lg:w-12/12 mb-10 font-light">
+            <div className="w-full lg:w-6/12 mb-10 font-light">
               <Input
                 type="text"
-                color="purple"
+                color="green"
                 placeholder="Address"
                 value={values.address}
                 name="address"
                 onChange={handleInputChange}
               />
             </div>
+            <div className="w-full lg:w-6/12 mb-10 font-light">
+              <Input
+                type="tel"
+                color="green"
+                placeholder="Phone Number"
+                value={values.phone}
+                name="phone"
+                onChange={handleInputChange}
+              />
+            </div>
             <div className="w-full lg:w-4/12 pr-4 mb-10 font-light">
               <Input
                 type="text"
-                color="purple"
+                color="green"
                 placeholder="City"
                 value={values.city}
                 name="city"
@@ -96,7 +106,7 @@ export default function SettingsForm(props) {
             <div className="w-full lg:w-4/12 px-4 mb-10 font-light">
               <Input
                 type="text"
-                color="purple"
+                color="green"
                 placeholder="Country"
                 value={values.country}
                 name="country"
@@ -106,7 +116,7 @@ export default function SettingsForm(props) {
             <div className="w-full lg:w-4/12 pl-4 mb-10 font-light">
               <Input
                 type="text"
-                color="purple"
+                color="green"
                 placeholder="Postal Code"
                 value={values.postalCode}
                 name="postalCode"
@@ -120,7 +130,7 @@ export default function SettingsForm(props) {
           </h6>
           <div className="flex flex-wrap mt-10 font-light">
             <Textarea
-              color="purple"
+              color="green"
               placeholder="About Me"
               value={values.description}
               name="description"

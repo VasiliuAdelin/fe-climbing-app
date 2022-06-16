@@ -3,7 +3,7 @@ import { fetchAPI, fetchAPIWithBearer, getToken } from '../../api';
 import config from '../../config';
 
 const { routes } = config;
-const { base, auth } = routes;
+const { base, auth, users } = routes;
 
 export const loginAsync = createAsyncThunk('auth/loginAsync', async (data) => fetchAPI(data, `${base}${auth.login}`));
 
@@ -27,6 +27,6 @@ export const updateUserDataAsync = createAsyncThunk(
   async (props) => {
     const { id, payload } = props;
 
-    return fetchAPIWithBearer(payload, `${base}/v1/users/${id}`, 'PATCH');
+    return fetchAPIWithBearer(payload, `${base}${users.base}/${id}`, 'PATCH');
   },
 );

@@ -13,6 +13,7 @@ import {
   getPosts,
 } from '../features/posts/posts.actions';
 import PostsSection from '../components/NewsFeed/PostsSection';
+import RouteListView from '../components/crags/RouteListView';
 
 function ViewUserProfile() {
   const [posts, setPosts] = useState([]);
@@ -51,7 +52,7 @@ function ViewUserProfile() {
     };
 
     const newComment = {
-      description: message,
+      description: 'Comment sent for validation...',
       author: {
         name: user.name,
         imageLink: user.imageLink,
@@ -79,6 +80,7 @@ function ViewUserProfile() {
   };
 
   const { comments = [], ...otherProps } = profile;
+  const { ascents, interested } = otherProps;
 
   return (
     <ComplexLayout>
@@ -97,6 +99,20 @@ function ViewUserProfile() {
       >
         <PostsSection posts={posts} />
 
+      </Accordion>
+      <Accordion
+        title="Ascents"
+        containerClass="w-full p-3 border border-gray-100 rounded m-1 hover:bg-gray-100"
+        titleContainerClass="w-full p-4 border-l-2 border-greenNormal text-lg"
+      >
+        <RouteListView data={ascents} />
+      </Accordion>
+      <Accordion
+        title="On ToDo list"
+        containerClass="w-full p-3 border border-gray-100 rounded m-1 hover:bg-gray-100"
+        titleContainerClass="w-full p-4 border-l-2 border-greenNormal text-lg"
+      >
+        <RouteListView data={interested} />
       </Accordion>
     </ComplexLayout>
   );

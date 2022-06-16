@@ -3,7 +3,7 @@ import Sidebar from '../Sidebar';
 import MainLayout from './MainLayout';
 
 function AdminLayout({ children }) {
-  const [toggleSidebar, setToggleSidebar] = useState(true);
+  const [toggleSidebar, setToggleSidebar] = useState(false);
 
   return (
     <MainLayout>

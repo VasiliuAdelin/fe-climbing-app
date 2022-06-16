@@ -31,6 +31,7 @@ import ViewUserProfile from './pages/ViewUserProfile';
 import ViewMap from './pages/ViewMap';
 import AdminLayout from './components/layouts/AdminLayout';
 import CommentsAdmin from './pages/Admin/CommentsAdmin';
+import ForgotPassword from './pages/ForgotPassword';
 
 const routes = [
   {
@@ -48,6 +49,10 @@ const routes = [
   {
     path: '/register',
     component: Register,
+  },
+  {
+    path: '/forgot-password',
+    component: ForgotPassword,
   },
   {
     path: '/profile',
@@ -160,6 +165,7 @@ function App() {
       </Switch>
       <LoaderContainer />
       <NotificationContainer />
+
       <DefaultFooter />
     </>
   );

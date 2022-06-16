@@ -10,7 +10,8 @@ function ViewUserDetails({
   city,
   country,
   postalCode,
-  phoneNumber,
+  phone,
+  position,
   email,
   totalAscents,
   totalInterested,
@@ -59,12 +60,17 @@ function ViewUserDetails({
         </div>
         <div className="m-1 text-gray-700 font-medium flex items-center justify-center gap-2">
           <Icon name="phone" size="xl" />
-          {phoneNumber}
+          {phone}
         </div>
         <div className="m-1 text-gray-700 font-medium flex items-center justify-center gap-2">
           <Icon name="mail" size="xl" />
           {email}
         </div>
+        <div className="m-1 text-gray-700 font-medium flex items-center justify-center gap-2">
+          <Icon name="work" size="xl" />
+          {position}
+        </div>
+
       </div>
 
       <div className="mb-10 py-2 border-t border-gray-200 text-center">
@@ -82,7 +88,7 @@ ViewUserDetails.defaultProps = {
   name: '',
   description: '',
   position: '',
-  phoneNumber: 'N/A',
+  phone: 'N/A',
   email: '',
   imageLink: '',
   city: '',

@@ -54,7 +54,7 @@ function ViewFeedPost() {
     };
 
     const newComment = {
-      description: message,
+      description: 'Comment sent for validation...',
       author: {
         name: user.name,
         imageLink: user.imageLink,

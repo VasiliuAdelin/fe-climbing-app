@@ -15,8 +15,9 @@ export default function ProfileCard(props) {
     city,
     country,
     postalCode,
-    phoneNumber,
+    phone,
     email,
+    position,
   } = props;
   const fullAddress = `${address}, ${city}, ${country}, ${postalCode}`;
   return (
@@ -36,11 +37,11 @@ export default function ProfileCard(props) {
       <div className="border-t border-lightBlue-200 m-4">
         <div className="text-gray-700 flex items-center justify-start my-2 mt-6 gap-2">
           <Icon name="work" size="xl" />
-          Personal Trainer
+          {position}
         </div>
         <div className="text-gray-700 flex items-center justify-start my-2 gap-2">
           <Icon name="phone" size="xl" />
-          {phoneNumber}
+          {phone}
         </div>
         <div className="text-gray-700 flex items-center justify-start my-2 gap-2">
           <Icon name="mail" size="xl" />
@@ -64,7 +65,7 @@ ProfileCard.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   address: PropTypes.string,
-  phoneNumber: PropTypes.string,
+  phone: PropTypes.string,
   email: PropTypes.string,
   imageLink: PropTypes.string,
   city: PropTypes.string,
@@ -76,7 +77,7 @@ ProfileCard.defaultProps = {
   name: 'Name Here',
   description: 'Lorem Ipsum',
   address: 'City, Country',
-  phoneNumber: '0123123123',
+  phone: '0123123123',
   email: 'john.doe@company.yp',
   imageLink: 'https://via.placeholder.com/150',
   city: '',

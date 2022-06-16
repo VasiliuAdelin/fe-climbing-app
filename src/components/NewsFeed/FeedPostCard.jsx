@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -14,8 +15,11 @@ function FeedPostCard({
   totalComments,
   handleOnClick,
   handleOnLike,
-  handleOnClikShare,
 }) {
+  const currentItemLink = `${window.location.href}/newsfeed/${id}`;
+  const shareTwitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentItemLink)}/`;
+  const shareFbLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentItemLink)}/`;
+
   return (
     <div className="mb-2">
       <div className="rounded overflow-hidden shadow-md bg-white">
@@ -53,6 +57,7 @@ function FeedPostCard({
         <div className="w-full flex justify-between py-5">
           <div className="flex mx-3">
             <div className="flex mr-2 text-gray-700 text-sm">
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -86,36 +91,26 @@ function FeedPostCard({
           </div>
           <div className="flex mx-3">
             <div aria-label="Twitter" role="img">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-                fill="none"
-                stroke="green"
-                strokeWidth="1.5"
-                className="feather feather-twitter mr-2"
-                onClick={handleOnClikShare}
-              >
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-              </svg>
+              <a href={shareTwitterLink} target="_blank" rel="noreferrer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                  stroke="green"
+                  strokeWidth="1.5"
+                  className="feather feather-twitter mr-2 cursor-pointer"
+                >
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                </svg>
+              </a>
+
             </div>
-            <div aria-label="Instagram" role="img">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-                fill="none"
-                stroke="green"
-                strokeWidth="1.5"
-                onClick={handleOnClikShare}
-                className="feather feather-instagram"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
+            <div className="text-green">
+              <a href={shareFbLink} target="_blank" rel="noreferrer">
+                <i className="fa-brands fa-facebook-square text-3xl text-green-500 hover:text-green-700 feather feather-twitter -mt-2 cursor-pointer" />
+              </a>
             </div>
           </div>
         </div>
